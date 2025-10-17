@@ -1,0 +1,206 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+
+export default function CardSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const cards = [
+    {
+      id: 1,
+      title: 'LOCATIONS',
+      description: 'Discover premium training facilities',
+      backgroundImage: 'https://s.rsg.sc/sc/images/games/GTAV/map/game/3/1/4.jpg',
+      delay: 0,
+    },
+    {
+      id: 2,
+      title: 'PRICING',
+      description: 'Flexible plans for every goal',
+      backgroundImage: 'https://nyamie.com/uploads/photos/medium/Entity-tcQkSByQcGQvXmUm.jpg',
+      delay: 0.2,
+    },
+    {
+      id: 3,
+      title: 'ACTIVITIES',
+      description: 'Transform your fitness journey',
+      backgroundImage: 'https://media.istockphoto.com/id/1438034462/photo/latino-and-african-sport-woman-exercising-and-build-muscle-in-stadium-active-strong-beautiful.jpg?s=612x612&w=0&k=20&c=kFwCRkh8Q1v6uCoSTL7sQcsbk02zgSZJ1kDgnJ3DAZc=',
+      delay: 0.4,
+    },
+  ];
+
+  const styles: { [key: string]: React.CSSProperties } = {
+    container: {
+      position: 'relative',
+      marginTop: '-120px',
+      zIndex: 10,
+      padding: '0 2rem',
+      maxWidth: '1400px',
+      margin: '-153px auto 0',
+    },
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '1.5rem',
+      padding: '0 1rem',
+    },
+  };
+
+  return (
+    <>
+      <style>{`
+        .card {
+          position: relative;
+          height: 450px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          opacity: ${isVisible ? 1 : 0};
+          transform: ${isVisible ? 'translateY(0)' : 'translateY(20px)'};
+        }
+
+        .card:hover {
+          transform: translateY(-8px);
+        }
+
+        .card-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-bg {
+          transform: scale(1.05);
+        }
+
+        .card-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.4) 10%,
+          );
+          backdrop-filter: blur(0px);
+          transition: backdrop-filter 0.5s ease;
+        }
+
+        .card:hover .card-overlay {
+          backdrop-filter: blur(12px);
+        }
+
+        .card-content {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+
+        .card-glass {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(5px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 1.5rem;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          transition: all 0.4s ease;
+        }
+
+        .card:hover .card-glass {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(163, 230, 53, 0.3);
+          box-shadow: 0 8px 32px rgba(163, 230, 53, 0.2);
+        }
+
+        .card:hover .card-icon {
+          transform: scale(1.1);
+        }
+
+        .card-title {
+          font-size: 2rem;
+          font-weight: 900;
+          color: white;
+          margin-bottom: 0;
+          margin-top: 0;
+          letter-spacing: 0.1em;
+          text-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
+          transition: all 0.3s ease;
+        }
+
+        .card:hover .card-title {
+          color: #a3e635;
+          text-shadow: 0 0 30px rgba(163, 230, 53, 0.6);
+        }
+
+        .card-description {
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 300;
+          letter-spacing: 0.05em;
+          margin-bottom: 0;
+        }
+
+        .card-shine {
+          display: none;
+        }
+
+        .card-border {
+          display: none;
+        }
+
+        @media (max-width: 768px) {
+          .card {
+            height: 350px;
+          }
+          
+          .card-title {
+            font-size: 1.5rem;
+          }
+        }
+      `}</style>
+
+      <section style={styles.container}>
+        <div style={styles.grid}>
+          {cards.map((card, index) => (
+            <div
+              key={card.id}
+              className="card"
+              style={{
+                animationDelay: `${card.delay}s`,
+              }}
+            >
+              <div
+                className="card-bg"
+                style={{
+                  backgroundImage: `url(${card.backgroundImage})`,
+                }}
+              />
+              <div className="card-overlay" />
+              <div className="card-shine" />
+              <div className="card-border" />
+              
+              <div className="card-content">
+                <div className="card-glass">
+                  <h3 className="card-title">{card.title}</h3>
+                  <p className="card-description">{card.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
