@@ -52,21 +52,24 @@ export default function Header() {
     };
   }, []);
 
-  // Static styles
-  const staticStyles: { [key: string]: React.CSSProperties } = {
-    header: {
+  const styles: { [key: string]: React.CSSProperties } = {
+    headerWrapper: {
       position: 'fixed',
-      top: showHeader ? '0' : '-100px', // hide/show only
+      top: showHeader ? '0' : '-100px',
       left: 0,
       right: 0,
       zIndex: 50,
+      transition: 'top 0.4s ease',
+    },
+    header: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '0 2rem',
       height: '80px',
-      transition: 'top 0.4s ease', // smooth slide
       backdropFilter: 'blur(6px)',
+      backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
+      transition: 'background-color 0.3s ease',
     },
     logo: {
       display: 'flex',
@@ -79,35 +82,37 @@ export default function Header() {
       letterSpacing: '0.05em',
       transition: 'all 0.3s ease',
     },
-    logoAccent: {
-      color: '#a3e635',
-      fontSize: '1.8rem',
-      fontWeight: 900,
-    },
     nav: {
       display: 'flex',
       gap: '2rem',
     },
     mobileButton: {
-      display: 'block',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       background: 'none',
       border: 'none',
       color: 'white',
       cursor: 'pointer',
       padding: '0.5rem',
+      zIndex: 51,
     },
     mobileMenu: {
-      maxHeight: isMobileMenuOpen ? '400px' : '0px',
+      position: 'absolute',
+      top: '80px',
+      left: 0,
+      right: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+      backdropFilter: 'blur(10px)',
+      borderTop: '1px solid rgba(163, 230, 53, 0.2)',
+      maxHeight: isMobileMenuOpen ? '400px' : '0',
       opacity: isMobileMenuOpen ? 1 : 0,
       overflow: 'hidden',
       transition: 'all 0.3s ease-in-out',
-      backgroundColor: 'black',
-      borderTop: '1px solid rgba(132, 204, 22, 0.2)',
-      padding: isMobileMenuOpen ? '1rem' : '0',
+      padding: isMobileMenuOpen ? '1rem 2rem' : '0 2rem',
     },
   };
 
-  // Functional styles
   const navButtonStyle = (active: boolean): React.CSSProperties => ({
     fontWeight: 'bold',
     textTransform: 'uppercase',
@@ -128,44 +133,47 @@ export default function Header() {
     fontWeight: 'bold',
     textTransform: 'uppercase',
     backgroundColor: active ? 'rgba(163, 230, 53, 0.1)' : 'transparent',
-    borderLeft: active ? '4px solid #a3e635' : 'none',
+    borderLeft: active ? '4px solid #a3e635' : '4px solid transparent',
     color: active ? '#a3e635' : 'white',
     cursor: 'pointer',
     marginBottom: '0.5rem',
+    transition: 'all 0.2s ease',
   });
 
   return (
-    <header style={staticStyles.header}>
-      <div style={staticStyles.logo}>REFORM</div>
+    <div style={styles.headerWrapper}>
+      <header style={styles.header}>
+        <div style={styles.logo}>REFORM</div>
 
-      {/* Desktop Nav */}
-      {!isMobile && (
-        <nav style={staticStyles.nav}>
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              style={navButtonStyle(activeLink === link.id)}
-              onClick={() => setActiveLink(link.id)}
-            >
-              {link.label}
-            </button>
-          ))}
-        </nav>
-      )}
+        {/* Desktop Nav */}
+        {!isMobile && (
+          <nav style={styles.nav}>
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                style={navButtonStyle(activeLink === link.id)}
+                onClick={() => setActiveLink(link.id)}
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+        )}
 
-      {/* Mobile Button */}
-      {isMobile && (
-        <button
-          style={staticStyles.mobileButton}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      )}
+        {/* Mobile Button */}
+        {isMobile && (
+          <button
+            style={styles.mobileButton}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        )}
+      </header>
 
       {/* Mobile Menu */}
       {isMobile && (
-        <div style={staticStyles.mobileMenu}>
+        <div style={styles.mobileMenu}>
           {navLinks.map((link) => (
             <button
               key={link.id}
@@ -180,6 +188,6 @@ export default function Header() {
           ))}
         </div>
       )}
-    </header>
+    </div>
   );
 }
