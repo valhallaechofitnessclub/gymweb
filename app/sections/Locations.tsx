@@ -8,10 +8,8 @@ import * as THREE from 'three';
 function Earth() {
     const meshRef = useRef<THREE.Mesh>(null);
 
-    const texture = useLoader(
-        THREE.TextureLoader,
-        'https://threejs.org/examples/textures/planets/earth_night_4096.jpg'
-    );
+const texture = useLoader(THREE.TextureLoader, '/assets/images/earth.jpg');
+
 
     useFrame(() => {
         if (meshRef.current) {

@@ -14,21 +14,22 @@ export default function CardSection() {
       id: 1,
       title: 'LOCATIONS',
       description: 'Discover premium training facilities',
-      backgroundImage: 'https://s.rsg.sc/sc/images/games/GTAV/map/game/3/1/4.jpg',
+      backgroundImage: '/assets/images/map.jpg',
+      
       delay: 0,
     },
     {
       id: 2,
       title: 'PRICING',
       description: 'Flexible plans for every goal',
-      backgroundImage: 'https://nyamie.com/uploads/photos/medium/Entity-tcQkSByQcGQvXmUm.jpg',
+      backgroundImage: '/assets/images/pricing.jpg',
       delay: 0.2,
     },
     {
       id: 3,
       title: 'ACTIVITIES',
       description: 'Transform your fitness journey',
-      backgroundImage: 'https://media.istockphoto.com/id/1438034462/photo/latino-and-african-sport-woman-exercising-and-build-muscle-in-stadium-active-strong-beautiful.jpg?s=612x612&w=0&k=20&c=kFwCRkh8Q1v6uCoSTL7sQcsbk02zgSZJ1kDgnJ3DAZc=',
+      backgroundImage: '/assets/images/activities.jpg',
       delay: 0.4,
     },
   ];
