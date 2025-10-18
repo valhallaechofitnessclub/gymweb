@@ -106,7 +106,7 @@ export default function CardSection() {
           z-index: 2;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
+          justify-content: flex-start;
           height: 100%;
         }
 
