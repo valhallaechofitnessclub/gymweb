@@ -24,9 +24,10 @@ function Earth() {
 function RotatingEarth({ isVisible }: { isVisible: boolean }) {
   return (
     <div
+      className="locations-earth-container"
       style={{
-        width: '100%',
-        height: '500px',
+        width: '90%',
+        height: '450px',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
         transition: 'opacity 0.8s ease, transform 0.8s ease',
@@ -63,7 +64,7 @@ export default function Locations() {
           if (entry.isIntersecting) setIsVisible(true);
         });
       },
-      { threshold: 0.1 } // triggers a bit earlier
+      { threshold: 0.1 }
     );
 
     observer.observe(containerRef.current);
@@ -81,26 +82,112 @@ export default function Locations() {
   };
 
   return (
-    <section style={styles.section} ref={containerRef}>
-      <div style={styles.container}>
-        <RotatingEarth isVisible={isVisible} />
+    <>
+      <style>{`
+        @media (max-width: 1024px) {
+          .locations-container {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+            text-align: center;
+          }
+          
+          .locations-content {
+            transform: ${isVisible ? 'translateY(0)' : 'translateY(20px)'} !important;
+            order: 1;
+          }
+          
+          .locations-earth-container {
+            transform: ${isVisible ? 'translateY(0)' : 'translateY(-20px)'} !important;
+            order: 0;
+            height: 400px !important;
+            max-width: 500px !important;
+            margin: 0 auto !important;
+          }
+          
+          .locations-description {
+            max-width: 100% !important;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .locations-section {
+            padding: 3rem 1.5rem !important;
+            min-height: auto !important;
+          }
+          
+          .locations-container {
+            gap: 2.5rem !important;
+          }
+          
+          .locations-title {
+            font-size: clamp(2.5rem, 10vw, 5rem) !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .locations-description {
+            font-size: 1rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .locations-earth-container {
+            height: 350px !important;
+            max-width: 400px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .locations-section {
+            padding: 2rem 1rem !important;
+          }
+          
+          .locations-container {
+            gap: 2rem !important;
+          }
+          
+          .locations-title {
+            font-size: clamp(2rem, 12vw, 4rem) !important;
+          }
+          
+          .locations-description {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+          }
+          
+          .locations-link {
+            font-size: 0.9rem !important;
+          }
+          
+          .locations-earth-container {
+            height: 300px !important;
+            max-width: 300px !important;
+          }
+        }
+      `}</style>
 
-        <div style={styles.contentSide}>
-          <h2 style={styles.title}>LOCATIONS</h2>
-          <p style={styles.description}>
-            Our fitness centers are strategically located to help you stay active, no matter where you are.
-          </p>
-          <a
-            href="/activities"
-            style={styles.link}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            VIEW LOCATIONS
-            <div style={styles.underline} />
-          </a>
+      <section style={styles.section} ref={containerRef} className="locations-section">
+        <div style={styles.container} className="locations-container">
+          <RotatingEarth isVisible={isVisible} />
+
+          <div style={styles.contentSide} className="locations-content">
+            <h2 style={styles.title} className="locations-title">LOCATIONS</h2>
+            <p style={styles.description} className="locations-description">
+              Our fitness centers are strategically located to help you stay active, no matter where you are.
+            </p>
+            <a
+              href="/activities"
+              style={styles.link}
+              className="locations-link"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              VIEW LOCATIONS
+              <div style={styles.underline} />
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

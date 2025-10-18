@@ -14,7 +14,7 @@ export default function Trainers() {
             ([entry]) => {
                 if (entry.isIntersecting) setIsVisible(true);
             },
-            { threshold: 0, rootMargin: '200px 0px' } // triggers a bit earlier
+            { threshold: 0, rootMargin: '200px 0px' }
         );
 
         observer.observe(containerRef.current);
@@ -57,30 +57,116 @@ export default function Trainers() {
     };
 
     return (
-        <section style={styles.section} ref={containerRef}>
-            <div style={styles.container}>
-                <div style={styles.content}>
-                    <h2 style={styles.title}>TRAINERS</h2>
-                    <p style={styles.description}>
-                        Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.
-                    </p>
-                    <a
-                        href="/trainers"
-                        style={styles.link}
-                        onMouseEnter={() => setIsHovering(true)}
-                        onMouseLeave={() => setIsHovering(false)}
-                    >
-                        MEET OUR TRAINERS
-                        <div style={styles.underline} />
-                    </a>
-                </div>
+        <>
+            <style>{`
+                @media (max-width: 1024px) {
+                    .trainers-container {
+                        grid-template-columns: 1fr !important;
+                        gap: 3rem !important;
+                        text-align: center;
+                    }
+                    
+                    .trainers-content {
+                        transform: ${isVisible ? 'translateY(0)' : 'translateY(-20px)'} !important;
+                    }
+                    
+                    .trainers-description {
+                        max-width: 100% !important;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    
+                    .trainers-circle {
+                        width: 350px !important;
+                        height: 350px !important;
+                    }
+                    
+                    .trainers-image-container {
+                        transform: ${isVisible ? 'translateY(0)' : 'translateY(20px)'} !important;
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .trainers-section {
+                        padding: 3rem 1.5rem !important;
+                        min-height: auto !important;
+                    }
+                    
+                    .trainers-container {
+                        gap: 2.5rem !important;
+                    }
+                    
+                    .trainers-title {
+                        font-size: clamp(2.5rem, 10vw, 5rem) !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    
+                    .trainers-description {
+                        font-size: 1rem !important;
+                        margin-bottom: 1.5rem !important;
+                    }
+                    
+                    .trainers-circle {
+                        width: 280px !important;
+                        height: 280px !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .trainers-section {
+                        padding: 2rem 1rem !important;
+                    }
+                    
+                    .trainers-container {
+                        gap: 2rem !important;
+                    }
+                    
+                    .trainers-title {
+                        font-size: clamp(2rem, 12vw, 4rem) !important;
+                    }
+                    
+                    .trainers-description {
+                        font-size: 0.95rem !important;
+                        line-height: 1.6 !important;
+                    }
+                    
+                    .trainers-link {
+                        font-size: 0.9rem !important;
+                    }
+                    
+                    .trainers-circle {
+                        width: 240px !important;
+                        height: 240px !important;
+                    }
+                }
+            `}</style>
+            
+            <section style={styles.section} ref={containerRef} className="trainers-section">
+                <div style={styles.container} className="trainers-container">
+                    <div style={styles.content} className="trainers-content">
+                        <h2 style={styles.title} className="trainers-title">TRAINERS</h2>
+                        <p style={styles.description} className="trainers-description">
+                            Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.
+                        </p>
+                        <a
+                            href="/trainers"
+                            style={styles.link}
+                            className="trainers-link"
+                            onMouseEnter={() => setIsHovering(true)}
+                            onMouseLeave={() => setIsHovering(false)}
+                        >
+                            MEET OUR TRAINERS
+                            <div style={styles.underline} />
+                        </a>
+                    </div>
 
-                <div style={styles.imageContainer}>
-                    <div style={{ ...styles.circle, ...(isHovering ? styles.circleHover : {}) }}>
-                        <img src="/assets/images/trainers.jpg" alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
+                    <div style={styles.imageContainer} className="trainers-image-container">
+                        <div style={{ ...styles.circle, ...(isHovering ? styles.circleHover : {}) }} className="trainers-circle">
+                            <img src="/assets/images/trainers.jpg" alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }
