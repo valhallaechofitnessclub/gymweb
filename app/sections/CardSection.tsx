@@ -107,6 +107,7 @@ export default function CardSection() {
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+          height: 100%;
         }
 
         .card-glass {
@@ -124,15 +125,11 @@ export default function CardSection() {
           box-shadow: 0 8px 32px rgba(163, 230, 53, 0.2);
         }
 
-        .card:hover .card-icon {
-          transform: scale(1.1);
-        }
-
         .card-title {
           font-size: 2rem;
           font-weight: 900;
           color: white;
-          margin-bottom: 0;
+          margin-bottom: 0.5rem;
           margin-top: 0;
           letter-spacing: 0.1em;
           text-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
@@ -160,19 +157,90 @@ export default function CardSection() {
           display: none;
         }
 
-        @media (max-width: 768px) {
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .cards-container {
+            margin-top: -100px !important;
+            padding: 0 1.5rem !important;
+          }
+          
+          .cards-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 1.25rem !important;
+            padding: 0 0.5rem !important;
+          }
+          
           .card {
-            height: 350px;
+            height: 380px;
+          }
+          
+          .card-title {
+            font-size: 1.75rem;
+          }
+          
+          .card-glass {
+            padding: 1.25rem;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+          .cards-container {
+            margin-top: -80px !important;
+            padding: 0 1rem !important;
+          }
+          
+          .cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+            padding: 0 !important;
+          }
+          
+          .card {
+            height: 320px;
           }
           
           .card-title {
             font-size: 1.5rem;
           }
+          
+          .card-description {
+            font-size: 0.9rem;
+          }
+          
+          .card-glass {
+            padding: 1rem;
+          }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+          .cards-container {
+            margin-top: -60px !important;
+            padding: 0 0.75rem !important;
+          }
+          
+          .card {
+            height: 280px;
+          }
+          
+          .card-title {
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+          }
+          
+          .card-description {
+            font-size: 0.85rem;
+          }
+          
+          .card-glass {
+            padding: 0.875rem;
+          }
         }
       `}</style>
 
-      <section style={styles.container}>
-        <div style={styles.grid}>
+      <section style={styles.container} className="cards-container">
+        <div style={styles.grid} className="cards-grid">
           {cards.map((card, index) => (
             <div
               key={card.id}

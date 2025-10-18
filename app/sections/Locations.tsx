@@ -1,8 +1,72 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import RotatingEarth from '@/components/RotatingEarth';
+import React, { useState, useEffect, useRef } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import * as THREE from 'three';
+
+function Earth() {
+    const meshRef = useRef<THREE.Mesh>(null);
+
+    const texture = useLoader(
+        THREE.TextureLoader,
+        'https://threejs.org/examples/textures/planets/earth_night_4096.jpg'
+    );
+
+    useFrame(() => {
+        if (meshRef.current) {
+            meshRef.current.rotation.y += 0.002;
+        }
+    });
+
+    return (
+        <mesh ref={meshRef}>
+            <sphereGeometry args={[2, 64, 64]} />
+            <meshStandardMaterial
+                map={texture}
+                metalness={0.1}
+                roughness={0.8}
+            />
+        </mesh>
+    );
+}
+
+function RotatingEarth() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return (
+            <div style={{ width: '100%', height: '100%', background: 'transparent' }} />
+        );
+    }
+
+    return (
+        <div style={{ width: '100%', height: '100%' }}>
+            <Canvas
+                camera={{ position: [0, 0, 4], fov: 75 }}
+                style={{ background: 'transparent' }}
+                gl={{ alpha: true }}
+            >
+                <ambientLight intensity={2} />
+                <directionalLight position={[5, 3, 5]} intensity={3} />
+                <pointLight position={[-5, 0, 5]} intensity={1} />
+                <pointLight position={[0, -5, 0]} intensity={0.5} />
+                <pointLight position={[0, 5, 0]} intensity={0.5} />
+
+                <Earth />
+
+                <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                />
+            </Canvas>
+        </div>
+    );
+}
 
 export default function Activities() {
     const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +82,7 @@ export default function Activities() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '5rem 2rem',
+            padding: '2rem 1.5rem',
             position: 'relative',
         },
         container: {
@@ -32,17 +96,11 @@ export default function Activities() {
         imageContainer: {
             position: 'relative',
             width: '100%',
-            height: 'fit-content',
+            height: '500px',
             overflow: 'hidden',
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
             transition: 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1)',
-        },
-        image: {
-            width: '78%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '50%'
         },
         contentSide: {
             opacity: isVisible ? 1 : 0,
@@ -50,7 +108,7 @@ export default function Activities() {
             transition: 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s',
         },
         title: {
-            fontSize: 'clamp(4rem, 10vw, 8rem)',
+            fontSize: 'clamp(3rem, 8vw, 8rem)',
             fontWeight: 900,
             color: 'white',
             marginBottom: '1.5rem',
@@ -59,15 +117,15 @@ export default function Activities() {
             marginTop: 0,
         },
         description: {
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
             color: '#999',
             lineHeight: 1.8,
-            marginBottom: '3rem',
+            marginBottom: '2rem',
             maxWidth: '500px',
         },
         link: {
             display: 'inline-block',
-            fontSize: '1.125rem',
+            fontSize: 'clamp(0.9rem, 2vw, 1.125rem)',
             color: '#a3e635',
             textDecoration: 'none',
             fontWeight: 600,
@@ -91,35 +149,54 @@ export default function Activities() {
     return (
         <>
             <style jsx global>{`
-        @media (max-width: 1024px) {
-          .activities-container {
-            grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-          }
-          .activities-image {
-            height: 450px !important;
-          }
-        }
+                @media (max-width: 1024px) {
+                    .activities-container {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                    }
+                    .activities-image {
+                        height: 400px !important;
+                    }
+                }
 
-        @media (max-width: 768px) {
-          .activities-image {
-            height: 350px !important;
-          }
-        }
-      `}</style>
+                @media (max-width: 768px) {
+                    .activities-container {
+                        gap: 1.5rem !important;
+                    }
+                    .activities-image {
+                        height: 350px !important;
+                    }
+                    .activities-section {
+                        padding: 3rem 1rem !important;
+                        min-height: auto !important;
+                    }
+                }
 
-            <section style={styles.section}>
+                @media (max-width: 480px) {
+                    .activities-image {
+                        height: 300px !important;
+                    }
+                    .activities-section {
+                        padding: 2rem 1rem !important;
+                    }
+                    .activities-content {
+                        text-align: center;
+                    }
+                }
+            `}</style>
+
+            <section style={styles.section} className="activities-section">
                 <div style={styles.container} className="activities-container">
                     <div style={styles.imageContainer} className="activities-image">
                         <RotatingEarth />
                     </div>
 
-
-                    <div style={styles.contentSide}>
+                    <div style={styles.contentSide} className="activities-content">
                         <h2 style={styles.title}>LOCATIONS</h2>
                         <p style={styles.description}>
-                            Our fitness centers are strategically located to help you stay active, no matter where you are.                        </p>
-                        <Link
+                            Our fitness centers are strategically located to help you stay active, no matter where you are.
+                        </p>
+                        <a
                             href="/activities"
                             style={styles.link}
                             onMouseEnter={() => setIsHovering(true)}
@@ -127,7 +204,7 @@ export default function Activities() {
                         >
                             VIEW LOCATIONS
                             <div style={styles.underline} />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
