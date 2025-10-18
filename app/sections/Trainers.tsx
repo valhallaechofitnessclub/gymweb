@@ -1,0 +1,86 @@
+'use client';
+
+import React, { useState, useRef, useEffect } from 'react';
+
+export default function Trainers() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setIsVisible(true);
+            },
+            { threshold: 0, rootMargin: '200px 0px' } // triggers a bit earlier
+        );
+
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    const styles: { [key: string]: React.CSSProperties } = {
+        section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem' },
+        container: { maxWidth: '1400px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' },
+        content: {
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateX(0)' : 'translateX(-40px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
+        },
+        title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', letterSpacing: '0.05em', lineHeight: 1 },
+        description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
+        link: { textDecoration: 'none', display: 'inline-block', fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', color: '#a3e635', fontWeight: 600, letterSpacing: '0.1em', position: 'relative', paddingBottom: '5px', cursor: 'pointer' },
+        underline: { position: 'absolute', bottom: 0, left: 0, width: isHovering ? '100%' : '40px', height: '2px', background: '#a3e635', transition: 'width 0.3s ease' },
+        imageContainer: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease 0.1s',
+            position: 'relative',
+        },
+        circle: {
+            width: '420px',
+            height: '420px',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            background: 'radial-gradient(circle at 30% 30%, rgba(163,230,53,0.12) 0%, rgba(0,0,0,0.9) 100%)',
+            filter: 'drop-shadow(0 0 30px rgba(163,230,53,0.25))',
+            transition: 'transform 0.6s ease, filter 0.6s ease',
+        },
+        circleHover: { transform: 'scale(1.05)', filter: 'drop-shadow(0 0 50px rgba(163,230,53,0.35))' },
+        image: { width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', transition: 'transform 0.6s ease, filter 0.4s ease', filter: 'brightness(1.1) contrast(1.1)' },
+        imageHover: { transform: 'scale(1.1)', filter: 'brightness(1.2) contrast(1.15)' },
+    };
+
+    return (
+        <section style={styles.section} ref={containerRef}>
+            <div style={styles.container}>
+                <div style={styles.content}>
+                    <h2 style={styles.title}>TRAINERS</h2>
+                    <p style={styles.description}>
+                        Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.
+                    </p>
+                    <a
+                        href="/trainers"
+                        style={styles.link}
+                        onMouseEnter={() => setIsHovering(true)}
+                        onMouseLeave={() => setIsHovering(false)}
+                    >
+                        MEET OUR TRAINERS
+                        <div style={styles.underline} />
+                    </a>
+                </div>
+
+                <div style={styles.imageContainer}>
+                    <div style={{ ...styles.circle, ...(isHovering ? styles.circleHover : {}) }}>
+                        <img src="/assets/images/trainers.jpg" alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
