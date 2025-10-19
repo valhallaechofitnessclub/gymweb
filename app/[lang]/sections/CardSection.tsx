@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function CardSection() {
+export default function CardSection({ dict }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,23 +12,22 @@ export default function CardSection() {
   const cards = [
     {
       id: 1,
-      title: 'LOCATIONS',
-      description: 'Discover premium training facilities',
+      title: dict.card1.title,
+      description: dict.card1.text,
       backgroundImage: '/assets/images/map.jpg',
-      
       delay: 0,
     },
     {
       id: 2,
-      title: 'PRICING',
-      description: 'Flexible plans for every goal',
+      title: dict.card2.title,
+      description: dict.card2.text,
       backgroundImage: '/assets/images/pricing.jpg',
       delay: 0.2,
     },
     {
       id: 3,
-      title: 'ACTIVITIES',
-      description: 'Transform your fitness journey',
+      title: dict.card3.title,
+      description: dict.card3.text,
       backgroundImage: '/assets/images/activities.jpg',
       delay: 0.4,
     },

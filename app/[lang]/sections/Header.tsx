@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 interface NavLink {
@@ -8,34 +9,53 @@ interface NavLink {
   label: string;
 }
 
-const navLinks: NavLink[] = [
-  { id: 'home', label: 'Home' },
-  { id: 'programs', label: 'Programs' },
-  { id: 'trainers', label: 'Trainers' },
-  { id: 'schedule', label: 'Schedule' },
-  { id: 'pricing', label: 'Pricing' },
-];
+interface Props {
+  dict: {
+    locations: string;
+    activities: string;
+    trainers: string;
+    prices: string;
+    contact: string;
+  };
+}
 
-export default function Header() {
+export default function Header({ dict }: Props) {
+  const navLinks: NavLink[] = [
+    { id: 'locations', label: dict.locations },
+    { id: 'activities', label: dict.activities },
+    { id: 'trainers', label: dict.trainers },
+    { id: 'prices', label: dict.prices },
+    { id: 'contact', label: dict.contact },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState('locations');
   const [isMobile, setIsMobile] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // ---------------- Language Switcher ----------------
+  const switchLanguage = (lang: 'en' | 'ge') => {
+    const parts = pathname.split('/');
+    parts[1] = lang; // first part after / is [lang]
+    const newPath = parts.join('/') || '/';
+    router.push(newPath);
+  };
+
+  // ---------------- Scroll & Resize ----------------
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // hide on scroll down, show on scroll up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowHeader(false);
       } else if (currentScrollY < lastScrollY) {
         setShowHeader(true);
       }
-
       setIsScrolled(currentScrollY > 20);
       lastScrollY = currentScrollY;
     };
@@ -45,13 +65,13 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', checkScreen);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkScreen);
     };
   }, []);
 
+  // ---------------- Styles ----------------
   const styles: { [key: string]: React.CSSProperties } = {
     headerWrapper: {
       position: 'fixed',
@@ -74,18 +94,18 @@ export default function Header() {
     logo: {
       display: 'flex',
       alignItems: 'center',
-      gap: '0.5rem',
+      gap: '1rem',
       color: 'white',
       fontWeight: 900,
       cursor: 'pointer',
       fontSize: '1.5rem',
       letterSpacing: '0.05em',
-      transition: 'all 0.3s ease',
     },
-    nav: {
+    langSwitcher: {
       display: 'flex',
-      gap: '2rem',
+      gap: '0.5rem',
     },
+    nav: { display: 'flex', gap: '2rem' },
     mobileButton: {
       display: 'flex',
       alignItems: 'center',
@@ -117,11 +137,11 @@ export default function Header() {
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: active ? '#a3e635' : 'white',
-    transition: 'color 0.3s',
     background: 'none',
     border: 'none',
     cursor: 'pointer',
     fontSize: '1rem',
+    transition: 'color 0.3s',
   });
 
   const mobileLinkStyle = (active: boolean): React.CSSProperties => ({
@@ -140,12 +160,39 @@ export default function Header() {
     transition: 'all 0.2s ease',
   });
 
+  const langButtonStyle = (active: boolean): React.CSSProperties => ({
+    fontWeight: 'bold',
+    color: active ? '#a3e635' : 'white',
+    background: 'none',
+    border: '1px solid white',
+    borderRadius: '4px',
+    padding: '0.2rem 0.5rem',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+  });
+
+  // ---------------- Render ----------------
   return (
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
-        <div style={styles.logo}>REFORM</div>
+        <div style={styles.logo}>
+          REFORM
+          <div style={styles.langSwitcher}>
+            <button
+              style={langButtonStyle(pathname.startsWith('/en'))}
+              onClick={() => switchLanguage('en')}
+            >
+              EN
+            </button>
+            <button
+              style={langButtonStyle(pathname.startsWith('/ge'))}
+              onClick={() => switchLanguage('ge')}
+            >
+              GE
+            </button>
+          </div>
+        </div>
 
-        {/* Desktop Nav */}
         {!isMobile && (
           <nav style={styles.nav}>
             {navLinks.map((link) => (
@@ -160,7 +207,6 @@ export default function Header() {
           </nav>
         )}
 
-        {/* Mobile Button */}
         {isMobile && (
           <button
             style={styles.mobileButton}
@@ -171,7 +217,6 @@ export default function Header() {
         )}
       </header>
 
-      {/* Mobile Menu */}
       {isMobile && (
         <div style={styles.mobileMenu}>
           {navLinks.map((link) => (

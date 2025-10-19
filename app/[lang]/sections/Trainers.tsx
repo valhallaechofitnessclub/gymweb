@@ -2,7 +2,16 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function Trainers() {
+interface TrainersProps {
+  dict: {
+    title: string;
+    text: string;
+    button: string;
+    img: string;
+  };
+}
+
+export default function Trainers({ dict }: TrainersProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -144,9 +153,9 @@ export default function Trainers() {
             <section style={styles.section} ref={containerRef} className="trainers-section">
                 <div style={styles.container} className="trainers-container">
                     <div style={styles.content} className="trainers-content">
-                        <h2 style={styles.title} className="trainers-title">TRAINERS</h2>
+                        <h2 style={styles.title} className="trainers-title">{dict.title}</h2>
                         <p style={styles.description} className="trainers-description">
-                            Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.
+                            {dict.text}
                         </p>
                         <a
                             href="/trainers"
@@ -155,14 +164,14 @@ export default function Trainers() {
                             onMouseEnter={() => setIsHovering(true)}
                             onMouseLeave={() => setIsHovering(false)}
                         >
-                            MEET OUR TRAINERS
+                            {dict.button}
                             <div style={styles.underline} />
                         </a>
                     </div>
 
                     <div style={styles.imageContainer} className="trainers-image-container">
                         <div style={{ ...styles.circle, ...(isHovering ? styles.circleHover : {}) }} className="trainers-circle">
-                            <img src="/assets/images/trainers.jpg" alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
+                            <img src={`/assets/images/${dict.img}`} alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
                         </div>
                     </div>
                 </div>

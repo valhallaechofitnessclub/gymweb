@@ -1,0 +1,34 @@
+{
+    "header": {
+        "locations": "LOCATIONS",
+        "activities": "ACTIVITIES",
+        "trainers": "TRAINERS",
+        "prices": "PRICES",
+        "contact": "CONTACT"
+    },
+    "cards": {
+        "card1": {
+            "title": "LOCATIONS",
+            "text": "Discover premium training facilities"
+        },
+        "card2": {
+            "title": "PRICING",
+            "text": "Flexible plans for every goal"
+        },
+        "card3": {
+            "title": "ACTIVITIES",
+            "text": "Transform your body and mind"
+        }
+    },
+    "trainers": {
+        "title": "TRAINERS",
+        "text": "Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.",
+        "button": "VIEW TRAINERS",
+        "img": "trainers.jpg"
+    },
+    "locations": {
+        "title": "LOCATIONS",
+        "text": "Our fitness centers are strategically located to help you stay active, no matter where you are.",
+        "button": "VIEW LOCATIONS"
+    }
+}

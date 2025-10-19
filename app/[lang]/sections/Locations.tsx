@@ -67,7 +67,15 @@ function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHoveri
   );
 }
 
-export default function Locations() {
+interface LocationsProps {
+  dict: {
+    title: string;
+    text: string;
+    button: string;
+  };
+}
+
+export default function Locations({ dict }: LocationsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -188,9 +196,9 @@ export default function Locations() {
           <RotatingEarth isVisible={isVisible} isHovering={isHovering} />
 
           <div style={styles.contentSide} className="locations-content">
-            <h2 style={styles.title} className="locations-title">LOCATIONS</h2>
+            <h2 style={styles.title} className="locations-title">{dict.title}</h2>
             <p style={styles.description} className="locations-description">
-              Our fitness centers are strategically located to help you stay active, no matter where you are.
+              {dict.text}
             </p>
             <a
               href="/activities"
@@ -199,7 +207,7 @@ export default function Locations() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              VIEW LOCATIONS
+              {dict.button}
               <div style={styles.underline} />
             </a>
           </div>
