@@ -21,7 +21,24 @@ function Earth() {
   );
 }
 
-function RotatingEarth({ isVisible }: { isVisible: boolean }) {
+function EarthScene({ isHovering }: { isHovering: boolean }) {
+  const groupRef = useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    if (groupRef.current) {
+      const targetScale = isHovering ? 1.2 : 1;
+      groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <Earth />
+    </group>
+  );
+}
+
+function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHovering: boolean }) {
   return (
     <div
       className="locations-earth-container"
@@ -43,7 +60,7 @@ function RotatingEarth({ isVisible }: { isVisible: boolean }) {
         <pointLight position={[-5, 0, 5]} intensity={1} />
         <pointLight position={[0, -5, 0]} intensity={0.5} />
         <pointLight position={[0, 5, 0]} intensity={0.5} />
-        <Earth />
+        <EarthScene isHovering={isHovering} />
         <OrbitControls enableZoom={false} enablePan={false} />
       </Canvas>
     </div>
@@ -168,7 +185,7 @@ export default function Locations() {
 
       <section style={styles.section} ref={containerRef} className="locations-section">
         <div style={styles.container} className="locations-container">
-          <RotatingEarth isVisible={isVisible} />
+          <RotatingEarth isVisible={isVisible} isHovering={isHovering} />
 
           <div style={styles.contentSide} className="locations-content">
             <h2 style={styles.title} className="locations-title">LOCATIONS</h2>
