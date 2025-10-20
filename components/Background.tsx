@@ -1,15 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Background() {
-  const particles = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    delay: Math.random() * 3,
-    duration: 4 + Math.random() * 4,
-  }));
+  const [particles, setParticles] = useState<
+    { id: number; left: string; top: string; delay: number; duration: number }[]
+  >([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: Math.random() * 3,
+      duration: 4 + Math.random() * 4,
+    }));
+    setParticles(generated);
+  }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
     container: {
@@ -24,7 +31,7 @@ export default function Background() {
       overflow: 'hidden',
     },
     particle: {
-      position: 'absolute' as const,
+      position: 'absolute',
       width: '2px',
       height: '2px',
       background: '#a3e635',
@@ -38,22 +45,10 @@ export default function Background() {
     <>
       <style>{`
         @keyframes float {
-          0%, 100% { 
-            transform: translateY(0px) translateX(0px); 
-            opacity: 0.6;
-          }
-          25% { 
-            transform: translateY(-20px) translateX(10px); 
-            opacity: 0.8;
-          }
-          50% { 
-            transform: translateY(-10px) translateX(-10px); 
-            opacity: 0.4;
-          }
-          75% { 
-            transform: translateY(-30px) translateX(5px); 
-            opacity: 0.7;
-          }
+          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; }
+          25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+          50% { transform: translateY(-10px) translateX(-10px); opacity: 0.4; }
+          75% { transform: translateY(-30px) translateX(5px); opacity: 0.7; }
         }
       `}</style>
 

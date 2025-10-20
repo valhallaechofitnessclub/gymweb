@@ -1,20 +1,21 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 interface TrainersProps {
-  dict: {
-    title: string;
-    text: string;
-    button: string;
-    img: string;
-  };
+    dict: {
+        title: string;
+        text: string;
+        button: string;
+        img: string;
+    };
 }
 
 export default function Trainers({ dict }: TrainersProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -41,7 +42,7 @@ export default function Trainers({ dict }: TrainersProps) {
         title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', letterSpacing: '0.05em', lineHeight: 1 },
         description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
         link: { textDecoration: 'none', display: 'inline-block', fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', color: '#a3e635', fontWeight: 600, letterSpacing: '0.1em', position: 'relative', paddingBottom: '5px', cursor: 'pointer' },
-        underline: { position: 'absolute', bottom: 0, left: 0, width: isHovering ? '100%' : '40px', height: '2px', background: '#a3e635', transition: 'width 0.3s ease' },
+        underline: { position: 'absolute', bottom: 0, left: 0, width: '40px', height: '2px', background: '#a3e635', transition: 'width 0.3s ease' },
         imageContainer: {
             display: 'flex',
             alignItems: 'center',
@@ -60,14 +61,26 @@ export default function Trainers({ dict }: TrainersProps) {
             filter: 'drop-shadow(0 0 30px rgba(163,230,53,0.25))',
             transition: 'transform 0.6s ease, filter 0.6s ease',
         },
-        circleHover: { transform: 'scale(1.05)', filter: 'drop-shadow(0 0 50px rgba(163,230,53,0.35))' },
         image: { width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', transition: 'transform 0.6s ease, filter 0.4s ease', filter: 'brightness(1.1) contrast(1.1)' },
-        imageHover: { transform: 'scale(1.1)', filter: 'brightness(1.2) contrast(1.15)' },
     };
 
     return (
         <>
             <style>{`
+                .trainers-link:hover .trainers-underline {
+                    width: 100% !important;
+                }
+                
+                .trainers-circle:hover {
+                    transform: scale(1.05);
+                    filter: drop-shadow(0 0 50px rgba(163,230,53,0.35));
+                }
+                
+                .trainers-circle:hover .trainers-image {
+                    transform: scale(1.1);
+                    filter: brightness(1.2) contrast(1.15);
+                }
+                
                 @media (max-width: 1024px) {
                     .trainers-container {
                         grid-template-columns: 1fr !important;
@@ -149,7 +162,7 @@ export default function Trainers({ dict }: TrainersProps) {
                     }
                 }
             `}</style>
-            
+
             <section style={styles.section} ref={containerRef} className="trainers-section">
                 <div style={styles.container} className="trainers-container">
                     <div style={styles.content} className="trainers-content">
@@ -157,21 +170,26 @@ export default function Trainers({ dict }: TrainersProps) {
                         <p style={styles.description} className="trainers-description">
                             {dict.text}
                         </p>
-                        <a
+                        <Link
                             href="/trainers"
                             style={styles.link}
                             className="trainers-link"
-                            onMouseEnter={() => setIsHovering(true)}
-                            onMouseLeave={() => setIsHovering(false)}
                         >
                             {dict.button}
-                            <div style={styles.underline} />
-                        </a>
+                            <div style={styles.underline} className="trainers-underline" />
+                        </Link>
                     </div>
 
                     <div style={styles.imageContainer} className="trainers-image-container">
-                        <div style={{ ...styles.circle, ...(isHovering ? styles.circleHover : {}) }} className="trainers-circle">
-                            <img src={`/assets/images/${dict.img}`} alt="Trainer" style={{ ...styles.image, ...(isHovering ? styles.imageHover : {}) }} loading="lazy" />
+                        <div style={styles.circle} className="trainers-circle">
+                            <Image
+                                src={`/assets/images/${dict.img}`}
+                                alt="Trainer"
+                                fill
+                                style={styles.image}
+                                className="trainers-image"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
                 </div>

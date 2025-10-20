@@ -2,7 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function CardSection({ dict }) {
+interface CardDict {
+  card1: { title: string; text: string };
+  card2: { title: string; text: string };
+  card3: { title: string; text: string };
+}
+
+export default function CardSection({ dict }: { dict: CardDict }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -241,7 +247,7 @@ export default function CardSection({ dict }) {
 
       <section style={styles.container} className="cards-container">
         <div style={styles.grid} className="cards-grid">
-          {cards.map((card, index) => (
+          {cards.map((card) => (
             <div
               key={card.id}
               className="card"
@@ -258,7 +264,7 @@ export default function CardSection({ dict }) {
               <div className="card-overlay" />
               <div className="card-shine" />
               <div className="card-border" />
-              
+
               <div className="card-content">
                 <div className="card-glass">
                   <h3 className="card-title">{card.title}</h3>

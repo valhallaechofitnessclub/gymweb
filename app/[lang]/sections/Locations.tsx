@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+import Link from 'next/link';
 
 function Earth() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -200,7 +201,7 @@ export default function Locations({ dict }: LocationsProps) {
             <p style={styles.description} className="locations-description">
               {dict.text}
             </p>
-            <a
+            <Link
               href="/activities"
               style={styles.link}
               className="locations-link"
@@ -209,7 +210,7 @@ export default function Locations({ dict }: LocationsProps) {
             >
               {dict.button}
               <div style={styles.underline} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
