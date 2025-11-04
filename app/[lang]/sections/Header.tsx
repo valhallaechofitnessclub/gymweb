@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 interface NavLink {
   id: string;
   label: string;
+  path: string;
 }
 
 interface Props {
@@ -20,29 +21,50 @@ interface Props {
 }
 
 export default function Header({ dict }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  // Extract current language from pathname
+  const currentLang = pathname.split('/')[1] || 'en';
+
   const navLinks: NavLink[] = [
-    { id: 'locations', label: dict.locations },
-    { id: 'activities', label: dict.activities },
-    { id: 'trainers', label: dict.trainers },
-    { id: 'prices', label: dict.prices },
-    { id: 'contact', label: dict.contact },
+    { id: 'locations', label: dict.locations, path: `/${currentLang}/locations` },
+    { id: 'activities', label: dict.activities, path: `/${currentLang}/activities` },
+    { id: 'trainers', label: dict.trainers, path: `/${currentLang}/trainers` },
+    { id: 'prices', label: dict.prices, path: `/${currentLang}/prices` },
+    { id: 'contact', label: dict.contact, path: `/${currentLang}/contact` },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('locations');
+  const [activeLink, setActiveLink] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
 
-  const router = useRouter();
-  const pathname = usePathname();
+  // Set active link based on current pathname
+  useEffect(() => {
+    const currentPath = pathname.toLowerCase();
+    const active = navLinks.find(link => currentPath.includes(link.id));
+    if (active) {
+      setActiveLink(active.id);
+    } else {
+      setActiveLink('');
+    }
+  }, [pathname]);
 
   // ---------------- Language Switcher ----------------
   const switchLanguage = (lang: 'en' | 'ge') => {
     const parts = pathname.split('/');
-    parts[1] = lang; // first part after / is [lang]
+    parts[1] = lang;
     const newPath = parts.join('/') || '/';
     router.push(newPath);
+  };
+
+  // ---------------- Navigation Handler ----------------
+  const handleNavigation = (link: NavLink) => {
+    setActiveLink(link.id);
+    setIsMobileMenuOpen(false);
+    router.push(link.path);
   };
 
   // ---------------- Scroll & Resize ----------------
@@ -175,18 +197,27 @@ export default function Header({ dict }: Props) {
   return (
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
-        <div style={styles.logo}>
+        <div 
+          style={styles.logo}
+          onClick={() => router.push(`/${currentLang}`)}
+        >
           REFORM
           <div style={styles.langSwitcher}>
             <button
               style={langButtonStyle(pathname.startsWith('/en'))}
-              onClick={() => switchLanguage('en')}
+              onClick={(e) => {
+                e.stopPropagation();
+                switchLanguage('en');
+              }}
             >
               EN
             </button>
             <button
               style={langButtonStyle(pathname.startsWith('/ge'))}
-              onClick={() => switchLanguage('ge')}
+              onClick={(e) => {
+                e.stopPropagation();
+                switchLanguage('ge');
+              }}
             >
               GE
             </button>
@@ -199,7 +230,7 @@ export default function Header({ dict }: Props) {
               <button
                 key={link.id}
                 style={navButtonStyle(activeLink === link.id)}
-                onClick={() => setActiveLink(link.id)}
+                onClick={() => handleNavigation(link)}
               >
                 {link.label}
               </button>
@@ -223,10 +254,7 @@ export default function Header({ dict }: Props) {
             <button
               key={link.id}
               style={mobileLinkStyle(activeLink === link.id)}
-              onClick={() => {
-                setActiveLink(link.id);
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleNavigation(link)}
             >
               {link.label}
             </button>

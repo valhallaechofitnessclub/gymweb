@@ -30,5 +30,73 @@
         "title": "LOCATIONS",
         "text": "Our fitness centers are strategically located to help you stay active, no matter where you are.",
         "button": "VIEW LOCATIONS"
+    },
+    "locationsPage": {
+        "header": {
+            "title": "LOCATIONS",
+            "subtitle": "Find Your Nearest Reform"
+        },
+        "cards": {
+            "card1": {
+                "name": "Downtown Hub",
+                "address": "125 Main Street, Suite 300",
+                "city": "Downtown",
+                "phone": "(555) 123-4567",
+                "hours": "Mon-Fri: 5AM - 11PM | Sat-Sun: 7AM - 9PM",
+                "features": [
+                    "Olympic Weights",
+                    "Cardio Zone",
+                    "Sauna",
+                    "Smoothie Bar"
+                ],
+                "image": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
+            },
+            "card2": {
+                "name": "Westside Performance",
+                "address": "890 West Avenue, Floor 2",
+                "city": "West District",
+                "phone": "(555) 234-5678",
+                "hours": "Mon-Sun: 24/7",
+                "features": [
+                    "CrossFit Area",
+                    "Boxing Ring",
+                    "Recovery Lab",
+                    "Personal Training"
+                ],
+                "image": "linear-gradient(135deg, #1f1f1f 0%, #333333 100%)"
+            },
+            "card3": {
+                "name": "Eastside Elite",
+                "address": "456 East Boulevard",
+                "city": "East Quarter",
+                "phone": "(555) 345-6789",
+                "hours": "Mon-Fri: 6AM - 10PM | Sat-Sun: 8AM - 8PM",
+                "features": [
+                    "Yoga Studio",
+                    "Pilates",
+                    "Spin Classes",
+                    "Juice Bar"
+                ],
+                "image": "linear-gradient(135deg, #252525 0%, #383838 100%)"
+            },
+            "card4": {
+                "name": "Northside Strength",
+                "address": "789 North Street",
+                "city": "North District",
+                "phone": "(555) 456-7890",
+                "hours": "Mon-Sat: 6AM - 10PM | Sun: 8AM - 8PM",
+                "features": [
+                    "Weightlifting Area",
+                    "Functional Training",
+                    "Recovery Zone",
+                    "Cafe"
+                ],
+                "image": "linear-gradient(135deg, #1e1e1e 0%, #2f2f2f 100%)"
+            }
+        },
+        "mapSection": {
+            "title": "All Locations",
+            "text": "Choose your destination and start your transformation"
+        }
     }
 }
