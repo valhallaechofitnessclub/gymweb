@@ -251,5 +251,67 @@
                 "color": "rgba(163, 230, 53, 0.15)"
             }
         ]
+    },
+    "pricingPage": {
+        "header": {
+            "title": "Pricing Plans",
+            "subtitle": "Choose Your Perfect Fitness Journey"
+        },
+        "plans": {
+            "starter": {
+                "name": "Starter",
+                "description": "Perfect for beginners starting their fitness journey",
+                "price": 99,
+                "oldPrice": null,
+                "isDiscounted": false,
+                "duration": "Monthly Access",
+                "features": [
+                    "Access to gym floor",
+                    "Basic equipment usage",
+                    "Locker room access",
+                    "Mobile app access",
+                    "Fitness assessment"
+                ],
+                "isPopular": false,
+                "badge": "BASIC"
+            },
+            "premium": {
+                "name": "Premium",
+                "description": "Most popular choice for serious fitness enthusiasts",
+                "price": 149,
+                "oldPrice": 199,
+                "isDiscounted": true,
+                "duration": "Monthly Access + Perks",
+                "features": [
+                    "All Starter features",
+                    "Group fitness classes",
+                    "Personal training (2 sessions/month)",
+                    "Nutrition consultation",
+                    "Sauna & spa access",
+                    "Guest passes (2/month)"
+                ],
+                "isPopular": true,
+                "badge": "PRO"
+            },
+            "elite": {
+                "name": "Elite",
+                "description": "Ultimate experience with unlimited access to everything",
+                "price": 249,
+                "oldPrice": 349,
+                "isDiscounted": true,
+                "duration": "Full Access + Premium Benefits",
+                "features": [
+                    "All Premium features",
+                    "Unlimited personal training",
+                    "Priority class booking",
+                    "Private locker",
+                    "Massage therapy (4 sessions/month)",
+                    "Free merchandise",
+                    "24/7 gym access"
+                ],
+                "isPopular": false,
+                "badge": "VIP"
+            }
+        }
     }
 }

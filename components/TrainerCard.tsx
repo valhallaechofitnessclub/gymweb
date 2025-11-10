@@ -3,27 +3,59 @@
 import React, { useState } from 'react';
 import { Award, Dumbbell, Mail, ChevronRight, Zap } from 'lucide-react';
 
-export default function TrainerCard({ trainer, index, isVisible, isHovered, onHover, onLeave }) {
+interface Trainer {
+  name: string;
+  color: string;
+  experience: string | number;
+  specialty: string;
+  title?: string;
+  bio?: string;
+  certifications?: string[];
+  buttonText?: string;
+}
+
+interface Props {
+  trainer: Trainer;
+  index?: number;
+  isVisible?: boolean;
+  isHovered?: boolean;
+  onHover?: React.MouseEventHandler<HTMLDivElement>;
+  onLeave?: React.MouseEventHandler<HTMLDivElement>;
+  transitionSpeed?: string;
+}
+
+export default function TrainerCard({
+  trainer,
+  index,
+  isVisible,
+  isHovered,
+  onHover,
+  onLeave,
+  transitionSpeed = '0.2s',
+}: Props) {
   const [buttonHovered, setButtonHovered] = useState(false);
-  const [iconButtonHovered, setIconButtonHovered] = useState(false);
 
   const styles: { [key: string]: React.CSSProperties } = {
     card: {
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(12px)',
-      border: isHovered ? '1px solid rgba(163, 230, 53, 0.4)' : '1px solid rgba(39, 39, 42, 1)',
+      border: isHovered
+        ? '1px solid rgba(163, 230, 53, 0.4)'
+        : '1px solid rgba(39, 39, 42, 1)',
       borderRadius: '20px',
       cursor: 'pointer',
-      transition: 'all 0.4s ease',
       position: 'relative',
       overflow: 'hidden',
       opacity: isVisible ? 1 : 0,
       transform: isVisible
-        ? (isHovered ? 'translateY(-8px)' : 'translateY(0)')
+        ? isHovered
+          ? 'translateY(-8px)'
+          : 'translateY(0)'
         : 'translateY(30px)',
-      transitionDelay: `${index * 0.1}s`,
-      boxShadow: isHovered 
-        ? '0 20px 60px rgba(163, 230, 53, 0.2)' 
+      transition: `opacity 0.4s ease-out, transform ${transitionSpeed} ease, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
+      // 🧩 removed index-based delay (this caused slow hover)
+      boxShadow: isHovered
+        ? '0 20px 60px rgba(163, 230, 53, 0.2)'
         : '0 4px 20px rgba(0, 0, 0, 0.4)',
     },
     imageSection: {
@@ -34,8 +66,12 @@ export default function TrainerCard({ trainer, index, isVisible, isHovered, onHo
     },
     imageOverlay: {
       position: 'absolute',
-      top: 0, left: 0, right: 0, bottom: 0,
-      background: 'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.7) 100%)',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background:
+        'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.7) 100%)',
       zIndex: 1,
     },
     imageLetter: {
@@ -133,12 +169,14 @@ export default function TrainerCard({ trainer, index, isVisible, isHovered, onHo
       justifyContent: 'center',
       gap: '0.4rem',
       cursor: 'pointer',
-      transition: 'all 0.3s ease',
       border: 'none',
+      transition: `all ${transitionSpeed} ease`,
     },
     primaryButton: {
       flex: 1,
-      background: buttonHovered ? '#a3e635' : 'rgba(163, 230, 53, 0.1)',
+      background: buttonHovered
+        ? '#a3e635'
+        : 'rgba(163, 230, 53, 0.1)',
       border: '1px solid #a3e635',
       color: buttonHovered ? 'black' : '#a3e635',
     },
@@ -153,7 +191,9 @@ export default function TrainerCard({ trainer, index, isVisible, isHovered, onHo
   return (
     <div style={styles.card} onMouseEnter={onHover} onMouseLeave={onLeave}>
       <div style={styles.imageSection}>
-        <div style={styles.imageLetter}>{trainer.name.split(' ')[0].charAt(0)}</div>
+        <div style={styles.imageLetter}>
+          {trainer.name.split(' ')[0].charAt(0)}
+        </div>
         <div style={styles.imageOverlay} />
         <div style={styles.experienceBadge}>
           <Award size={14} />
@@ -171,8 +211,10 @@ export default function TrainerCard({ trainer, index, isVisible, isHovered, onHo
         <p style={styles.bio}>{trainer.bio}</p>
 
         <div style={styles.certifications}>
-          {trainer.certifications.map((cert: string, i: number) => (
-            <span key={i} style={styles.cert}>{cert}</span>
+          {trainer.certifications?.map((cert: string, i: number) => (
+            <span key={i} style={styles.cert}>
+              {cert}
+            </span>
           ))}
         </div>
 

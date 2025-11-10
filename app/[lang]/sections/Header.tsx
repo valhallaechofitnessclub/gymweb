@@ -31,7 +31,7 @@ export default function Header({ dict }: Props) {
     { id: 'locations', label: dict.locations, path: `/${currentLang}/locations` },
     { id: 'activities', label: dict.activities, path: `/${currentLang}/activities` },
     { id: 'trainers', label: dict.trainers, path: `/${currentLang}/trainers` },
-    { id: 'prices', label: dict.prices, path: `/${currentLang}/prices` },
+    { id: 'prices', label: dict.prices, path: `/${currentLang}/pricing` },
     { id: 'contact', label: dict.contact, path: `/${currentLang}/contact` },
   ];
 

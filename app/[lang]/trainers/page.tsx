@@ -27,7 +27,6 @@ export default function TrainersPage() {
       marginBottom: '5rem',
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? 'translateY(0)' : 'translateY(-30px)',
-      transition: 'all 0.8s ease-out',
     },
     title: {
       fontSize: 'clamp(3rem, 8vw, 6rem)',
