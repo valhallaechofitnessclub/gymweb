@@ -9,7 +9,7 @@ interface PricingPlan {
   name: string;
   description: string;
   price: number;
-  oldPrice?: number;
+  oldPrice?: number | null;
   isDiscounted: boolean;
   duration: string;
   features: string[];

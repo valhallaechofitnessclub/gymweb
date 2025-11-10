@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Award, Dumbbell, Mail, ChevronRight, Zap } from 'lucide-react';
+import { Award, Mail, ChevronRight, Zap } from 'lucide-react';
 
 interface Trainer {
   name: string;
-  color: string;
-  experience: string | number;
-  specialty: string;
+  color?: string;
+  experience?: string | number;
+  specialty?: string;
   title?: string;
   bio?: string;
   certifications?: string[];
@@ -26,7 +26,6 @@ interface Props {
 
 export default function TrainerCard({
   trainer,
-  index,
   isVisible,
   isHovered,
   onHover,
@@ -60,7 +59,7 @@ export default function TrainerCard({
     },
     imageSection: {
       height: '220px',
-      background: `linear-gradient(135deg, ${trainer.color}, rgba(24, 24, 27, 0.8))`,
+      background: `linear-gradient(135deg, ${trainer.color ?? '#1f1f1f'}, rgba(24, 24, 27, 0.8))`,
       position: 'relative',
       overflow: 'hidden',
     },

@@ -5,10 +5,20 @@ import { MapPin } from 'lucide-react';
 import LocationCard from '@/components/LocationsCard';
 import Link from 'next/link';
 
+interface LocationCardType {
+  name: string;
+  address: string;
+  city: string;
+  phone: string;
+  hours: string;
+  features: string[];
+  image: string;
+}
+
 interface LocationsPageProps {
   dict: {
     header: { title: string; subtitle: string };
-    cards: { [key: string]: any };
+    cards: Record<string, LocationCardType>;
     mapSection: { title: string; text: string };
   };
 }
@@ -115,14 +125,13 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
           href="https://www.google.com/maps?sca_esv=25e6345522a98859&output=search&q=რეფორმა&source=lnms&fbs=AIIjpHzZzB2ZqEE71Te1HhZB2eS5CB8DXh_Vz1MtU1PbrsfE5evFSw0z9rcUb0iAP2Q2MBk54AvObt4DR69vsBH9RvnhpA50etHoLGYWuDeKcLgleW_bn8eYGMm1Lq5RNyVbNpuLdPfYZFgi2wegriqEteXBu6eqmZpa2gZBSGEM8gYdZUCjcgvmUWFW6IczUu4RKMyB9CHOYDFoMFfM5Wt0ofMDGSNa4qh1gtzNUSiDTbYL-DIQjmMJ_MMzIL2WkM_7nVp-LHQj&entry=mc&ved=1t:200715&ictx=111"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: 'block' }} // ensures the whole placeholder is clickable
+          style={{ display: 'block' }}
         >
           <div style={styles.mapPlaceholder}>
             <MapPin size={80} color="#a3e635" opacity={0.3} />
           </div>
         </Link>
       </div>
-
     </div>
   );
 }

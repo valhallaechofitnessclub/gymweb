@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
@@ -23,17 +23,16 @@ interface Props {
 export default function Header({ dict }: Props) {
   const router = useRouter();
   const pathname = usePathname();
-  
-  // Extract current language from pathname
   const currentLang = pathname.split('/')[1] || 'en';
 
-  const navLinks: NavLink[] = [
+  // ✅ useMemo to prevent re-creation of navLinks
+  const navLinks: NavLink[] = useMemo(() => [
     { id: 'locations', label: dict.locations, path: `/${currentLang}/locations` },
     { id: 'activities', label: dict.activities, path: `/${currentLang}/activities` },
     { id: 'trainers', label: dict.trainers, path: `/${currentLang}/trainers` },
     { id: 'prices', label: dict.prices, path: `/${currentLang}/pricing` },
     { id: 'contact', label: dict.contact, path: `/${currentLang}/contact` },
-  ];
+  ], [dict, currentLang]);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,18 +40,29 @@ export default function Header({ dict }: Props) {
   const [isMobile, setIsMobile] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
 
-  // Set active link based on current pathname
+  const desktopBtnRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const mobileBtnRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+
   useEffect(() => {
     const currentPath = pathname.toLowerCase();
-    const active = navLinks.find(link => currentPath.includes(link.id));
-    if (active) {
-      setActiveLink(active.id);
-    } else {
-      setActiveLink('');
-    }
-  }, [pathname]);
+    const active = navLinks.find((link) => currentPath.includes(link.id));
+    setActiveLink(active ? active.id : '');
+  }, [pathname, navLinks]);
 
-  // ---------------- Language Switcher ----------------
+  useEffect(() => {
+    const reset = (map: Map<string, HTMLButtonElement>) => {
+      map.forEach((btn, id) => {
+        const shouldShow = id === activeLink;
+        btn.style.setProperty(
+          '--hover-line',
+          shouldShow ? 'translateX(0)' : 'translateX(-101%)'
+        );
+      });
+    };
+    reset(desktopBtnRefs.current);
+    reset(mobileBtnRefs.current);
+  }, [activeLink]);
+
   const switchLanguage = (lang: 'en' | 'ge') => {
     const parts = pathname.split('/');
     parts[1] = lang;
@@ -60,14 +70,12 @@ export default function Header({ dict }: Props) {
     router.push(newPath);
   };
 
-  // ---------------- Navigation Handler ----------------
   const handleNavigation = (link: NavLink) => {
     setActiveLink(link.id);
     setIsMobileMenuOpen(false);
     router.push(link.path);
   };
 
-  // ---------------- Scroll & Resize ----------------
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -93,7 +101,6 @@ export default function Header({ dict }: Props) {
     };
   }, []);
 
-  // ---------------- Styles ----------------
   const styles: { [key: string]: React.CSSProperties } = {
     headerWrapper: {
       position: 'fixed',
@@ -123,10 +130,7 @@ export default function Header({ dict }: Props) {
       fontSize: '1.5rem',
       letterSpacing: '0.05em',
     },
-    langSwitcher: {
-      display: 'flex',
-      gap: '0.5rem',
-    },
+    langSwitcher: { display: 'flex', gap: '0.5rem' },
     nav: { display: 'flex', gap: '2rem' },
     mobileButton: {
       display: 'flex',
@@ -156,6 +160,7 @@ export default function Header({ dict }: Props) {
   };
 
   const navButtonStyle = (active: boolean): React.CSSProperties => ({
+    position: 'relative',
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: active ? '#a3e635' : 'white',
@@ -164,12 +169,26 @@ export default function Header({ dict }: Props) {
     cursor: 'pointer',
     fontSize: '1rem',
     transition: 'color 0.3s',
+    padding: '0.5rem 0',
+    overflow: 'hidden',
+  });
+
+  const navButtonAfter = (active: boolean): React.CSSProperties => ({
+    content: '""',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#a3e635',
+    transform: active ? 'translateX(0)' : 'translateX(-101%)',
+    transition: 'transform 0.35s ease',
   });
 
   const mobileLinkStyle = (active: boolean): React.CSSProperties => ({
     display: 'block',
     width: '100%',
-    textAlign: 'left',
+    textAlign: 'left' as const,
     padding: '0.75rem 1rem',
     borderRadius: '0.5rem',
     fontWeight: 'bold',
@@ -180,6 +199,20 @@ export default function Header({ dict }: Props) {
     cursor: 'pointer',
     marginBottom: '0.5rem',
     transition: 'all 0.2s ease',
+    position: 'relative',
+    overflow: 'hidden',
+  });
+
+  const mobileLinkAfter = (active: boolean): React.CSSProperties => ({
+    content: '""',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#a3e635',
+    transform: active ? 'translateX(0)' : 'translateX(-101%)',
+    transition: 'transform 0.35s ease',
   });
 
   const langButtonStyle = (active: boolean): React.CSSProperties => ({
@@ -193,14 +226,19 @@ export default function Header({ dict }: Props) {
     transition: 'all 0.2s ease',
   });
 
-  // ---------------- Render ----------------
+  const setBtnRef = (
+    id: string,
+    el: HTMLButtonElement | null,
+    map: React.MutableRefObject<Map<string, HTMLButtonElement>>
+  ) => {
+    if (el) map.current.set(id, el);
+    else map.current.delete(id);
+  };
+
   return (
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
-        <div 
-          style={styles.logo}
-          onClick={() => router.push(`/${currentLang}`)}
-        >
+        <div style={styles.logo} onClick={() => router.push(`/${currentLang}`)}>
           REFORM
           <div style={styles.langSwitcher}>
             <button
@@ -229,10 +267,27 @@ export default function Header({ dict }: Props) {
             {navLinks.map((link) => (
               <button
                 key={link.id}
+                ref={(el) => setBtnRef(link.id, el, desktopBtnRefs)}
                 style={navButtonStyle(activeLink === link.id)}
                 onClick={() => handleNavigation(link)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('--hover-line', 'translateX(0)');
+                }}
+                onMouseLeave={(e) => {
+                  const isActive = activeLink === link.id;
+                  e.currentTarget.style.setProperty(
+                    '--hover-line',
+                    isActive ? 'translateX(0)' : 'translateX(-101%)'
+                  );
+                }}
               >
                 {link.label}
+                <span
+                  style={{
+                    ...navButtonAfter(activeLink === link.id),
+                    transform: 'var(--hover-line, translateX(-101%))',
+                  }}
+                />
               </button>
             ))}
           </nav>
@@ -253,10 +308,27 @@ export default function Header({ dict }: Props) {
           {navLinks.map((link) => (
             <button
               key={link.id}
+              ref={(el) => setBtnRef(link.id, el, mobileBtnRefs)}
               style={mobileLinkStyle(activeLink === link.id)}
               onClick={() => handleNavigation(link)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.setProperty('--hover-line', 'translateX(0)');
+              }}
+              onMouseLeave={(e) => {
+                const isActive = activeLink === link.id;
+                e.currentTarget.style.setProperty(
+                  '--hover-line',
+                  isActive ? 'translateX(0)' : 'translateX(-101%)'
+                );
+              }}
             >
               {link.label}
+              <span
+                style={{
+                  ...mobileLinkAfter(activeLink === link.id),
+                  transform: 'var(--hover-line, translateX(-101%))',
+                }}
+              />
             </button>
           ))}
         </div>

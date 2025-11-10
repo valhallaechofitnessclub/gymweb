@@ -6,12 +6,44 @@ import en from '@/dictionary/en.json';
 import ge from '@/dictionary/ge.json';
 import { usePathname } from 'next/navigation';
 
+interface Trainer {
+  id: number;
+  name: string;
+  title?: string;
+  specialty?: string;
+  experience?: string | number;
+  certifications?: string[];
+  bio?: string;
+  stats?: {
+    clients?: string;
+    transformations?: string;
+    rating?: string;
+  };
+  labels?: {
+    clients?: string;
+    transformations?: string;
+    rating?: string;
+  };
+  buttonText?: string;
+  color?: string;
+}
+
+interface TrainersDict {
+  header: {
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+  trainers: Trainer[];
+}
+
 export default function TrainersPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredTrainer, setHoveredTrainer] = useState<number | null>(null);
   const pathname = usePathname();
   const currentLang = pathname.split('/')[1] as 'en' | 'ge';
-  const dict = currentLang === 'ge' ? ge.trainersPage : en.trainersPage;
+  const dict: TrainersDict =
+    currentLang === 'ge' ? ge.trainersPage : en.trainersPage;
 
   useEffect(() => {
     setIsVisible(true);
@@ -65,7 +97,7 @@ export default function TrainersPage() {
       </div>
 
       <div style={styles.grid}>
-        {dict.trainers.map((trainer: any, idx: number) => (
+        {dict.trainers.map((trainer, idx) => (
           <TrainerCard
             key={trainer.id}
             trainer={trainer}

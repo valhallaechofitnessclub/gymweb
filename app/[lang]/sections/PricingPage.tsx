@@ -3,11 +3,25 @@
 import React, { useState, useEffect } from 'react';
 import PricingCard from '@/components/PricingCard';
 
+interface PricingPlan {
+  name: string;
+  description: string;
+  price: number;
+  oldPrice?: number | null;
+  isDiscounted: boolean;
+  duration: string;
+  features: string[];
+  isPopular?: boolean;
+  badge?: string;
+}
+
+interface PricingPageDict {
+  header: { title: string; subtitle: string };
+  plans: Record<string, PricingPlan>;
+}
+
 interface PricingPageProps {
-  dict: {
-    header: { title: string; subtitle: string };
-    plans: { [key: string]: any };
-  };
+  dict: PricingPageDict;
   lang?: 'en' | 'ka';
 }
 
