@@ -98,5 +98,158 @@
             "title": "All Locations",
             "text": "Choose your destination and start your transformation"
         }
+    },
+    "trainersPage": {
+        "header": {
+            "title": "TRAINERS",
+            "subtitle": "Elite Coaching Staff",
+            "description": "Our certified experts bring decades of combined experience to help you achieve your goals"
+        },
+        "trainers": [
+            {
+                "id": 1,
+                "name": "Marcus Steel",
+                "title": "Strength & Conditioning",
+                "specialty": "Olympic Lifting",
+                "experience": "12 Years",
+                "certifications": [
+                    "CSCS",
+                    "USAW Level 2"
+                ],
+                "bio": "Former competitive powerlifter turned coach. Specializes in building raw strength and explosive power.",
+                "stats": {
+                    "clients": "200+",
+                    "transformations": "150+",
+                    "rating": "5.0"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            },
+            {
+                "id": 2,
+                "name": "Sarah Phoenix",
+                "title": "HIIT & Functional Training",
+                "specialty": "Weight Loss",
+                "experience": "8 Years",
+                "certifications": [
+                    "NASM-CPT",
+                    "TRX Certified"
+                ],
+                "bio": "High-energy coach focused on metabolic conditioning and sustainable fat loss through functional movements.",
+                "stats": {
+                    "clients": "180+",
+                    "transformations": "120+",
+                    "rating": "4.9"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            },
+            {
+                "id": 3,
+                "name": "Jordan Atlas",
+                "title": "Bodybuilding & Aesthetics",
+                "specialty": "Muscle Hypertrophy",
+                "experience": "10 Years",
+                "certifications": [
+                    "ISSA",
+                    "Precision Nutrition"
+                ],
+                "bio": "Competition prep coach with expertise in body recomposition and advanced training techniques.",
+                "stats": {
+                    "clients": "160+",
+                    "transformations": "100+",
+                    "rating": "5.0"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            },
+            {
+                "id": 4,
+                "name": "Nina Velocity",
+                "title": "Athletic Performance",
+                "specialty": "Speed & Agility",
+                "experience": "9 Years",
+                "certifications": [
+                    "CSCS",
+                    "FMS Level 2"
+                ],
+                "bio": "Former D1 athlete specializing in sports performance, injury prevention, and movement optimization.",
+                "stats": {
+                    "clients": "140+",
+                    "transformations": "90+",
+                    "rating": "4.9"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            },
+            {
+                "id": 5,
+                "name": "Alex Titan",
+                "title": "CrossFit & Conditioning",
+                "specialty": "Functional Fitness",
+                "experience": "11 Years",
+                "certifications": [
+                    "CF-L3",
+                    "USAW Sports"
+                ],
+                "bio": "CrossFit veteran pushing athletes to new limits through varied, high-intensity functional training.",
+                "stats": {
+                    "clients": "190+",
+                    "transformations": "130+",
+                    "rating": "5.0"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            },
+            {
+                "id": 6,
+                "name": "Maya Force",
+                "title": "Yoga & Mobility",
+                "specialty": "Recovery & Flexibility",
+                "experience": "7 Years",
+                "certifications": [
+                    "RYT-500",
+                    "FRC Certified"
+                ],
+                "bio": "Holistic approach combining yoga, mobility work, and mindfulness for complete body-mind transformation.",
+                "stats": {
+                    "clients": "220+",
+                    "transformations": "140+",
+                    "rating": "5.0"
+                },
+                "labels": {
+                    "clients": "Clients",
+                    "transformations": "Transformations",
+                    "rating": "Rating"
+                },
+                "buttonText": "Book Session",
+                "color": "rgba(163, 230, 53, 0.15)"
+            }
+        ]
     }
 }

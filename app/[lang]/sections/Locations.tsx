@@ -27,7 +27,7 @@ function EarthScene({ isHovering }: { isHovering: boolean }) {
 
   useFrame(() => {
     if (groupRef.current) {
-      const targetScale = isHovering ? 1.2 : 1;
+      const targetScale = isHovering ? 1.1 : 1;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
     }
   });
@@ -110,11 +110,24 @@ export default function Locations({ dict }: LocationsProps) {
   return (
     <>
       <style>{`
+        @media (max-width: 1280px) {
+          .locations-earth-container {
+          width: 100% !important;
+          height: 400px !important;
+      }
+        }
         @media (max-width: 1024px) {
+        .locations-section {
+            min-height:  0 !important;
+          }
           .locations-container {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 0rem !important;
             text-align: center;
+          }
+          .locations-title {
+            font-size: clamp(2.5rem, 10vw, 5rem) !important;
+            margin-top: 0;
           }
           
           .locations-content {
@@ -128,6 +141,7 @@ export default function Locations({ dict }: LocationsProps) {
             height: 400px !important;
             max-width: 500px !important;
             margin: 0 auto !important;
+            order: 2;
           }
           
           .locations-description {

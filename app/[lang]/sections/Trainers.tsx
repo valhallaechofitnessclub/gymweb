@@ -31,6 +31,9 @@ export default function Trainers({ dict }: TrainersProps) {
         return () => observer.disconnect();
     }, []);
 
+    const [isHovering, setIsHovering] = useState(false);
+
+
     const styles: { [key: string]: React.CSSProperties } = {
         section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem' },
         container: { maxWidth: '1400px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' },
@@ -70,16 +73,16 @@ export default function Trainers({ dict }: TrainersProps) {
                 .trainers-link:hover .trainers-underline {
                     width: 100% !important;
                 }
-                
-                .trainers-circle:hover {
+
+                ${isHovering ? `.trainers-circle` : ''} {
                     transform: scale(1.05);
                     filter: drop-shadow(0 0 50px rgba(163,230,53,0.35));
                 }
-                
-                .trainers-circle:hover .trainers-image {
+
+                ${isHovering ? '.trainers-circle .trainers-image' : ''} {
                     transform: scale(1.1);
                     filter: brightness(1.2) contrast(1.15);
-                }
+                }}
                 
                 @media (max-width: 1024px) {
                     .trainers-container {
@@ -174,6 +177,8 @@ export default function Trainers({ dict }: TrainersProps) {
                             href="/trainers"
                             style={styles.link}
                             className="trainers-link"
+                            onMouseEnter={() => setIsHovering(true)}
+                            onMouseLeave={() => setIsHovering(false)}
                         >
                             {dict.button}
                             <div style={styles.underline} className="trainers-underline" />
