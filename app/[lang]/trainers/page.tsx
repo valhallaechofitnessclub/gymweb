@@ -40,6 +40,7 @@ interface TrainersDict {
 export default function TrainersPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredTrainer, setHoveredTrainer] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
   const currentLang = pathname.split('/')[1] as 'en' | 'ge';
   const dict: TrainersDict =
@@ -47,18 +48,27 @@ export default function TrainersPage() {
 
   useEffect(() => {
     setIsVisible(true);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
     container: {
       minHeight: '100vh',
-      padding: '6rem 2rem 4rem',
+      padding: isMobile ? '5rem 1rem 0rem' : '6rem 2rem 4rem',
     },
     header: {
       textAlign: 'center',
       marginBottom: '5rem',
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? 'translateY(0)' : 'translateY(-30px)',
+      transition: 'opacity 0.6s ease, transform 0.6s ease',
     },
     title: {
       fontSize: 'clamp(3rem, 8vw, 6rem)',
@@ -83,8 +93,11 @@ export default function TrainersPage() {
       maxWidth: '1400px',
       margin: '0 auto',
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-      gap: '2.5rem',
+      gridTemplateColumns: isMobile
+        ? 'auto'
+        : 'repeat(auto-fit, minmax(380px, 1fr))',
+      gap: isMobile ? '1.5rem' : '2.5rem',
+      justifyContent: 'center',
     },
   };
 
@@ -93,7 +106,6 @@ export default function TrainersPage() {
       <div style={styles.header}>
         <h1 style={styles.title}>{dict.header.title}</h1>
         <p style={styles.subtitle}>{dict.header.subtitle}</p>
-        <p style={styles.description}>{dict.header.description}</p>
       </div>
 
       <div style={styles.grid}>

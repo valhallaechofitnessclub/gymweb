@@ -1,8 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const socialLinks = [
     {
       name: 'Instagram',
@@ -48,8 +57,8 @@ export default function Footer() {
   const styles: { [key: string]: React.CSSProperties } = {
     footer: {
       borderTop: '1px solid rgba(163, 230, 53, 0.1)',
-      padding: '4rem 2rem 2rem',
-      marginTop: '6rem',
+      padding: isMobile ? '0' : '4rem 2rem 2rem',
+      marginTop: isMobile ? '0' : '6rem',
     },
     container: {
       maxWidth: '1400px',
@@ -59,7 +68,7 @@ export default function Footer() {
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
-      gap: '3rem',
+      gap: isMobile ? '1rem' : '3rem',
     },
     brand: {
       textAlign: 'center' as const,
@@ -81,7 +90,7 @@ export default function Footer() {
     },
     socialLinks: {
       display: 'flex',
-      gap: '2rem',
+      gap: isMobile ? '1rem' : '2rem',
       flexWrap: 'wrap' as const,
       justifyContent: 'center',
     },
@@ -89,13 +98,14 @@ export default function Footer() {
       width: '100%',
       height: '1px',
       background: 'linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.3), transparent)',
-      margin: '2rem 0',
+      margin: isMobile ? '1rem 0 0 1rem' : '2rem 0 0 2rem',
     },
     copyright: {
       textAlign: 'center' as const,
       color: 'rgba(255, 255, 255, 0.5)',
       fontSize: '0.875rem',
       letterSpacing: '0.05em',
+      marginTop: 0,
     },
   };
 
@@ -158,6 +168,12 @@ export default function Footer() {
             justify-content: center;
           }
         }
+          @media (max-width: 480px) {
+          .social-link {
+            width: 100%;
+            margin: 0 2rem;
+            justify-content: center;
+          }
       `}</style>
 
       <footer style={styles.footer}>

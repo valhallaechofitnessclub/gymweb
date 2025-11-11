@@ -203,6 +203,7 @@ export default function Locations({ dict }: LocationsProps) {
             height: 300px !important;
             max-width: 300px !important;
           }
+            canvas { width: 100% !important;}
         }
       `}</style>
 

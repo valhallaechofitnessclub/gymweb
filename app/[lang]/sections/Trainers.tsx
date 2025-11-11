@@ -42,18 +42,18 @@ export default function Trainers({ dict }: TrainersProps) {
             transform: isVisible ? 'translateX(0)' : 'translateX(-40px)',
             transition: 'opacity 0.8s ease, transform 0.8s ease',
         },
-        title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', letterSpacing: '0.05em', lineHeight: 1 },
+        title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', letterSpacing: '0.05em', lineHeight: 1, marginTop: 0 },
         description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
         link: { textDecoration: 'none', display: 'inline-block', fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', color: '#a3e635', fontWeight: 600, letterSpacing: '0.1em', position: 'relative', paddingBottom: '5px', cursor: 'pointer' },
         underline: { position: 'absolute', bottom: 0, left: 0, width: '40px', height: '2px', background: '#a3e635', transition: 'width 0.3s ease' },
         imageContainer: {
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'end',
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
             transition: 'opacity 0.8s ease, transform 0.8s ease 0.1s',
             position: 'relative',
+            width: 'fit-content',
         },
         circle: {
             width: '420px',
@@ -70,21 +70,7 @@ export default function Trainers({ dict }: TrainersProps) {
     return (
         <>
             <style>{`
-                .trainers-link:hover .trainers-underline {
-                    width: 100% !important;
-                }
-
-                ${isHovering ? `.trainers-circle` : ''} {
-                    transform: scale(1.05);
-                    filter: drop-shadow(0 0 50px rgba(163,230,53,0.35));
-                }
-
-                ${isHovering ? '.trainers-circle .trainers-image' : ''} {
-                    transform: scale(1.1);
-                    filter: brightness(1.2) contrast(1.15);
-                }}
-                
-                @media (max-width: 1024px) {
+             @media (max-width: 1024px) {
                     .trainers-container {
                         grid-template-columns: 1fr !important;
                         gap: 3rem !important;
@@ -108,9 +94,13 @@ export default function Trainers({ dict }: TrainersProps) {
                     
                     .trainers-image-container {
                         transform: ${isVisible ? 'translateY(0)' : 'translateY(20px)'} !important;
+                        justify-self: center !important;
                     }
                 }
-                
+                .trainers-link:hover .trainers-underline {
+                    width: 100% !important;
+                }
+                        
                 @media (max-width: 768px) {
                     .trainers-section {
                         padding: 3rem 1.5rem !important;
@@ -164,6 +154,16 @@ export default function Trainers({ dict }: TrainersProps) {
                         height: 240px !important;
                     }
                 }
+
+                ${isHovering ? `.trainers-circle` : ''} {
+                    transform: scale(1.05);
+                    filter: drop-shadow(0 0 50px rgba(163,230,53,0.35));
+                }
+
+                ${isHovering ? '.trainers-circle .trainers-image' : ''} {
+                    transform: scale(1.1);
+                    filter: brightness(1.2) contrast(1.15);
+                }}
             `}</style>
 
             <section style={styles.section} ref={containerRef} className="trainers-section">

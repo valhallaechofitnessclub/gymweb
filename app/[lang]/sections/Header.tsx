@@ -90,7 +90,7 @@ export default function Header({ dict }: Props) {
       lastScrollY = currentScrollY;
     };
 
-    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    const checkScreen = () => setIsMobile(window.innerWidth < 864);
     checkScreen();
 
     window.addEventListener('scroll', handleScroll);
@@ -114,7 +114,7 @@ export default function Header({ dict }: Props) {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '0 2rem',
+      padding: isMobile ? '0 1rem' : '0 2rem',
       height: '80px',
       backdropFilter: 'blur(6px)',
       backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
@@ -123,7 +123,7 @@ export default function Header({ dict }: Props) {
     logo: {
       display: 'flex',
       alignItems: 'center',
-      gap: '1rem',
+      gap: '0.7rem',
       color: 'white',
       fontWeight: 900,
       cursor: 'pointer',

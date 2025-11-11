@@ -25,6 +25,7 @@ interface LocationsPageProps {
 
 export default function LocationsPage({ dict }: LocationsPageProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const locations = Object.values(dict.cards).map((card, i) => ({
     id: i + 1,
@@ -33,12 +34,20 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
 
   useEffect(() => {
     setIsVisible(true);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const styles = {
     container: {
       minHeight: '100vh',
-      padding: '6rem 2rem 4rem',
+      padding: isMobile ? '5rem 1rem 2rem' : '6rem 2rem 4rem',
     },
     header: {
       textAlign: 'center',
@@ -65,13 +74,15 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
       maxWidth: '1400px',
       margin: '0 auto',
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: '2rem',
+      gridTemplateColumns: isMobile
+        ? '1fr'
+        : 'repeat(auto-fit, minmax(350px, 1fr))',
+      gap: isMobile ? '1.5rem' : '2rem',
     },
     mapSection: {
       maxWidth: '1400px',
       margin: '4rem auto 0',
-      padding: '3rem',
+      padding: isMobile ? '1rem' : '3rem',
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(10px)',
       borderRadius: '20px',
@@ -82,6 +93,7 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
       fontWeight: 700,
       color: 'white',
       marginBottom: '1rem',
+      marginTop: '1rem',
     },
     mapText: {
       color: '#a1a1aa',
@@ -89,7 +101,7 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
       marginBottom: '2rem',
     },
     mapPlaceholder: {
-      height: '400px',
+      height: isMobile ? '200px' : '400px',
       background: 'linear-gradient(135deg, #18181b 0%, #27272a 100%)',
       borderRadius: '12px',
       display: 'flex',
@@ -128,7 +140,7 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
           style={{ display: 'block' }}
         >
           <div style={styles.mapPlaceholder}>
-            <MapPin size={80} color="#a3e635" opacity={0.3} />
+            <MapPin size={isMobile ? 50 : 80} color="#a3e635" opacity={0.3} />
           </div>
         </Link>
       </div>
