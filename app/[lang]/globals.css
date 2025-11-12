@@ -26,3 +26,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+html, body {
+  overflow-x: hidden;
+}

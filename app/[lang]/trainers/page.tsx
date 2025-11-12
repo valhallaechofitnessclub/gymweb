@@ -96,7 +96,7 @@ export default function TrainersPage() {
       gridTemplateColumns: isMobile
         ? 'auto'
         : 'repeat(auto-fit, minmax(380px, 1fr))',
-      gap: isMobile ? '1.5rem' : '2.5rem',
+      gap: isMobile ? '1rem' : '2rem',
       justifyContent: 'center',
     },
   };

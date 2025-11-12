@@ -40,15 +40,25 @@ function EarthScene({ isHovering }: { isHovering: boolean }) {
 }
 
 function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHovering: boolean }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div
       className="locations-earth-container"
       style={{
-        width: '90%',
-        height: '450px',
+        width: '77%',
+        height: '400px',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
         transition: 'opacity 0.8s ease, transform 0.8s ease',
+        touchAction: 'none',
       }}
     >
       <Canvas
@@ -62,7 +72,7 @@ function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHoveri
         <pointLight position={[0, -5, 0]} intensity={0.5} />
         <pointLight position={[0, 5, 0]} intensity={0.5} />
         <EarthScene isHovering={isHovering} />
-        <OrbitControls enableZoom={false} enablePan={false} />
+        {!isMobile && <OrbitControls enableZoom={false} enablePan={false} />}
       </Canvas>
     </div>
   );
@@ -98,10 +108,10 @@ export default function Locations({ dict }: LocationsProps) {
   }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
-    section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem' },
+    section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 2rem' },
     container: { maxWidth: '1400px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' },
     contentSide: { opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateX(0)' : 'translateX(-40px)', transition: 'opacity 0.8s ease, transform 0.8s ease' },
-    title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', letterSpacing: '0.05em', lineHeight: 1 },
+    title: { fontSize: 'clamp(3rem, 8vw, 8rem)', fontWeight: 900, color: 'white', marginBottom: '1.5rem', marginTop: '0', letterSpacing: '0.05em', lineHeight: 1 },
     description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
     link: { display: 'inline-block', fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', color: '#a3e635', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.1em', position: 'relative', paddingBottom: '5px', cursor: 'pointer' },
     underline: { position: 'absolute', bottom: 0, left: 0, width: isHovering ? '100%' : '40px', height: '2px', background: '#a3e635', transition: 'width 0.3s ease' },
@@ -191,8 +201,8 @@ export default function Locations({ dict }: LocationsProps) {
           }
           
           .locations-description {
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
           }
           
           .locations-link {

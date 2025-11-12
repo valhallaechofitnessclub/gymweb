@@ -77,7 +77,7 @@ export default function LocationsPage({ dict }: LocationsPageProps) {
       gridTemplateColumns: isMobile
         ? '1fr'
         : 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: isMobile ? '1.5rem' : '2rem',
+      gap: isMobile ? '1rem' : '2rem',
     },
     mapSection: {
       maxWidth: '1400px',

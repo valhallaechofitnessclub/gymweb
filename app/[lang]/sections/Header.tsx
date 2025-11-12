@@ -140,7 +140,7 @@ export default function Header({ dict }: Props) {
       border: 'none',
       color: 'white',
       cursor: 'pointer',
-      padding: '0.5rem',
+      padding: '0',
       zIndex: 51,
     },
     mobileMenu: {

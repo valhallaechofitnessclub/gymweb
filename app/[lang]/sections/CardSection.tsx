@@ -223,7 +223,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
         @media (max-width: 480px) {
           .cards-container {
             margin-top: -60px !important;
-            padding: 0 0.75rem !important;
+            padding: 0 0.75rem 2rem!important;
           }
           
           .card {
