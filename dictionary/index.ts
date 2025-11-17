@@ -1,11 +1,14 @@
-import en from "./en.json";
-import ge from "./ge.json";
+import en from './en.json';
+import ge from './ge.json';
+import type { Locale } from '@/app/type/118n';
 
-export const dictionaries: Record<string, any> = {
+const dictionaries = {
   en,
   ge,
-};
+} as const;
 
-export const getDictionary = (lang: string) => {
-  return dictionaries[lang] || dictionaries["en"];
-};
+export type Dictionary = typeof en;
+
+export function getDictionary(locale: string): Dictionary {
+  return dictionaries[locale as Locale] || dictionaries.en;
+}

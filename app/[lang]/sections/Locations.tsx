@@ -93,19 +93,19 @@ export default function Locations({ dict, lang }: LocationsProps) {
 
   useEffect(() => {
     if (!containerRef.current) return;
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setIsVisible(true);
-        });
+      ([entry], obs) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          obs.disconnect();
+        }
       },
       { threshold: 0.1 }
     );
-
     observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
+
 
   const styles: { [key: string]: React.CSSProperties } = {
     section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 2rem' },

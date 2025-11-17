@@ -3,41 +3,25 @@
 import React, { useState, useEffect } from 'react';
 import PricingCard from '@/components/PricingCard';
 import Hero from '@/components/Hero';
-import dictionaryEn from '@/dictionary/en.json';
-import dictionaryGe from '@/dictionary/ge.json';
+import { useDictionary } from '@/app/context/DictionaryContext';
 
-const dictionaries = {
-  en: dictionaryEn,
-  ge: dictionaryGe,
-};
-
-interface PricingProps {
-  params: Promise<{
-    lang: 'en' | 'ge';
-  }>;
-}
-
-export default function Pricing({ params }: PricingProps) {
+export default function Pricing() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [lang, setLang] = useState<'en' | 'ge'>('en');
+  const { dict, lang } = useDictionary();
 
   useEffect(() => {
-    params.then(({ lang: resolvedLang }) => {
-      setLang(resolvedLang);
-      setIsVisible(true);
-    });
+    setIsVisible(true);
 
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [params]);
+  }, []);
 
-  const dictionary = dictionaries[lang] || dictionaryEn;
-  const dict = dictionary.pricingPage;
+  const dictData = dict.pricingPage;
 
-  const plans = Object.values(dict.plans).map((plan, i) => ({
+  const plans = Object.values(dictData.plans).map((plan, i) => ({
     id: i + 1,
     ...plan,
   }));
@@ -62,8 +46,8 @@ export default function Pricing({ params }: PricingProps) {
   return (
     <div style={styles.container}>
       <Hero
-        title={dict.header.title}
-        subtitle={dict.header.subtitle}
+        title={dictData.header.title}
+        subtitle={dictData.header.subtitle}
         isVisible={isVisible}
       />
 

@@ -1,36 +1,22 @@
+'use client';
+
 import React from 'react';
+import { useDictionary } from '@/app/context/DictionaryContext';
 import Hero from './sections/Hero';
 import CardSection from './sections/CardSection';
-import Locations from './sections/Locations';
 import Trainers from './sections/Trainers';
+import Locations from './sections/Locations';
 
-// Import dictionaries
-import dictionaryEn from '@/dictionary/en.json';
-import dictionaryGe from '@/dictionary/ge.json';
 
-const dictionaries = {
-  en: dictionaryEn,
-  ge: dictionaryGe,
-};
-
-interface HomeProps {
-  params: {
-    lang: 'en' | 'ge';
-  };
-}
-
-export default function Home({ params }: HomeProps) {
-  const { lang } = params; 
-  console.log(lang);
-
-  const dictionary = dictionaries[lang] || dictionaryEn;
+export default function Home() {
+  const { dict, lang } = useDictionary();
 
   return (
-    <div style={{ backgroundColor: 'black', minHeight: '100vh' }}>
+    <div className="bg-black min-h-screen">
       <Hero />
-      <CardSection dict={dictionary.cards} />
-      <Trainers lang={lang} dict={dictionary.trainers} />
-      <Locations lang={lang} dict={dictionary.locations} />
+      <CardSection dict={dict.cards} />
+      <Trainers lang={lang as 'en' | 'ge'} dict={dict.trainers} />
+      <Locations lang={lang as 'en' | 'ge'} dict={dict.locations} />
     </div>
   );
 }

@@ -3,25 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import ActivityCard from '@/components/ActivityCard';
 import Hero from '@/components/Hero';
+import { useDictionary } from '@/app/context/DictionaryContext';
 
-import dictionaryEn from '@/dictionary/en.json';
-import dictionaryGe from '@/dictionary/ge.json';
-
-const dictionaries = {
-  en: dictionaryEn,
-  ge: dictionaryGe,
-};
-
-interface ActivitiesProps {
-  params: Promise<{
-    lang: 'en' | 'ge';
-  }>;
-}
-
-export default function Activities({ params }: ActivitiesProps) {
+export default function Activities() {
   const [isVisible, setIsVisible] = useState(false);
-  const [lang, setLang] = useState<'en' | 'ge'>('en');
   const [isMobile, setIsMobile] = useState(false);
+  const { dict, lang } = useDictionary();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 864);
@@ -31,16 +18,12 @@ export default function Activities({ params }: ActivitiesProps) {
   }, []);
 
   useEffect(() => {
-    params.then(({ lang: paramLang }) => {
-      setLang(paramLang);
-      setIsVisible(true);
-    });
-  }, [params]);
+    setIsVisible(true);
+  }, []);
 
-  const dictionary = dictionaries[lang] || dictionaryEn;
-  const dict = dictionary.activitiesPage;
+  const dictData = dict.activitiesPage;
 
-  const activities = Object.values(dict.activities).map((activity, i) => ({
+  const activities = Object.values(dictData.activities).map((activity, i) => ({
     id: i + 1,
     ...activity,
   }));
@@ -66,8 +49,8 @@ export default function Activities({ params }: ActivitiesProps) {
     <div style={styles.container}>
 
       <Hero
-        title={dict.header.title}
-        subtitle={dict.header.subtitle}
+        title={dictData.header.title}
+        subtitle={dictData.header.subtitle}
         isVisible={isVisible}
       />
 

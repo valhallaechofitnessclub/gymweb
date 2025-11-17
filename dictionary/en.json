@@ -385,5 +385,56 @@
                 "image": "fitness.jpg"
             }
         }
+    },
+    "contactPage": {
+        "header": {
+            "title": "Get In Touch",
+            "subtitle": "We're Here to Help"
+        },
+        "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
+        "contactInfo": {
+            "email": "info@reforma.com.ge",
+            "phone": "+995 322 420 337"
+        },
+        "locations": [
+            {
+                "name": "Downtown Hub",
+                "address": "125 Main Street, Suite 300",
+                "phone": "(555) 123-4567",
+                "hours": "Mon-Fri: 5AM - 11PM | Sat-Sun: 7AM - 9PM",
+                "email": "downtown@reforma.com.ge"
+            },
+            {
+                "name": "Westside Performance",
+                "address": "890 West Avenue, Floor 2",
+                "phone": "(555) 234-5678",
+                "hours": "Mon-Sun: 24/7",
+                "email": "westside@reforma.com.ge"
+            },
+            {
+                "name": "Eastside Elite",
+                "address": "456 East Boulevard",
+                "phone": "(555) 345-6789",
+                "hours": "Mon-Fri: 6AM - 10PM | Sat-Sun: 8AM - 8PM",
+                "email": "eastside@reforma.com.ge"
+            },
+            {
+                "name": "Northside Strength",
+                "address": "789 North Street",
+                "phone": "(555) 456-7890",
+                "hours": "Mon-Sat: 6AM - 10PM | Sun: 8AM - 8PM",
+                "email": "northside@reforma.com.ge"
+            }
+        ],
+        "form": {
+            "title": "Send us a message",
+            "name": "Full Name",
+            "email": "Email Address",
+            "phone": "Phone Number",
+            "message": "Message",
+            "submit": "Send Message",
+            "success": "Thank you! We'll get back to you soon.",
+            "error": "Something went wrong. Please try again."
+        }
     }
 }

@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 
-interface CardDict {
-  card1: { title: string; text: string };
-  card2: { title: string; text: string };
-  card3: { title: string; text: string };
+interface Card {
+  title: string;
+  text: string;
+  backgroundImage?: string;
 }
+
+type CardDict = Record<string, Card>;
+
 
 export default function CardSection({ dict }: { dict: CardDict }) {
   const [isVisible, setIsVisible] = useState(false);

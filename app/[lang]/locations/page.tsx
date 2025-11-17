@@ -5,41 +5,25 @@ import { MapPin } from 'lucide-react';
 import LocationCard from '@/components/LocationsCard';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
-import dictionaryEn from '@/dictionary/en.json';
-import dictionaryGe from '@/dictionary/ge.json';
+import { useDictionary } from '@/app/context/DictionaryContext';
 
-const dictionaries = {
-  en: dictionaryEn,
-  ge: dictionaryGe,
-};
-
-interface HomeProps {
-  params: Promise<{
-    lang: 'en' | 'ge';
-  }>;
-}
-
-export default function Home({ params }: HomeProps) {
+export default function LocationsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [lang, setLang] = useState<'en' | 'ge'>('en');
+  const { dict } = useDictionary();
 
   useEffect(() => {
-    params.then(({ lang: resolvedLang }) => {
-      setLang(resolvedLang);
-      setIsVisible(true);
-    });
+    setIsVisible(true);
 
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [params]);
+  }, []);
 
-  const dictionary = dictionaries[lang] || dictionaryEn;
-  const dict = dictionary.locationsPage;
+  const dictData = dict.locationsPage;
 
-  const locations = Object.values(dict.cards).map((card, i) => ({
+  const locations = Object.values(dictData.cards).map((card, i) => ({
     id: i + 1,
     ...card,
   }));
@@ -94,8 +78,8 @@ export default function Home({ params }: HomeProps) {
   return (
     <div style={styles.container}>
       <Hero
-        title={dict.header.title}
-        subtitle={dict.header.subtitle}
+        title={dictData.header.title}
+        subtitle={dictData.header.subtitle}
         isVisible={isVisible}
       />
 
@@ -111,8 +95,8 @@ export default function Home({ params }: HomeProps) {
       </div>
 
       <div style={styles.mapSection}>
-        <h2 style={styles.mapTitle}>{dict.mapSection.title}</h2>
-        <p style={styles.mapText}>{dict.mapSection.text}</p>
+        <h2 style={styles.mapTitle}>{dictData.mapSection.title}</h2>
+        <p style={styles.mapText}>{dictData.mapSection.text}</p>
 
         <Link
           href="https://www.google.com/maps?sca_esv=25e6345522a98859&output=search&q=რეფორმა&source=lnms&fbs=AIIjpHzZzB2ZqEE71Te1HhZB2eS5CB8DXh_Vz1MtU1PbrsfE5evFSw0z9rcUb0iAP2Q2MBk54AvObt4DR69vsBH9RvnhpA50etHoLGYWuDeKcLgleW_bn8eYGMm1Lq5RNyVbNpuLdPfYZFgi2wegriqEteXBu6eqmZpa2gZBSGEM8gYdZUCjcgvmUWFW6IczUu4RKMyB9CHOYDFoMFfM5Wt0ofMDGSNa4qh1gtzNUSiDTbYL-DIQjmMJ_MMzIL2WkM_7nVp-LHQj&entry=mc&ved=1t:200715&ictx=111"

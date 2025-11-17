@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TrainerCard from '@/components/TrainerCard';
-import en from '@/dictionary/en.json';
-import ge from '@/dictionary/ge.json';
-import { usePathname } from 'next/navigation';
+import { useDictionary } from '@/app/context/DictionaryContext';
 
 interface Trainer {
   id: number;
@@ -41,10 +39,8 @@ export default function TrainersPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredTrainer, setHoveredTrainer] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const pathname = usePathname();
-  const currentLang = pathname.split('/')[1] as 'en' | 'ge';
-  const dict: TrainersDict =
-    currentLang === 'ge' ? ge.trainersPage : en.trainersPage;
+  const { dict } = useDictionary();
+  const trainerDict: TrainersDict = dict.trainersPage;
 
   useEffect(() => {
     setIsVisible(true);
@@ -104,12 +100,12 @@ export default function TrainersPage() {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h1 style={styles.title}>{dict.header.title}</h1>
-        <p style={styles.subtitle}>{dict.header.subtitle}</p>
+        <h1 style={styles.title}>{trainerDict.header.title}</h1>
+        <p style={styles.subtitle}>{trainerDict.header.subtitle}</p>
       </div>
 
       <div style={styles.grid}>
-        {dict.trainers.map((trainer, idx) => (
+        {trainerDict.trainers.map((trainer, idx) => (
           <TrainerCard
             key={trainer.id}
             trainer={trainer}
