@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import PricingCard from '@/components/PricingCard';
+import ActivityCard from '@/components/ActivityCard';
 import Hero from '@/components/Hero';
+
 import dictionaryEn from '@/dictionary/en.json';
 import dictionaryGe from '@/dictionary/ge.json';
 
@@ -11,35 +12,37 @@ const dictionaries = {
   ge: dictionaryGe,
 };
 
-interface PricingProps {
+interface ActivitiesProps {
   params: Promise<{
     lang: 'en' | 'ge';
   }>;
 }
 
-export default function Pricing({ params }: PricingProps) {
+export default function Activities({ params }: ActivitiesProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [lang, setLang] = useState<'en' | 'ge'>('en');
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    params.then(({ lang: resolvedLang }) => {
-      setLang(resolvedLang);
+    const check = () => setIsMobile(window.innerWidth < 864);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  useEffect(() => {
+    params.then(({ lang: paramLang }) => {
+      setLang(paramLang);
       setIsVisible(true);
     });
-
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, [params]);
 
   const dictionary = dictionaries[lang] || dictionaryEn;
-  const dict = dictionary.pricingPage;
+  const dict = dictionary.activitiesPage;
 
-  const plans = Object.values(dict.plans).map((plan, i) => ({
+  const activities = Object.values(dict.activities).map((activity, i) => ({
     id: i + 1,
-    ...plan,
+    ...activity,
   }));
 
   const styles = {
@@ -61,6 +64,7 @@ export default function Pricing({ params }: PricingProps) {
 
   return (
     <div style={styles.container}>
+
       <Hero
         title={dict.header.title}
         subtitle={dict.header.subtitle}
@@ -68,10 +72,10 @@ export default function Pricing({ params }: PricingProps) {
       />
 
       <div style={styles.grid}>
-        {plans.map((plan, idx) => (
-          <PricingCard
-            key={plan.id}
-            plan={plan}
+        {activities.map((activity, idx) => (
+          <ActivityCard
+            key={activity.id}
+            activity={activity}
             index={idx}
             isVisible={isVisible}
             lang={lang === 'ge' ? 'ka' : 'en'}

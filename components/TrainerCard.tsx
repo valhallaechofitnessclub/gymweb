@@ -26,6 +26,7 @@ interface Props {
 
 export default function TrainerCard({
   trainer,
+  index = 0,
   isVisible,
   isHovered,
   onHover,
@@ -51,12 +52,12 @@ export default function TrainerCard({
           ? 'translateY(-8px)'
           : 'translateY(0)'
         : 'translateY(30px)',
-      transition: `opacity 0.4s ease-out, transform ${transitionSpeed} ease, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
-      // 🧩 removed index-based delay (this caused slow hover)
+      transition: `opacity 0.4s ease-out ${index * 0.15}s, transform ${transitionSpeed} ease ${index * 0.15}s, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
       boxShadow: isHovered
         ? '0 20px 60px rgba(163, 230, 53, 0.2)'
         : '0 4px 20px rgba(0, 0, 0, 0.4)',
     },
+
     imageSection: {
       height: '220px',
       background: `linear-gradient(135deg, ${trainer.color ?? '#1f1f1f'}, rgba(24, 24, 27, 0.8))`,

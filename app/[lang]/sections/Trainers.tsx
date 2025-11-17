@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
+
 interface TrainersProps {
     dict: {
         title: string;
@@ -11,9 +12,10 @@ interface TrainersProps {
         button: string;
         img: string;
     };
+    lang: 'en' | 'ge';
 }
 
-export default function Trainers({ dict }: TrainersProps) {
+export default function Trainers({ dict, lang }: TrainersProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -154,7 +156,7 @@ export default function Trainers({ dict }: TrainersProps) {
                             {dict.text}
                         </p>
                         <Link
-                            href="/trainers"
+                            href={`/${lang}/trainers`}
                             style={styles.link}
                             className="trainers-link"
                             onMouseEnter={() => setIsHovering(true)}

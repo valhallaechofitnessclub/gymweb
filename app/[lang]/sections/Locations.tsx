@@ -58,7 +58,6 @@ function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHoveri
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateX(0)' : 'translateX(40px)',
         transition: 'opacity 0.8s ease, transform 0.8s ease',
-        touchAction: 'none',
       }}
     >
       <Canvas
@@ -84,9 +83,10 @@ interface LocationsProps {
     text: string;
     button: string;
   };
+  lang: 'en' | 'ge';
 }
 
-export default function Locations({ dict }: LocationsProps) {
+export default function Locations({ dict, lang }: LocationsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -227,7 +227,7 @@ export default function Locations({ dict }: LocationsProps) {
               {dict.text}
             </p>
             <Link
-              href="/activities"
+              href={`/${lang}/activities`}
               style={styles.link}
               className="locations-link"
               onMouseEnter={() => setIsHovering(true)}

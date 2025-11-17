@@ -14,22 +14,23 @@ const dictionaries = {
 };
 
 interface HomeProps {
-  params: Promise<{
+  params: {
     lang: 'en' | 'ge';
-  }>;
+  };
 }
 
-export default async function Home({ params }: HomeProps) {
-  const { lang } = await params;
-  
+export default function Home({ params }: HomeProps) {
+  const { lang } = params; 
+  console.log(lang);
+
   const dictionary = dictionaries[lang] || dictionaryEn;
 
   return (
     <div style={{ backgroundColor: 'black', minHeight: '100vh' }}>
       <Hero />
       <CardSection dict={dictionary.cards} />
-      <Trainers dict={dictionary.trainers} />
-      <Locations dict={dictionary.locations} />
+      <Trainers lang={lang} dict={dictionary.trainers} />
+      <Locations lang={lang} dict={dictionary.locations} />
     </div>
   );
 }

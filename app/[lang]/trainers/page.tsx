@@ -50,7 +50,7 @@ export default function TrainersPage() {
     setIsVisible(true);
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 864);
     };
 
     handleResize(); // Run once on mount

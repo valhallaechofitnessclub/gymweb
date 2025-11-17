@@ -313,5 +313,77 @@
                 "badge": "VIP"
             }
         }
+    },
+    "activitiesPage": {
+        "header": {
+            "title": "Our Activities",
+            "subtitle": "Transform Your Body & Mind"
+        },
+        "activities": {
+            "yoga": {
+                "name": "Yoga",
+                "description": "Find your inner peace and flexibility through guided yoga sessions",
+                "duration": "60 min",
+                "level": "All Levels",
+                "maxParticipants": "15 people",
+                "schedule": "Daily",
+                "benefits": [
+                    "Improves flexibility",
+                    "Reduces stress & anxiety",
+                    "Enhances mental clarity",
+                    "Strengthens core muscles"
+                ],
+                "icon": "yoga",
+                "image": "yoga.jpg"
+            },
+            "stretching": {
+                "name": "Stretching",
+                "description": "Improve mobility and prevent injuries with expert-led stretching routines",
+                "duration": "45 min",
+                "level": "Beginner",
+                "maxParticipants": "20 people",
+                "schedule": "Mon-Fri",
+                "benefits": [
+                    "Increases range of motion",
+                    "Prevents muscle soreness",
+                    "Improves posture",
+                    "Enhances athletic performance"
+                ],
+                "icon": "stretching",
+                "image": "stretching.jpg"
+            },
+            "boxing": {
+                "name": "Boxing",
+                "description": "Build strength, speed, and confidence with high-intensity boxing training",
+                "duration": "50 min",
+                "level": "Intermediate",
+                "maxParticipants": "12 people",
+                "schedule": "Tue-Sat",
+                "benefits": [
+                    "Burns maximum calories",
+                    "Builds full-body strength",
+                    "Improves coordination",
+                    "Boosts confidence"
+                ],
+                "icon": "boxing",
+                "image": "boxing.jpg"
+            },
+            "fitness": {
+                "name": "Fitness",
+                "description": "Comprehensive strength and cardio training for total body transformation",
+                "duration": "55 min",
+                "level": "All Levels",
+                "maxParticipants": "25 people",
+                "schedule": "Daily",
+                "benefits": [
+                    "Complete body workout",
+                    "Increases metabolism",
+                    "Builds lean muscle",
+                    "Improves cardiovascular health"
+                ],
+                "icon": "fitness",
+                "image": "fitness.jpg"
+            }
+        }
     }
 }
