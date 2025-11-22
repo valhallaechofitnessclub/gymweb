@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useDictionary } from '@/app/context/DictionaryContext';
 
 export default function Hero() {
+  const { dict } = useDictionary();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Hero() {
     title: {
       fontSize: 'clamp(4rem, 15vw, 12rem)',
       fontWeight: 900,
-      color: 'white',
+      color: '#a3e635',
       marginBottom: '1rem',
       letterSpacing: '0.05em',
       opacity: isVisible ? 1 : 0,
@@ -37,10 +39,14 @@ export default function Hero() {
       position: 'relative',
       marginTop: 0
     },
+    titleLetter: {
+      color: '#EBF111',
+      textShadow: '0 0 10px #EBF111',
+    },
     subtitle: {
       fontSize: 'clamp(1.5rem, 5vw, 3rem)',
       fontWeight: 300,
-      color: '#a3e635',
+      color: '#EBF111',
       textTransform: 'uppercase',
       letterSpacing: '0.3em',
       opacity: isVisible ? 1 : 0,
@@ -62,12 +68,25 @@ export default function Hero() {
     },
   };
 
+  // Function to render title with colored second-to-last letter
+  const renderTitleWithHighlight = (text: string) => {
+    if (text.length < 2) return text;
+    const secondToLastIndex = text.length - 2;
+    return (
+      <>
+        {text.substring(0, secondToLastIndex)}
+        <span style={styles.titleLetter}>{text[secondToLastIndex]}</span>
+        {text[text.length - 1]}
+      </>
+    );
+  };
+
   return (
     <section style={styles.container}>
       <div style={styles.content}>
-        <h2 style={styles.title}>REFORM</h2>
+        <h2 style={styles.title}>{renderTitleWithHighlight(dict.hero.title)}</h2>
         <div style={{ position: 'relative', display: 'inline-block' }}>
-          <p style={styles.subtitle}>your limits</p>
+          <p style={styles.subtitle}>{dict.hero.subtitle}</p>
           <div style={styles.glowLine} />
         </div>
       </div>

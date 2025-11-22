@@ -1,4 +1,12 @@
 {
+    "hero": {
+        "title": "ASPRIA",
+        "subtitle": "FITNESS"
+    },
+    "footer": {
+        "title": "ASPRIA",
+        "subtitle": "FITNESS"
+    },
     "header": {
         "locations": "LOCATIONS",
         "activities": "ACTIVITIES",

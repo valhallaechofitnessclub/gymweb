@@ -23,7 +23,7 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
         style={{
           fontSize: 'clamp(3rem, 8vw, 6rem)',
           fontWeight: 900,
-          color: 'white',
+          color: '#a3e635',
           marginBottom: subtitle ? '1rem' : '0',
           textShadow: '0 0 40px rgba(163,230,53,0.3)',
         }}
@@ -35,7 +35,7 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
         <p
           style={{
             fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            color: '#a3e635',
+            color: '#EBF111',
             textTransform: 'uppercase',
             fontWeight: 300,
             letterSpacing: '0.1em',

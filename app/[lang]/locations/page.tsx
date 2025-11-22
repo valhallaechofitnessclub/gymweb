@@ -99,7 +99,7 @@ export default function LocationsPage() {
         <p style={styles.mapText}>{dictData.mapSection.text}</p>
 
         <Link
-          href="https://www.google.com/maps?sca_esv=25e6345522a98859&output=search&q=რეფორმა&source=lnms&fbs=AIIjpHzZzB2ZqEE71Te1HhZB2eS5CB8DXh_Vz1MtU1PbrsfE5evFSw0z9rcUb0iAP2Q2MBk54AvObt4DR69vsBH9RvnhpA50etHoLGYWuDeKcLgleW_bn8eYGMm1Lq5RNyVbNpuLdPfYZFgi2wegriqEteXBu6eqmZpa2gZBSGEM8gYdZUCjcgvmUWFW6IczUu4RKMyB9CHOYDFoMFfM5Wt0ofMDGSNa4qh1gtzNUSiDTbYL-DIQjmMJ_MMzIL2WkM_7nVp-LHQj&entry=mc&ved=1t:200715&ictx=111"
+          href="https://www.google.com/maps/search/aspria+fitness/@41.802018,44.7020761,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'block' }}

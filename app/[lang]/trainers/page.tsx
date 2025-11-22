@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TrainerCard from '@/components/TrainerCard';
+import Hero from '@/components/Hero';
 import { useDictionary } from '@/app/context/DictionaryContext';
 
 interface Trainer {
@@ -57,33 +58,8 @@ export default function TrainersPage() {
   const styles: { [key: string]: React.CSSProperties } = {
     container: {
       minHeight: '100vh',
-      padding: isMobile ? '5rem 1rem 0rem' : '6rem 2rem 4rem',
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '5rem',
-      opacity: isVisible ? 1 : 0,
-      transform: isVisible ? 'translateY(0)' : 'translateY(-30px)',
-      transition: 'opacity 0.6s ease, transform 0.6s ease',
-    },
-    title: {
-      fontSize: 'clamp(3rem, 8vw, 6rem)',
-      fontWeight: 900,
-      color: 'white',
-      marginBottom: '1rem',
-    },
-    subtitle: {
-      fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-      color: '#a3e635',
-      textTransform: 'uppercase',
-      marginBottom: '0.5rem',
-    },
-    description: {
-      fontSize: '1.1rem',
-      color: '#a1a1aa',
-      maxWidth: '600px',
-      margin: '0 auto',
-      lineHeight: 1.6,
+      padding: isMobile ? '5rem 1rem 3rem' : '6rem 2rem 4rem',
+      backgroundColor: 'black',
     },
     grid: {
       maxWidth: '1400px',
@@ -99,10 +75,11 @@ export default function TrainersPage() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.header}>
-        <h1 style={styles.title}>{trainerDict.header.title}</h1>
-        <p style={styles.subtitle}>{trainerDict.header.subtitle}</p>
-      </div>
+      <Hero
+        title={trainerDict.header.title}
+        subtitle={trainerDict.header.subtitle}
+        isVisible={isVisible}
+      />
 
       <div style={styles.grid}>
         {trainerDict.trainers.map((trainer, idx) => (

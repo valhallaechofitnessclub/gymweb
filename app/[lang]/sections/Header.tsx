@@ -180,7 +180,7 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    backgroundColor: '#a3e635',
+    backgroundColor: '#EBF111',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
@@ -210,7 +210,7 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    backgroundColor: '#a3e635',
+    backgroundColor: '#EBF111',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
@@ -239,7 +239,7 @@ export default function Header({ dict }: Props) {
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
         <div style={styles.logo} onClick={() => router.push(`/${currentLang}`)}>
-          REFORM
+          ASPRIA
           <div style={styles.langSwitcher}>
             <button
               style={langButtonStyle(pathname.startsWith('/en'))}

@@ -343,10 +343,10 @@ export default function ContactPage() {
                       Email
                     </div>
                     <a
-                      href={`mailto:${contactDict.contactInfo.email}`}
+                      href="mailto:info@aspria.fitness"
                       style={styles.infoLink}
                     >
-                      {contactDict.contactInfo.email}
+                      info@aspria.fitness
                     </a>
                   </div>
                 </div>
@@ -358,10 +358,10 @@ export default function ContactPage() {
                       Phone
                     </div>
                     <a
-                      href={`tel:${contactDict.contactInfo.phone}`}
+                      href="tel:0322222238"
                       style={styles.infoLink}
                     >
-                      {contactDict.contactInfo.phone}
+                      032 222 22 38
                     </a>
                   </div>
                 </div>
@@ -381,7 +381,7 @@ export default function ContactPage() {
                     Follow Us
                   </h3>
                   <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href="https://www.instagram.com/reform_sport_club/" target="_blank" rel="noopener noreferrer" style={{
+                    <a href="https://www.instagram.com/aspria_fitness/" target="_blank" rel="noopener noreferrer" style={{
                       color: '#a3e635',
                       textDecoration: 'none',
                       fontSize: '0.9rem',
@@ -389,7 +389,7 @@ export default function ContactPage() {
                     }} onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')} onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
                       Instagram
                     </a>
-                    <a href="https://www.facebook.com/reformsportclub" target="_blank" rel="noopener noreferrer" style={{
+                    <a href="https://www.facebook.com/AspriaFitness/" target="_blank" rel="noopener noreferrer" style={{
                       color: '#a3e635',
                       textDecoration: 'none',
                       fontSize: '0.9rem',

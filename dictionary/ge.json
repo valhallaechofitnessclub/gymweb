@@ -1,4 +1,12 @@
 {
+    "hero": {
+        "title": "ასპრია",
+        "subtitle": "ფიტნესი"
+    },
+    "footer": {
+        "title": "ასპრია",
+        "subtitle": "ფიტნესი"
+    },
     "header": {
         "locations": "ფილიალები",
         "activities": "აქტივობები",
