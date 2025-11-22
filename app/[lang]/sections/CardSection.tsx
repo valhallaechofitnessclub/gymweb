@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Card {
   title: string;
@@ -12,6 +13,9 @@ type CardDict = Record<string, Card>;
 
 
 export default function CardSection({ dict }: { dict: CardDict }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const currentLang = pathname.split('/')[1] || 'en';
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -25,6 +29,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       description: dict.card1.text,
       backgroundImage: '/assets/images/map.jpg',
       delay: 0,
+      path: `/${currentLang}/locations`,
     },
     {
       id: 2,
@@ -32,6 +37,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       description: dict.card2.text,
       backgroundImage: '/assets/images/pricing.jpg',
       delay: 0.2,
+      path: `/${currentLang}/pricing`,
     },
     {
       id: 3,
@@ -39,6 +45,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       description: dict.card3.text,
       backgroundImage: '/assets/images/activities.jpg',
       delay: 0.4,
+      path: `/${currentLang}/activities`,
     },
   ];
 
@@ -257,6 +264,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
               style={{
                 animationDelay: `${card.delay}s`,
               }}
+              onClick={() => router.push(card.path)}
             >
               <div
                 className="card-bg"

@@ -68,7 +68,6 @@ export default function Hero() {
     },
   };
 
-  // Function to render title with colored second-to-last letter
   const renderTitleWithHighlight = (text: string) => {
     if (text.length < 2) return text;
     const secondToLastIndex = text.length - 2;
