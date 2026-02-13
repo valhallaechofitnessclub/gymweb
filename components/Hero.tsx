@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 interface HeroProps {
   title: string;
@@ -23,9 +24,12 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
         style={{
           fontSize: 'clamp(3rem, 8vw, 6rem)',
           fontWeight: 900,
-          color: '#a3e635',
+          background: BRAND_GRADIENT,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
           marginBottom: subtitle ? '1rem' : '0',
-          textShadow: '0 0 40px rgba(163,230,53,0.3)',
+          filter: `drop-shadow(0 0 40px ${brandRgba(0.25)})`,
         }}
       >
         {title}
@@ -35,10 +39,14 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
         <p
           style={{
             fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            color: '#EBF111',
+            background: BRAND_GRADIENT,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             textTransform: 'uppercase',
             fontWeight: 300,
             letterSpacing: '0.1em',
+            filter: `drop-shadow(0 0 20px ${brandRgba(0.3)})`,
           }}
         >
           {subtitle}

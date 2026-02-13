@@ -1,10 +1,10 @@
 {
     "hero": {
-        "title": "ASPRIA",
+        "title": "VALHALLA",
         "subtitle": "FITNESS"
     },
     "footer": {
-        "title": "ASPRIA",
+        "title": "VALHALLA",
         "subtitle": "FITNESS"
     },
     "header": {
@@ -46,60 +46,32 @@
         },
         "cards": {
             "card1": {
-                "name": "Downtown Hub",
-                "address": "125 Main Street, Suite 300",
-                "city": "Downtown",
-                "phone": "(555) 123-4567",
-                "hours": "Mon-Fri: 5AM - 11PM | Sat-Sun: 7AM - 9PM",
+                "name": "Valhalla Echo Fitness Club",
+                "address": "2 Mark Bronshteini I Dead End",
+                "city": "Tbilisi",
+                "phone": "557 57 37 31",
+                "hours": "Open daily · Closes 11:30 PM",
                 "features": [
-                    "Olympic Weights",
                     "Cardio Zone",
-                    "Sauna",
-                    "Smoothie Bar"
+                    "Boxing Ring",
+                    "Yoga Studio",
+                    "Personal Training"
                 ],
                 "image": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
             },
             "card2": {
-                "name": "Westside Performance",
-                "address": "890 West Avenue, Floor 2",
-                "city": "West District",
-                "phone": "(555) 234-5678",
-                "hours": "Mon-Sun: 24/7",
+                "name": "Valhalla Echo Fitness Club",
+                "address": "Giorgi Saakadze Square, Saakadze Tower",
+                "city": "Tbilisi",
+                "phone": "557 57 37 31",
+                "hours": "Open daily · Closes 11:30 PM",
                 "features": [
                     "CrossFit Area",
-                    "Boxing Ring",
-                    "Recovery Lab",
-                    "Personal Training"
+                    "Weightlifting",
+                    "Functional Training",
+                    "Recovery Zone"
                 ],
                 "image": "linear-gradient(135deg, #1f1f1f 0%, #333333 100%)"
-            },
-            "card3": {
-                "name": "Eastside Elite",
-                "address": "456 East Boulevard",
-                "city": "East Quarter",
-                "phone": "(555) 345-6789",
-                "hours": "Mon-Fri: 6AM - 10PM | Sat-Sun: 8AM - 8PM",
-                "features": [
-                    "Yoga Studio",
-                    "Pilates",
-                    "Spin Classes",
-                    "Juice Bar"
-                ],
-                "image": "linear-gradient(135deg, #252525 0%, #383838 100%)"
-            },
-            "card4": {
-                "name": "Northside Strength",
-                "address": "789 North Street",
-                "city": "North District",
-                "phone": "(555) 456-7890",
-                "hours": "Mon-Sat: 6AM - 10PM | Sun: 8AM - 8PM",
-                "features": [
-                    "Weightlifting Area",
-                    "Functional Training",
-                    "Recovery Zone",
-                    "Cafe"
-                ],
-                "image": "linear-gradient(135deg, #1e1e1e 0%, #2f2f2f 100%)"
             }
         },
         "mapSection": {
@@ -116,7 +88,7 @@
         "trainers": [
             {
                 "id": 1,
-                "name": "Marcus Steel",
+                "name": "Bashiachuki",
                 "title": "Strength & Conditioning",
                 "specialty": "Olympic Lifting",
                 "experience": "12 Years",
@@ -136,11 +108,12 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             },
             {
                 "id": 2,
-                "name": "Sarah Phoenix",
+                "name": "Bashiachuki",
                 "title": "HIIT & Functional Training",
                 "specialty": "Weight Loss",
                 "experience": "8 Years",
@@ -160,11 +133,12 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             },
             {
                 "id": 3,
-                "name": "Jordan Atlas",
+                "name": "Bashiachuki",
                 "title": "Bodybuilding & Aesthetics",
                 "specialty": "Muscle Hypertrophy",
                 "experience": "10 Years",
@@ -184,11 +158,12 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             },
             {
                 "id": 4,
-                "name": "Nina Velocity",
+                "name": "Bashiachuki",
                 "title": "Athletic Performance",
                 "specialty": "Speed & Agility",
                 "experience": "9 Years",
@@ -208,11 +183,12 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             },
             {
                 "id": 5,
-                "name": "Alex Titan",
+                "name": "Bashiachuki",
                 "title": "CrossFit & Conditioning",
                 "specialty": "Functional Fitness",
                 "experience": "11 Years",
@@ -232,11 +208,12 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             },
             {
                 "id": 6,
-                "name": "Maya Force",
+                "name": "Bashiachuki",
                 "title": "Yoga & Mobility",
                 "specialty": "Recovery & Flexibility",
                 "experience": "7 Years",
@@ -256,7 +233,8 @@
                     "rating": "Rating"
                 },
                 "buttonText": "Book Session",
-                "color": "rgba(163, 230, 53, 0.15)"
+                "color": "rgba(139, 92, 246, 0.15)",
+                "image": "trainers.jpg"
             }
         ]
     },
@@ -266,59 +244,56 @@
             "subtitle": "Choose Your Perfect Fitness Journey"
         },
         "plans": {
-            "starter": {
-                "name": "Starter",
-                "description": "Perfect for beginners starting their fitness journey",
-                "price": 99,
+            "unlimited": {
+                "name": "Monthly Unlimited",
+                "description": "Full access to the gym with no restrictions",
+                "price": 120,
                 "oldPrice": null,
                 "isDiscounted": false,
-                "duration": "Monthly Access",
+                "duration": "Monthly",
+                "startTime": "08:00",
+                "endTime": "23:30",
                 "features": [
-                    "Access to gym floor",
-                    "Basic equipment usage",
+                    "Full gym access",
+                    "All equipment usage",
                     "Locker room access",
-                    "Mobile app access",
-                    "Fitness assessment"
-                ],
-                "isPopular": false,
-                "badge": "BASIC"
-            },
-            "premium": {
-                "name": "Premium",
-                "description": "Most popular choice for serious fitness enthusiasts",
-                "price": 149,
-                "oldPrice": 199,
-                "isDiscounted": true,
-                "duration": "Monthly Access + Perks",
-                "features": [
-                    "All Starter features",
-                    "Group fitness classes",
-                    "Personal training (2 sessions/month)",
-                    "Nutrition consultation",
-                    "Sauna & spa access",
-                    "Guest passes (2/month)"
+                    "Unlimited visits"
                 ],
                 "isPopular": true,
-                "badge": "PRO"
+                "badge": "UNLIMITED"
             },
-            "elite": {
-                "name": "Elite",
-                "description": "Ultimate experience with unlimited access to everything",
-                "price": 249,
-                "oldPrice": 349,
-                "isDiscounted": true,
-                "duration": "Full Access + Premium Benefits",
+            "dayPass": {
+                "name": "Monthly Unlimited (Day Pass)",
+                "description": "Full access during daytime hours at a reduced rate",
+                "price": 80,
+                "oldPrice": null,
+                "isDiscounted": false,
+                "duration": "Monthly",
+                "startTime": "08:00",
+                "endTime": "16:00",
                 "features": [
-                    "All Premium features",
-                    "Unlimited personal training",
-                    "Priority class booking",
-                    "Private locker",
-                    "Massage therapy (4 sessions/month)",
-                    "Free merchandise",
-                    "24/7 gym access"
+                    "Full gym access",
+                    "All equipment usage",
+                    "Locker room access",
+                    "Daytime hours only"
                 ],
                 "isPopular": false,
-                "badge": "VIP"
+                "badge": "DAY"
+            },
+            "singleVisit": {
+                "name": "Single Visit",
+                "description": "One-time access for a single workout session",
+                "price": 15,
+                "oldPrice": null,
+                "isDiscounted": false,
+                "duration": "Per Visit",
+                "features": [
+                    "Full gym access",
+                    "All equipment usage",
+                    "Locker room access"
+                ],
+                "isPopular": false,
+                "badge": "SINGLE"
             }
         }
     },
@@ -342,23 +317,23 @@
                     "Strengthens core muscles"
                 ],
                 "icon": "yoga",
-                "image": "yoga.jpg"
+                "image": "trainers.jpg"
             },
-            "stretching": {
-                "name": "Stretching",
-                "description": "Improve mobility and prevent injuries with expert-led stretching routines",
-                "duration": "45 min",
-                "level": "Beginner",
-                "maxParticipants": "20 people",
-                "schedule": "Mon-Fri",
+            "presses": {
+                "name": "Presses",
+                "description": "Build upper-body power with bench, overhead, and dumbbell press variations",
+                "duration": "50 min",
+                "level": "Intermediate",
+                "maxParticipants": "12 people",
+                "schedule": "Mon-Sat",
                 "benefits": [
-                    "Increases range of motion",
-                    "Prevents muscle soreness",
-                    "Improves posture",
-                    "Enhances athletic performance"
+                    "Increases upper-body strength",
+                    "Builds chest & shoulder mass",
+                    "Improves pressing power",
+                    "Enhances core stability"
                 ],
-                "icon": "stretching",
-                "image": "stretching.jpg"
+                "icon": "presses",
+                "image": "trainers.jpg"
             },
             "boxing": {
                 "name": "Boxing",
@@ -374,23 +349,55 @@
                     "Boosts confidence"
                 ],
                 "icon": "boxing",
-                "image": "boxing.jpg"
+                "image": "trainers.jpg"
             },
-            "fitness": {
-                "name": "Fitness",
-                "description": "Comprehensive strength and cardio training for total body transformation",
-                "duration": "55 min",
+            "cardio": {
+                "name": "Cardio",
+                "description": "Elevate your heart rate and torch calories with dynamic cardio workouts",
+                "duration": "45 min",
                 "level": "All Levels",
                 "maxParticipants": "25 people",
                 "schedule": "Daily",
                 "benefits": [
-                    "Complete body workout",
-                    "Increases metabolism",
-                    "Builds lean muscle",
-                    "Improves cardiovascular health"
+                    "Improves cardiovascular health",
+                    "Burns fat efficiently",
+                    "Boosts endurance",
+                    "Elevates mood & energy"
                 ],
-                "icon": "fitness",
-                "image": "fitness.jpg"
+                "icon": "cardio",
+                "image": "trainers.jpg"
+            },
+            "zumba": {
+                "name": "Zumba",
+                "description": "Dance your way to fitness with energetic, Latin-inspired Zumba routines",
+                "duration": "55 min",
+                "level": "All Levels",
+                "maxParticipants": "30 people",
+                "schedule": "Mon-Fri",
+                "benefits": [
+                    "Full-body calorie burn",
+                    "Improves coordination",
+                    "Reduces stress",
+                    "Fun social atmosphere"
+                ],
+                "icon": "zumba",
+                "image": "trainers.jpg"
+            },
+            "aerobic": {
+                "name": "Aerobic",
+                "description": "High-energy group aerobic sessions to build stamina and stay in shape",
+                "duration": "50 min",
+                "level": "Beginner",
+                "maxParticipants": "30 people",
+                "schedule": "Mon-Sat",
+                "benefits": [
+                    "Strengthens heart & lungs",
+                    "Increases stamina",
+                    "Tones muscles",
+                    "Improves overall fitness"
+                ],
+                "icon": "aerobic",
+                "image": "trainers.jpg"
             }
         }
     },
@@ -401,39 +408,35 @@
         },
         "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
         "contactInfo": {
-            "email": "info@reforma.com.ge",
-            "phone": "+995 322 420 337"
+            "email": "info@valhallaecho.ge",
+            "phone": "557 57 37 31"
         },
         "locations": [
             {
-                "name": "Downtown Hub",
-                "address": "125 Main Street, Suite 300",
-                "phone": "(555) 123-4567",
-                "hours": "Mon-Fri: 5AM - 11PM | Sat-Sun: 7AM - 9PM",
-                "email": "downtown@reforma.com.ge"
+                "name": "Valhalla Echo — Bronshteini",
+                "address": "2 Mark Bronshteini I Dead End, Tbilisi",
+                "phone": "557 57 37 31",
+                "hours": "Open daily · Closes 11:30 PM",
+                "email": "info@valhallaecho.ge"
             },
             {
-                "name": "Westside Performance",
-                "address": "890 West Avenue, Floor 2",
-                "phone": "(555) 234-5678",
-                "hours": "Mon-Sun: 24/7",
-                "email": "westside@reforma.com.ge"
-            },
-            {
-                "name": "Eastside Elite",
-                "address": "456 East Boulevard",
-                "phone": "(555) 345-6789",
-                "hours": "Mon-Fri: 6AM - 10PM | Sat-Sun: 8AM - 8PM",
-                "email": "eastside@reforma.com.ge"
-            },
-            {
-                "name": "Northside Strength",
-                "address": "789 North Street",
-                "phone": "(555) 456-7890",
-                "hours": "Mon-Sat: 6AM - 10PM | Sun: 8AM - 8PM",
-                "email": "northside@reforma.com.ge"
+                "name": "Valhalla Echo — Saakadze Tower",
+                "address": "Giorgi Saakadze Square, Saakadze Tower, Tbilisi",
+                "phone": "557 57 37 31",
+                "hours": "Open daily · Closes 11:30 PM",
+                "email": "info@valhallaecho.ge"
             }
         ],
+        "quickContact": {
+            "title": "Quick Contact",
+            "email": "Email",
+            "phone": "Phone",
+            "hours": "Hours",
+            "hoursValue": "Monday - Sunday: 08:00 - 23:30",
+            "followUs": "Follow Us",
+            "ourLocations": "Our Locations",
+            "sending": "Sending..."
+        },
         "form": {
             "title": "Send us a message",
             "name": "Full Name",

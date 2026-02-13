@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { Award, Mail, ChevronRight, Zap } from 'lucide-react';
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 interface Trainer {
   name: string;
   color?: string;
+  image?: string;
   experience?: string | number;
   specialty?: string;
   title?: string;
@@ -40,7 +42,7 @@ export default function TrainerCard({
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(12px)',
       border: isHovered
-        ? '1px solid rgba(163, 230, 53, 0.4)'
+        ? `1px solid ${brandRgba(0.45)}`
         : '1px solid rgba(39, 39, 42, 1)',
       borderRadius: '20px',
       cursor: 'pointer',
@@ -54,13 +56,15 @@ export default function TrainerCard({
         : 'translateY(30px)',
       transition: `opacity 0.4s ease-out ${index * 0.15}s, transform ${transitionSpeed} ease ${index * 0.15}s, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
       boxShadow: isHovered
-        ? '0 20px 60px rgba(163, 230, 53, 0.2)'
+        ? `0 20px 60px ${brandRgba(0.22)}`
         : '0 4px 20px rgba(0, 0, 0, 0.4)',
     },
 
     imageSection: {
       height: '220px',
-      background: `linear-gradient(135deg, ${trainer.color ?? '#1f1f1f'}, rgba(24, 24, 27, 0.8))`,
+      background: trainer.image
+        ? `url('/assets/images/${trainer.image}') center/cover no-repeat`
+        : `linear-gradient(135deg, ${trainer.color ?? '#1f1f1f'}, rgba(24, 24, 27, 0.8))`,
       position: 'relative',
       overflow: 'hidden',
     },
@@ -90,8 +94,8 @@ export default function TrainerCard({
       right: '1rem',
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.4)',
-      color: '#a3e635',
+      border: `1px solid ${brandRgba(0.45)}`,
+      color: BRAND_ACCENT,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -107,8 +111,8 @@ export default function TrainerCard({
       left: '1rem',
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.4)',
-      color: '#a3e635',
+      border: `1px solid ${brandRgba(0.45)}`,
+      color: BRAND_ACCENT,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -147,9 +151,9 @@ export default function TrainerCard({
       marginBottom: '1.25rem',
     },
     cert: {
-      background: 'rgba(163, 230, 53, 0.08)',
-      border: '1px solid rgba(163, 230, 53, 0.2)',
-      color: '#a3e635',
+      background: brandRgba(0.1),
+      border: `1px solid ${brandRgba(0.22)}`,
+      color: BRAND_ACCENT,
       padding: '0.3rem 0.6rem',
       borderRadius: '6px',
       fontSize: '0.75rem',
@@ -175,15 +179,15 @@ export default function TrainerCard({
     primaryButton: {
       flex: 1,
       background: buttonHovered
-        ? '#a3e635'
-        : 'rgba(163, 230, 53, 0.1)',
-      border: '1px solid #a3e635',
-      color: buttonHovered ? 'black' : '#a3e635',
+        ? BRAND_GRADIENT
+        : brandRgba(0.12),
+      border: `1px solid ${brandRgba(0.6)}`,
+      color: buttonHovered ? '#0b0b0b' : BRAND_ACCENT,
     },
     iconButton: {
-      background: 'rgba(163, 230, 53, 0.08)',
-      border: '1px solid rgba(163, 230, 53, 0.2)',
-      color: '#a3e635',
+      background: brandRgba(0.1),
+      border: `1px solid ${brandRgba(0.22)}`,
+      color: BRAND_ACCENT,
       width: '44px',
     },
   };
@@ -191,9 +195,11 @@ export default function TrainerCard({
   return (
     <div style={styles.card} onMouseEnter={onHover} onMouseLeave={onLeave}>
       <div style={styles.imageSection}>
-        <div style={styles.imageLetter}>
-          {trainer.name.split(' ')[0].charAt(0)}
-        </div>
+        {!trainer.image && (
+          <div style={styles.imageLetter}>
+            {trainer.name.split(' ')[0].charAt(0)}
+          </div>
+        )}
         <div style={styles.imageOverlay} />
         <div style={styles.experienceBadge}>
           <Award size={14} />

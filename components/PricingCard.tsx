@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Check, Zap, Crown } from 'lucide-react';
+import { Check, Zap, Crown, Clock } from 'lucide-react';
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 // ----------- Types -----------
 interface PricingPlan {
@@ -12,6 +13,8 @@ interface PricingPlan {
   oldPrice?: number | null;
   isDiscounted: boolean;
   duration: string;
+  startTime?: string;
+  endTime?: string;
   features: string[];
   isPopular?: boolean;
   badge?: string;
@@ -54,32 +57,38 @@ export default function PricingCard({
 
   const styles: { [key: string]: React.CSSProperties } = {
     card: {
-      padding: '32px',
+      padding: plan.isPopular ? '38px' : '32px',
       borderRadius: '24px',
       color: '#f8fafc',
+      display: 'flex',
+      flexDirection: 'column',
       background: plan.isPopular
-        ? 'linear-gradient(135deg, rgba(163,230,53,0.15) 0%, rgba(24,24,27,0.95) 100%)'
+        ? `linear-gradient(145deg, ${brandRgba(0.22)} 0%, rgba(24,24,27,0.97) 50%, ${brandRgba(0.1)} 100%)`
         : 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(8px)',
       boxShadow: plan.isPopular
-        ? '0 8px 30px rgba(163,230,53,0.3)'
+        ? `0 0 40px ${brandRgba(0.25)}, 0 12px 40px ${brandRgba(0.3)}`
         : '0 8px 30px rgba(0,0,0,0.4)',
       overflow: 'hidden',
       position: 'relative',
       border: plan.isPopular
-        ? '2px solid rgba(163,230,53,0.5)'
+        ? `2px solid ${brandRgba(0.6)}`
         : '2px solid transparent',
-
+      transform: isVisible
+        ? (plan.isPopular ? 'scale(1.05)' : 'translateY(0)')
+        : 'translateY(50px)',
       opacity: isVisible ? 1 : 0,
-      transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
       transition: isVisible
         ? `opacity 0.6s ease-out ${index * 0.15}s, transform 0.6s ease-out ${index * 0.15}s`
         : 'none',
+      zIndex: plan.isPopular ? 2 : 1,
     },
 
     cardHover: {
-      boxShadow: '0 12px 40px rgba(163,230,53,0.35)',
-      transform: 'translateY(-8px)',
+      boxShadow: plan.isPopular
+        ? `0 0 50px ${brandRgba(0.35)}, 0 16px 50px ${brandRgba(0.4)}`
+        : `0 12px 40px ${brandRgba(0.35)}`,
+      transform: plan.isPopular ? 'scale(1.07)' : 'translateY(-8px)',
       transition: 'transform 0.2s ease, box-shadow 0.2s ease',
     },
 
@@ -87,8 +96,8 @@ export default function PricingCard({
       position: 'absolute',
       top: '20px',
       right: '20px',
-      background: 'linear-gradient(90deg, #a3e635 0%, #bef264 100%)',
-      color: '#111',
+      background: BRAND_GRADIENT,
+      color: '#0b0b0b',
       padding: '6px 14px',
       borderRadius: '20px',
       fontSize: '12px',
@@ -99,7 +108,7 @@ export default function PricingCard({
 
     planNumber: {
       fontSize: '14px',
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       opacity: 0.7,
       marginBottom: '8px',
     },
@@ -115,6 +124,29 @@ export default function PricingCard({
       marginBottom: '24px',
       fontSize: '15px',
       lineHeight: '1.5',
+    },
+
+    scheduleRow: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '20px',
+      padding: '12px 16px',
+      background: brandRgba(0.1),
+      borderRadius: '12px',
+      border: `1px solid ${brandRgba(0.2)}`,
+    },
+
+    scheduleIcon: {
+      color: BRAND_ACCENT,
+      flexShrink: 0,
+    },
+
+    scheduleText: {
+      fontSize: '18px',
+      fontWeight: 700,
+      color: '#e4e4e7',
+      letterSpacing: '1px',
     },
 
     priceContainer: {
@@ -136,9 +168,9 @@ export default function PricingCard({
     },
 
     price: {
-      fontSize: '48px',
+      fontSize: plan.isPopular ? '54px' : '48px',
       fontWeight: 900,
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       lineHeight: '1',
     },
 
@@ -159,7 +191,7 @@ export default function PricingCard({
 
     featuresTitle: {
       fontSize: '14px',
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       textTransform: 'uppercase',
       letterSpacing: '1px',
       marginBottom: '16px',
@@ -171,6 +203,7 @@ export default function PricingCard({
       flexDirection: 'column',
       gap: '12px',
       marginBottom: '28px',
+      flex: 1,
     },
 
     feature: {
@@ -188,7 +221,7 @@ export default function PricingCard({
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: '50%',
-      backgroundColor: 'rgba(163,230,53,0.15)',
+      backgroundColor: brandRgba(0.18),
       flexShrink: 0,
     },
 
@@ -199,22 +232,22 @@ export default function PricingCard({
       justifyContent: 'center',
       gap: '10px',
       background: plan.isPopular
-        ? 'linear-gradient(90deg, #a3e635 0%, #bef264 100%)'
-        : 'rgba(163,230,53,0.1)',
-      color: plan.isPopular ? '#111' : '#a3e635',
-      border: plan.isPopular ? 'none' : '2px solid rgba(163,230,53,0.3)',
+        ? BRAND_GRADIENT
+        : brandRgba(0.12),
+      color: plan.isPopular ? '#0b0b0b' : BRAND_ACCENT,
+      border: plan.isPopular ? 'none' : `2px solid ${brandRgba(0.3)}`,
       borderRadius: '12px',
       padding: '14px 18px',
       fontWeight: 700,
       fontSize: '15px',
       cursor: 'pointer',
-      boxShadow: plan.isPopular ? '0 4px 12px rgba(163,230,53,0.3)' : 'none',
+      boxShadow: plan.isPopular ? `0 4px 12px ${brandRgba(0.3)}` : 'none',
       transition: 'all 0.25s ease',
     },
 
     ctaButtonHover: {
       transform: 'scale(1.04)',
-      boxShadow: '0 6px 20px rgba(163,230,53,0.45)',
+      boxShadow: `0 6px 20px ${brandRgba(0.45)}`,
     },
   };
 
@@ -238,13 +271,20 @@ export default function PricingCard({
       <h3 style={styles.planName}>{plan.name}</h3>
       <p style={styles.description}>{plan.description}</p>
 
+      {plan.startTime && plan.endTime && (
+        <div style={styles.scheduleRow}>
+          <Clock size={20} style={styles.scheduleIcon} />
+          <span style={styles.scheduleText}>{plan.startTime} — {plan.endTime}</span>
+        </div>
+      )}
+
       <div style={styles.priceContainer}>
         {plan.isDiscounted && plan.oldPrice && (
           <div style={styles.oldPrice}>₾{plan.oldPrice}</div>
         )}
         <div style={styles.priceRow}>
           <span style={styles.price}>₾{plan.price}</span>
-          <span style={styles.duration}>{translations[lang].month}</span>
+          <span style={styles.duration}>{plan.duration}</span>
           {plan.isDiscounted && discountPercentage > 0 && (
             <div style={styles.discountBadge}>-{discountPercentage}%</div>
           )}
@@ -257,7 +297,7 @@ export default function PricingCard({
         {plan.features.map((feature, i) => (
           <div key={i} style={styles.feature}>
             <div style={styles.checkIcon}>
-              <Check size={16} color="#a3e635" strokeWidth={3} />
+              <Check size={16} color={BRAND_ACCENT} strokeWidth={3} />
             </div>
             <span>{feature}</span>
           </div>

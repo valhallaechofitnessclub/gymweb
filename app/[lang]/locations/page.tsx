@@ -6,6 +6,7 @@ import LocationCard from '@/components/LocationsCard';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
 import { useDictionary } from '@/app/context/DictionaryContext';
+import { BRAND_ACCENT, brandRgba } from '@/theme/brand';
 
 export default function LocationsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +31,7 @@ export default function LocationsPage() {
 
   const styles = {
     container: {
-      minHeight: '100vh',
+      minHeight: '100dvh',
       padding: isMobile ? '5rem 1rem 2rem' : '6rem 2rem 4rem',
       backgroundColor: 'black',
     },
@@ -71,7 +72,7 @@ export default function LocationsPage() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      border: '2px dashed rgba(163, 230, 53, 0.2)',
+      border: `2px dashed ${brandRgba(0.25)}`,
     },
   } as const;
 
@@ -99,13 +100,13 @@ export default function LocationsPage() {
         <p style={styles.mapText}>{dictData.mapSection.text}</p>
 
         <Link
-          href="https://www.google.com/maps/search/aspria+fitness/@41.802018,44.7020761,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+          href="https://www.google.com/maps/search/valhalla+echo+fitness/@41.7161693,44.6885749,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'block' }}
         >
           <div style={styles.mapPlaceholder}>
-            <MapPin size={isMobile ? 50 : 80} color="#a3e635" opacity={0.3} />
+            <MapPin size={isMobile ? 50 : 80} color={BRAND_ACCENT} opacity={0.3} />
           </div>
         </Link>
       </div>

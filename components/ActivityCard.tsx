@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Calendar, ChevronRight, Clock, TrendingUp, Users } from 'lucide-react';
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 interface Activity {
   id: number;
@@ -47,14 +48,14 @@ export default function ActivityCard({
         ? hover ? 'translateY(-8px)' : 'translateY(0)'
         : 'translateY(30px)',
       boxShadow: hover
-        ? '0 20px 60px rgba(163,230,53,0.3), 0 0 0 1px rgba(163,230,53,0.4)'
+        ? `0 20px 60px ${brandRgba(0.28)}, 0 0 0 1px ${brandRgba(0.45)}`
         : '0 4px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(39,39,42,1)',
       transition: `transform 0.3s ease ${index * 0.15}s, opacity 0.4s ease-out ${index * 0.15}s, box-shadow 0.2s ease, border 0.2s ease`,
       display: 'flex',
       flexDirection: 'column',
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(12px)',
-      border: hover ? '1px solid rgba(163, 230, 53, 0.4)' : '1px solid rgba(39, 39, 42, 1)',
+      border: hover ? `1px solid ${brandRgba(0.45)}` : '1px solid rgba(39, 39, 42, 1)',
     },
     imageSection: {
       height: '240px',
@@ -78,8 +79,8 @@ export default function ActivityCard({
       left: '1rem',
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.4)',
-      color: '#a3e635',
+      border: `1px solid ${brandRgba(0.45)}`,
+      color: BRAND_ACCENT,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -92,8 +93,8 @@ export default function ActivityCard({
       right: '1rem',
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.4)',
-      color: '#a3e635',
+      border: `1px solid ${brandRgba(0.45)}`,
+      color: BRAND_ACCENT,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -133,9 +134,9 @@ export default function ActivityCard({
       display: 'flex',
       alignItems: 'center',
       gap: '0.5rem',
-      background: 'rgba(163, 230, 53, 0.08)',
-      border: '1px solid rgba(163, 230, 53, 0.2)',
-      color: '#a3e635',
+      background: brandRgba(0.1),
+      border: `1px solid ${brandRgba(0.22)}`,
+      color: BRAND_ACCENT,
       padding: '0.5rem 0.75rem',
       borderRadius: '8px',
       fontSize: '0.8rem',
@@ -147,12 +148,12 @@ export default function ActivityCard({
       borderRadius: '10px',
       border: 'none',
       background: buttonHover
-        ? '#a3e635'
-        : 'rgba(163, 230, 53, 0.1)',
+        ? BRAND_GRADIENT
+        : brandRgba(0.12),
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: '#a3e635',
-      color: buttonHover ? 'black' : '#a3e635',
+      borderColor: brandRgba(0.6),
+      color: buttonHover ? '#0b0b0b' : BRAND_ACCENT,
       fontWeight: 700,
       fontSize: '0.9rem',
       cursor: 'pointer',

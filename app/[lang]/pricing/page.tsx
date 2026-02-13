@@ -21,10 +21,17 @@ export default function Pricing() {
 
   const dictData = dict.pricingPage;
 
-  const plans = Object.values(dictData.plans).map((plan, i) => ({
+  /* Build array and reorder so the popular plan sits in the centre */
+  const allPlans = Object.values(dictData.plans).map((plan, i) => ({
     id: i + 1,
     ...plan,
   }));
+
+  const popular = allPlans.filter((p) => (p as { isPopular?: boolean }).isPopular);
+  const others  = allPlans.filter((p) => !(p as { isPopular?: boolean }).isPopular);
+  const plans   = others.length >= 2
+    ? [others[0], ...popular, ...others.slice(1)]
+    : [...others, ...popular];
 
   const styles = {
     container: {
@@ -38,8 +45,9 @@ export default function Pricing() {
       display: 'grid',
       gridTemplateColumns: isMobile
         ? '1fr'
-        : 'repeat(auto-fit, minmax(350px, 1fr))',
+        : 'repeat(3, 1fr)',
       gap: isMobile ? '1rem' : '2rem',
+      alignItems: 'stretch',
     },
   } as const;
 

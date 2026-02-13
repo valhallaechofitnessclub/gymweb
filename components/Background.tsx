@@ -2,9 +2,24 @@
 
 import React, { useEffect, useState } from 'react';
 
+const GRADIENT_COLORS = [
+  '#ec4899',
+  '#d946ef',
+  '#a855f7',
+  '#6366f1',
+  '#3b82f6',
+];
+
 export default function Background() {
   const [particles, setParticles] = useState<
-    { id: number; left: string; top: string; delay: number; duration: number }[]
+    Array<{
+      id: number;
+      left: string;
+      top: string;
+      delay: number;
+      duration: number;
+      color: string;
+    }>
   >([]);
 
   useEffect(() => {
@@ -14,29 +29,28 @@ export default function Background() {
       top: `${Math.random() * 100}%`,
       delay: Math.random() * 3,
       duration: 4 + Math.random() * 4,
+      // cycle through the SAME gradient colors as the title
+      color: GRADIENT_COLORS[i % GRADIENT_COLORS.length],
     }));
+
     setParticles(generated);
   }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
     container: {
       position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
+      inset: 0,
       zIndex: 0,
       pointerEvents: 'none',
-      background: 'linear-gradient(to bottom, black, #18181b, black)',
+      background:
+        'linear-gradient(to bottom, #0a0a0a, #1a0a1f, #0f0a1f, #0a0a0a)',
       overflow: 'hidden',
     },
     particle: {
       position: 'absolute',
       width: '2px',
       height: '2px',
-      background: '#a3e635',
       borderRadius: '50%',
-      boxShadow: '0 0 10px #a3e635',
       opacity: 0.6,
     },
   };
@@ -45,23 +59,25 @@ export default function Background() {
     <>
       <style>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; }
-          25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
-          50% { transform: translateY(-10px) translateX(-10px); opacity: 0.4; }
-          75% { transform: translateY(-30px) translateX(5px); opacity: 0.7; }
+          0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+          25% { transform: translate(10px, -20px); opacity: 0.8; }
+          50% { transform: translate(-10px, -10px); opacity: 0.4; }
+          75% { transform: translate(5px, -30px); opacity: 0.7; }
         }
       `}</style>
 
       <div style={styles.container}>
-        {particles.map((particle) => (
+        {particles.map((p) => (
           <div
-            key={particle.id}
+            key={p.id}
             style={{
               ...styles.particle,
-              left: particle.left,
-              top: particle.top,
-              animation: `float ${particle.duration}s ease-in-out infinite`,
-              animationDelay: `${particle.delay}s`,
+              left: p.left,
+              top: p.top,
+              background: p.color,
+              boxShadow: `0 0 12px ${p.color}`,
+              animation: `float ${p.duration}s ease-in-out infinite`,
+              animationDelay: `${p.delay}s`,
             }}
           />
         ))}

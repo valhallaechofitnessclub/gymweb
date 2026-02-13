@@ -31,22 +31,23 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       delay: 0,
       path: `/${currentLang}/locations`,
     },
-    {
+        {
       id: 2,
-      title: dict.card2.title,
-      description: dict.card2.text,
-      backgroundImage: '/assets/images/pricing.jpg',
-      delay: 0.2,
-      path: `/${currentLang}/pricing`,
-    },
-    {
-      id: 3,
       title: dict.card3.title,
       description: dict.card3.text,
       backgroundImage: '/assets/images/activities.jpg',
-      delay: 0.4,
+      delay: 0.2,
       path: `/${currentLang}/activities`,
     },
+    {
+      id: 3,
+      title: dict.card2.title,
+      description: dict.card2.text,
+      backgroundImage: '/assets/images/pricing.jpg',
+      delay: 0.4,
+      path: `/${currentLang}/pricing`,
+    },
+
   ];
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -137,8 +138,8 @@ export default function CardSection({ dict }: { dict: CardDict }) {
 
         .card:hover .card-glass {
           background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(163, 230, 53, 0.3);
-          box-shadow: 0 8px 32px rgba(163, 230, 53, 0.2);
+          border-color: rgba(163, 115, 246, 0.3);
+          box-shadow: 0 8px 32px rgba(163, 115, 246, 0.2);
         }
 
         .card-title {
@@ -148,13 +149,16 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           margin-bottom: 0.5rem;
           margin-top: 0;
           letter-spacing: 0.1em;
-          text-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
+          text-shadow: 0 0 20px rgba(163, 115, 246, 0.3);
           transition: all 0.3s ease;
         }
 
         .card:hover .card-title {
-          color: #a3e635;
-          text-shadow: 0 0 30px rgba(163, 230, 53, 0.6);
+          background: linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 0 30px rgba(163, 115, 246, 0.6));
         }
 
         .card-description {

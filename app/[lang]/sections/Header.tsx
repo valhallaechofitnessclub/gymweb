@@ -124,7 +124,10 @@ export default function Header({ dict }: Props) {
       display: 'flex',
       alignItems: 'center',
       gap: '0.7rem',
-      color: 'white',
+      background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
       fontWeight: 900,
       cursor: 'pointer',
       fontSize: '1.5rem',
@@ -150,7 +153,7 @@ export default function Header({ dict }: Props) {
       right: 0,
       backgroundColor: 'rgba(0, 0, 0, 0.95)',
       backdropFilter: 'blur(10px)',
-      borderTop: '1px solid rgba(163, 230, 53, 0.2)',
+      borderTop: '1px solid rgba(139, 92, 246, 0.2)',
       maxHeight: isMobileMenuOpen ? '400px' : '0',
       opacity: isMobileMenuOpen ? 1 : 0,
       overflow: 'hidden',
@@ -163,8 +166,11 @@ export default function Header({ dict }: Props) {
     position: 'relative',
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: active ? '#a3e635' : 'white',
-    background: 'none',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'none',
+    WebkitBackgroundClip: active ? 'text' : 'unset',
+    WebkitTextFillColor: active ? 'transparent' : 'white',
+    backgroundClip: active ? 'text' : 'unset',
     border: 'none',
     cursor: 'pointer',
     fontSize: '1rem',
@@ -180,7 +186,7 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    backgroundColor: '#EBF111',
+    background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
@@ -193,9 +199,13 @@ export default function Header({ dict }: Props) {
     borderRadius: '0.5rem',
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    backgroundColor: active ? 'rgba(163, 230, 53, 0.1)' : 'transparent',
-    borderLeft: active ? '4px solid #a3e635' : '4px solid transparent',
-    color: active ? '#a3e635' : 'white',
+    backgroundColor: active ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
+    borderLeft: active ? '4px solid #a855f7' : '4px solid transparent',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'transparent',
+    WebkitBackgroundClip: active ? 'text' : 'unset',
+    WebkitTextFillColor: active ? 'transparent' : 'white',
+    backgroundClip: active ? 'text' : 'unset',
     cursor: 'pointer',
     marginBottom: '0.5rem',
     transition: 'all 0.2s ease',
@@ -210,15 +220,18 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    backgroundColor: '#EBF111',
+    background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
 
   const langButtonStyle = (active: boolean): React.CSSProperties => ({
     fontWeight: 'bold',
-    color: active ? '#a3e635' : 'white',
-    background: 'none',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'none',
+    WebkitBackgroundClip: active ? 'text' : 'unset',
+    WebkitTextFillColor: active ? 'transparent' : 'white',
+    backgroundClip: active ? 'text' : 'unset',
     border: '1px solid white',
     borderRadius: '4px',
     padding: '0.2rem 0.5rem',
@@ -239,7 +252,7 @@ export default function Header({ dict }: Props) {
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
         <div style={styles.logo} onClick={() => router.push(`/${currentLang}`)}>
-          ASPRIA
+          VALHALLA
           <div style={styles.langSwitcher}>
             <button
               style={langButtonStyle(pathname.startsWith('/en'))}

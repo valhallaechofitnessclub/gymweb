@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import Hero from '@/components/Hero';
 import { useDictionary } from '@/app/context/DictionaryContext';
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -67,7 +68,7 @@ export default function ContactPage() {
     formSection: {
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.1)',
+      border: `1px solid ${brandRgba(0.16)}`,
       borderRadius: '20px',
       padding: isMobile ? '1.5rem' : '2rem',
       transition: 'all 0.3s ease',
@@ -86,7 +87,7 @@ export default function ContactPage() {
     },
     label: {
       display: 'block',
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       fontSize: '0.95rem',
       fontWeight: 600,
       marginBottom: '0.5rem',
@@ -96,7 +97,7 @@ export default function ContactPage() {
       width: '100%',
       padding: '0.75rem 1rem',
       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-      border: '1px solid rgba(163, 230, 53, 0.2)',
+      border: `1px solid ${brandRgba(0.28)}`,
       borderRadius: '10px',
       color: 'white',
       fontSize: '1rem',
@@ -108,7 +109,7 @@ export default function ContactPage() {
       width: '100%',
       padding: '0.75rem 1rem',
       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-      border: '1px solid rgba(163, 230, 53, 0.2)',
+      border: `1px solid ${brandRgba(0.28)}`,
       borderRadius: '10px',
       color: 'white',
       fontSize: '1rem',
@@ -121,8 +122,8 @@ export default function ContactPage() {
     submitBtn: {
       width: '100%',
       padding: '0.875rem 1.5rem',
-      backgroundColor: '#a3e635',
-      color: '#000',
+      background: BRAND_GRADIENT,
+      color: '#0b0b0b',
       border: 'none',
       borderRadius: '10px',
       fontSize: '1rem',
@@ -152,7 +153,7 @@ export default function ContactPage() {
     locationCard: {
       background: 'rgba(24, 24, 27, 0.6)',
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(163, 230, 53, 0.1)',
+      border: `1px solid ${brandRgba(0.16)}`,
       borderRadius: '15px',
       padding: isMobile ? '1.5rem' : '2rem',
       transition: 'all 0.2s ease',
@@ -161,7 +162,7 @@ export default function ContactPage() {
     locationName: {
       fontSize: '1.3rem',
       fontWeight: 700,
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       marginBottom: '1rem',
       display: 'flex',
       alignItems: 'center',
@@ -181,18 +182,18 @@ export default function ContactPage() {
     },
     infoIcon: {
       marginTop: '0.2rem',
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       flexShrink: 0,
     },
     infoLink: {
-      color: '#a3e635',
+      color: BRAND_ACCENT,
       textDecoration: 'none',
       transition: 'opacity 0.3s ease',
     },
     successMessage: {
-      backgroundColor: 'rgba(163, 230, 53, 0.1)',
-      border: '1px solid rgba(163, 230, 53, 0.3)',
-      color: '#a3e635',
+      backgroundColor: brandRgba(0.12),
+      border: `1px solid ${brandRgba(0.35)}`,
+      color: BRAND_ACCENT,
       padding: '1rem 1.5rem',
       borderRadius: '10px',
       marginBottom: '1.5rem',
@@ -208,14 +209,14 @@ export default function ContactPage() {
         input:focus, textarea:focus {
           outline: none;
           background-color: rgba(255, 255, 255, 0.08);
-          border-color: rgba(163, 230, 53, 0.5);
-          box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+          border-color: ${brandRgba(0.55)};
+          box-shadow: 0 0 15px ${brandRgba(0.22)};
         }
 
         button:hover:not(:disabled) {
-          background-color: #b8f635;
+          filter: brightness(1.05);
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(163, 230, 53, 0.3);
+          box-shadow: 0 8px 20px ${brandRgba(0.28)};
         }
 
         button:active:not(:disabled) {
@@ -228,7 +229,7 @@ export default function ContactPage() {
         }
 
         .form-section:hover {
-          border-color: #a3e635;
+          border-color: ${brandRgba(0.6)};
           background: rgba(24, 24, 27, 0.8);
         }
       `}</style>
@@ -315,7 +316,7 @@ export default function ContactPage() {
                 disabled={loading}
               >
                 <Send size={18} />
-                {loading ? 'Sending...' : contactDict.form.submit}
+                {loading ? contactDict.quickContact.sending : contactDict.form.submit}
               </button>
             </form>
           </div>
@@ -333,20 +334,20 @@ export default function ContactPage() {
             >
               <div style={styles.formTitle}>
                 <Phone size={24} />
-                Quick Contact
+                {contactDict.quickContact.title}
               </div>
               <div style={styles.locationInfo}>
                 <div style={styles.infoItem}>
                   <Mail size={20} style={styles.infoIcon} />
                   <div>
-                    <div style={{ color: '#a3e635', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
-                      Email
+                    <div style={{ color: BRAND_ACCENT, fontSize: '0.9rem', marginBottom: '0.25rem' }}>
+                      {contactDict.quickContact.email}
                     </div>
                     <a
-                      href="mailto:info@aspria.fitness"
+                      href="mailto:info@valhallaecho.ge"
                       style={styles.infoLink}
                     >
-                      info@aspria.fitness
+                      info@valhallaecho.ge
                     </a>
                   </div>
                 </div>
@@ -354,43 +355,42 @@ export default function ContactPage() {
                 <div style={styles.infoItem}>
                   <Phone size={20} style={styles.infoIcon} />
                   <div>
-                    <div style={{ color: '#a3e635', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
-                      Phone
+                    <div style={{ color: BRAND_ACCENT, fontSize: '0.9rem', marginBottom: '0.25rem' }}>
+                      {contactDict.quickContact.phone}
                     </div>
                     <a
-                      href="tel:0322222238"
+                      href="tel:557573731"
                       style={styles.infoLink}
                     >
-                      032 222 22 38
+                      557 57 37 31
                     </a>
                   </div>
                 </div>
 
-                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(163, 230, 53, 0.1)' }}>
+                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: `1px solid ${brandRgba(0.16)}` }}>
                   <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>
-                    Hours
+                    {contactDict.quickContact.hours}
                   </h3>
                   <div style={{ color: '#a1a1aa', fontSize: '0.9rem', lineHeight: 1.8 }}>
-                    <div>Monday - Friday: 5AM - 11PM</div>
-                    <div>Saturday - Sunday: 7AM - 9PM</div>
+                    <div>{contactDict.quickContact.hoursValue}</div>
                   </div>
                 </div>
 
-                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(163, 230, 53, 0.1)' }}>
+                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: `1px solid ${brandRgba(0.16)}` }}>
                   <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>
-                    Follow Us
+                    {contactDict.quickContact.followUs}
                   </h3>
                   <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href="https://www.instagram.com/aspria_fitness/" target="_blank" rel="noopener noreferrer" style={{
-                      color: '#a3e635',
+                    <a href="https://www.instagram.com/valhallaecho_fitness_club/" target="_blank" rel="noopener noreferrer" style={{
+                      color: BRAND_ACCENT,
                       textDecoration: 'none',
                       fontSize: '0.9rem',
                       transition: 'opacity 0.3s',
                     }} onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')} onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
                       Instagram
                     </a>
-                    <a href="https://www.facebook.com/AspriaFitness/" target="_blank" rel="noopener noreferrer" style={{
-                      color: '#a3e635',
+                    <a href="https://www.facebook.com/Valhallaechoclub" target="_blank" rel="noopener noreferrer" style={{
+                      color: BRAND_ACCENT,
                       textDecoration: 'none',
                       fontSize: '0.9rem',
                       transition: 'opacity 0.3s',
@@ -414,7 +414,7 @@ export default function ContactPage() {
               transition: 'all 0.6s ease-out 0.8s',
             }}
           >
-            Our Locations
+            {contactDict.quickContact.ourLocations}
           </h2>
           <div style={styles.locationsGrid}>
             {contactDict.locations.map((location, idx) => (
@@ -423,15 +423,15 @@ export default function ContactPage() {
                 style={{
                   ...styles.locationCard,
                   border: hoveredLocation === idx 
-                    ? '1px solid rgba(163, 230, 53, 0.4)' 
-                    : '1px solid rgba(163, 230, 53, 0.1)',
+                    ? `1px solid ${brandRgba(0.45)}` 
+                    : `1px solid ${brandRgba(0.16)}`,
                   transform: hoveredLocation === idx 
                     ? 'translateY(-8px)' 
                     : isVisible 
                     ? 'translateY(0)' 
                     : 'translateY(30px)',
                   boxShadow: hoveredLocation === idx 
-                    ? '0 20px 60px rgba(163, 230, 53, 0.2)' 
+                    ? `0 20px 60px ${brandRgba(0.22)}` 
                     : '0 4px 20px rgba(0, 0, 0, 0.4)',
                   opacity: isVisible ? 1 : 0,
                   transition: `all 0.2s ease, opacity 0.6s ease-out ${1 + idx * 0.15}s, transform 0.6s ease-out ${1 + idx * 0.15}s`,
@@ -461,8 +461,8 @@ export default function ContactPage() {
                       {location.email}
                     </a>
                   </div>
-                  <div style={{ ...styles.infoItem, marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(163, 230, 53, 0.1)' }}>
-                    <div style={{ fontSize: '0.85rem', color: '#a3e635' }}>
+                  <div style={{ ...styles.infoItem, marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: `1px solid ${brandRgba(0.16)}` }}>
+                    <div style={{ fontSize: '0.85rem', color: BRAND_ACCENT }}>
                       {location.hours}
                     </div>
                   </div>
