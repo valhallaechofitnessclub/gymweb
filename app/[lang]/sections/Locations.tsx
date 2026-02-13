@@ -262,7 +262,7 @@ export default function Locations({ dict, lang }: LocationsProps) {
               {dict.text}
             </p>
             <Link
-              href={`/${lang}/activities`}
+              href={`/${lang}/locations`}
               style={styles.link}
               className="locations-link"
               onMouseEnter={() => setIsHovering(true)}
