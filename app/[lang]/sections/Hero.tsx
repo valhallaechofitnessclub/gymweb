@@ -27,7 +27,7 @@ export default function Hero() {
       zIndex: 1,
     },
     title: {
-      fontSize: 'clamp(4rem, 15vw, 12rem)',
+      fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(2.2rem, 10vw, 4.5rem)' : 'clamp(4rem, 15vw, 12rem)',
       fontWeight: 900,
       background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
       WebkitBackgroundClip: 'text',
@@ -43,7 +43,7 @@ export default function Hero() {
       filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))',
     },
     subtitle: {
-      fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+      fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(1rem, 4vw, 1.5rem)' : 'clamp(1.5rem, 5vw, 3rem)',
       fontWeight: 300,
       background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
       WebkitBackgroundClip: 'text',

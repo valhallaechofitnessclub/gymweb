@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 interface HeroProps {
@@ -10,6 +10,13 @@ interface HeroProps {
 }
 
 export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   return (
     <div
       style={{
@@ -22,7 +29,7 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
     >
       <h1
         style={{
-          fontSize: 'clamp(3rem, 8vw, 6rem)',
+          fontSize: isMobile ? 'clamp(2.2rem, 10vw, 4.5rem)' : 'clamp(3rem, 8vw, 6rem)',
           fontWeight: 900,
           background: BRAND_GRADIENT,
           WebkitBackgroundClip: 'text',
@@ -38,7 +45,7 @@ export default function Hero({ title, subtitle, isVisible = true }: HeroProps) {
       {subtitle && (
         <p
           style={{
-            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+            fontSize: isMobile ? 'clamp(1rem, 4vw, 1.5rem)' : 'clamp(1rem, 2vw, 1.5rem)',
             background: BRAND_GRADIENT,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
