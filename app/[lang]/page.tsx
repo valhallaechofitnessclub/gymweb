@@ -7,7 +7,6 @@ import Trainers from './sections/Trainers';
 import Locations from './sections/Locations';
 import Footer from './sections/Footer';
 
-// Easing function — smooth ease-in-out
 function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
@@ -45,11 +44,14 @@ export default function Home() {
 
     isScrolling.current = true;
     currentIndex.current = next;
-    smoothScrollTo(container, next * container.clientHeight, 900);
+
+    // Shorter duration on mobile for snappier feel
+    const isMobile = window.innerWidth < 768;
+    smoothScrollTo(container, next * container.clientHeight, isMobile ? 600 : 900);
 
     setTimeout(() => {
       isScrolling.current = false;
-    }, 1000);
+    }, isMobile ? 650 : 1000);
   }, []);
 
   // Wheel
@@ -68,26 +70,35 @@ export default function Home() {
     return () => container.removeEventListener('wheel', onWheel);
   }, [goToSection]);
 
-  // Touch
+  // Touch — fires on touchmove once threshold is crossed, not on touchend
+  // This removes the perceived delay entirely
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    let hasFired = false;
+
     const onTouchStart = (e: TouchEvent) => {
       touchStartY.current = e.touches[0].clientY;
+      hasFired = false;
     };
-    const onTouchEnd = (e: TouchEvent) => {
-      if (isScrolling.current) return;
-      const delta = touchStartY.current - e.changedTouches[0].clientY;
-      if (delta > 40) goToSection(currentIndex.current + 1);
-      else if (delta < -40) goToSection(currentIndex.current - 1);
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (isScrolling.current || hasFired) return;
+      const delta = touchStartY.current - e.touches[0].clientY;
+      // 30px threshold — responsive but won't fire on accidental micro-swipes
+      if (Math.abs(delta) > 30) {
+        hasFired = true;
+        if (delta > 0) goToSection(currentIndex.current + 1);
+        else goToSection(currentIndex.current - 1);
+      }
     };
 
     container.addEventListener('touchstart', onTouchStart, { passive: true });
-    container.addEventListener('touchend', onTouchEnd, { passive: true });
+    container.addEventListener('touchmove', onTouchMove, { passive: true });
     return () => {
       container.removeEventListener('touchstart', onTouchStart);
-      container.removeEventListener('touchend', onTouchEnd);
+      container.removeEventListener('touchmove', onTouchMove);
     };
   }, [goToSection]);
 
@@ -125,7 +136,6 @@ export default function Home() {
         <div className="snap-section"><Trainers lang={lang as 'en' | 'ge'} dict={dict.trainers} /></div>
         <div className="snap-section"><Locations lang={lang as 'en' | 'ge'} dict={dict.locations} /></div>
         <div className="snap-section"><Footer /></div>
-
       </div>
     </>
   );
