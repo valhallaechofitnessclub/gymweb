@@ -1,10 +1,12 @@
 {
     "hero": {
-        "title": "VALHALLA",
-        "subtitle": "FITNESS"
+        "title": "MATA",
+        "subtitle": "FITNESS",
+        "cta": "Prices",
+        "secondary": "Contact"
     },
     "footer": {
-        "title": "VALHALLA",
+        "title": "MATA",
         "subtitle": "FITNESS"
     },
     "header": {
@@ -46,7 +48,7 @@
         },
         "cards": {
             "card1": {
-                "name": "Valhalla Echo Fitness Club",
+                "name": "Mata Fitness Club",
                 "address": "2 Mark Bronshteini I Dead End",
                 "city": "Tbilisi",
                 "phone": "557 57 37 31",
@@ -60,7 +62,7 @@
                 "image": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
             },
             "card2": {
-                "name": "Valhalla Echo Fitness Club",
+                "name": "Mata Fitness Club",
                 "address": "Giorgi Saakadze Square, Saakadze Tower",
                 "city": "Tbilisi",
                 "phone": "557 57 37 31",
@@ -408,23 +410,23 @@
         },
         "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
         "contactInfo": {
-            "email": "info@valhallaecho.ge",
+            "email": "info@matafitness.ge",
             "phone": "557 57 37 31"
         },
         "locations": [
             {
-                "name": "Valhalla Echo — Bronshteini",
+                "name": "Mata Fitness — Bronshteini",
                 "address": "2 Mark Bronshteini I Dead End, Tbilisi",
                 "phone": "557 57 37 31",
                 "hours": "Open daily · Closes 11:30 PM",
-                "email": "info@valhallaecho.ge"
+                "email": "info@matafitness.ge"
             },
             {
-                "name": "Valhalla Echo — Saakadze Tower",
+                "name": "Mata Fitness — Saakadze Tower",
                 "address": "Giorgi Saakadze Square, Saakadze Tower, Tbilisi",
                 "phone": "557 57 37 31",
                 "hours": "Open daily · Closes 11:30 PM",
-                "email": "info@valhallaecho.ge"
+                "email": "info@matafitness.ge"
             }
         ],
         "quickContact": {

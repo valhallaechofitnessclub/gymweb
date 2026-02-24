@@ -2,7 +2,11 @@
 
 import React, { useState } from 'react';
 import { Award, Mail, ChevronRight, Zap } from 'lucide-react';
-import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
+
+// Mata Fitness brand colors
+const BRAND_ORANGE = '#FF6A00';
+const BRAND_GRADIENT = 'linear-gradient(135deg, #FF6A00 0%, #FF9A3C 50%, #FFFFFF 100%)';
+const brandRgba = (alpha: number) => `rgba(255, 106, 0, ${alpha})`;
 
 interface Trainer {
   name: string;
@@ -50,16 +54,13 @@ export default function TrainerCard({
       overflow: 'hidden',
       opacity: isVisible ? 1 : 0,
       transform: isVisible
-        ? isHovered
-          ? 'translateY(-8px)'
-          : 'translateY(0)'
+        ? isHovered ? 'translateY(-8px)' : 'translateY(0)'
         : 'translateY(30px)',
       transition: `opacity 0.4s ease-out ${index * 0.15}s, transform ${transitionSpeed} ease ${index * 0.15}s, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
       boxShadow: isHovered
         ? `0 20px 60px ${brandRgba(0.22)}`
         : '0 4px 20px rgba(0, 0, 0, 0.4)',
     },
-
     imageSection: {
       height: '220px',
       background: trainer.image
@@ -70,12 +71,8 @@ export default function TrainerCard({
     },
     imageOverlay: {
       position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background:
-        'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.7) 100%)',
+      top: 0, left: 0, right: 0, bottom: 0,
+      background: 'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.7) 100%)',
       zIndex: 1,
     },
     imageLetter: {
@@ -95,7 +92,7 @@ export default function TrainerCard({
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
       border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -112,7 +109,7 @@ export default function TrainerCard({
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
       border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -153,7 +150,7 @@ export default function TrainerCard({
     cert: {
       background: brandRgba(0.1),
       border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.3rem 0.6rem',
       borderRadius: '6px',
       fontSize: '0.75rem',
@@ -178,16 +175,14 @@ export default function TrainerCard({
     },
     primaryButton: {
       flex: 1,
-      background: buttonHovered
-        ? BRAND_GRADIENT
-        : brandRgba(0.12),
+      background: buttonHovered ? BRAND_GRADIENT : brandRgba(0.12),
       border: `1px solid ${brandRgba(0.6)}`,
-      color: buttonHovered ? '#0b0b0b' : BRAND_ACCENT,
+      color: buttonHovered ? '#0b0b0b' : BRAND_ORANGE,
     },
     iconButton: {
       background: brandRgba(0.1),
       border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       width: '44px',
     },
   };
@@ -218,9 +213,7 @@ export default function TrainerCard({
 
         <div style={styles.certifications}>
           {trainer.certifications?.map((cert: string, i: number) => (
-            <span key={i} style={styles.cert}>
-              {cert}
-            </span>
+            <span key={i} style={styles.cert}>{cert}</span>
           ))}
         </div>
 

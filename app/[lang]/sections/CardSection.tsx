@@ -11,7 +11,6 @@ interface Card {
 
 type CardDict = Record<string, Card>;
 
-
 export default function CardSection({ dict }: { dict: CardDict }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -31,7 +30,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       delay: 0,
       path: `/${currentLang}/locations`,
     },
-        {
+    {
       id: 2,
       title: dict.card3.title,
       description: dict.card3.text,
@@ -47,7 +46,6 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       delay: 0.4,
       path: `/${currentLang}/pricing`,
     },
-
   ];
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -108,7 +106,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           background: linear-gradient(
             135deg,
             rgba(0, 0, 0, 0.7) 0%,
-            rgba(0, 0, 0, 0.4) 10%,
+            rgba(0, 0, 0, 0.4) 100%
           );
           backdrop-filter: blur(0px);
           transition: backdrop-filter 0.5s ease;
@@ -128,18 +126,18 @@ export default function CardSection({ dict }: { dict: CardDict }) {
         }
 
         .card-glass {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 106, 0, 0.05);
           backdrop-filter: blur(5px) saturate(180%);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 106, 0, 0.15);
           padding: 1.5rem;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           transition: all 0.4s ease;
         }
 
         .card:hover .card-glass {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(163, 115, 246, 0.3);
-          box-shadow: 0 8px 32px rgba(163, 115, 246, 0.2);
+          background: rgba(255, 106, 0, 0.12);
+          border-color: rgba(255, 106, 0, 0.4);
+          box-shadow: 0 8px 32px rgba(255, 106, 0, 0.2);
         }
 
         .card-title {
@@ -149,16 +147,16 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           margin-bottom: 0.5rem;
           margin-top: 0;
           letter-spacing: 0.1em;
-          text-shadow: 0 0 20px rgba(163, 115, 246, 0.3);
+          text-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
           transition: all 0.3s ease;
         }
 
         .card:hover .card-title {
-          background: linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6);
+          background: linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          filter: drop-shadow(0 0 30px rgba(163, 115, 246, 0.6));
+          filter: drop-shadow(0 0 30px rgba(255, 106, 0, 0.6));
         }
 
         .card-description {
@@ -169,13 +167,8 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           margin-bottom: 0;
         }
 
-        .card-shine {
-          display: none;
-        }
-
-        .card-border {
-          display: none;
-        }
+        .card-shine { display: none; }
+        .card-border { display: none; }
 
         /* Tablet */
         @media (max-width: 1024px) {
@@ -183,24 +176,14 @@ export default function CardSection({ dict }: { dict: CardDict }) {
             margin-top: -100px !important;
             padding: 0 1.5rem !important;
           }
-          
           .cards-grid {
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
             gap: 1.25rem !important;
             padding: 0 0.5rem !important;
           }
-          
-          .card {
-            height: 380px;
-          }
-          
-          .card-title {
-            font-size: 1.75rem;
-          }
-          
-          .card-glass {
-            padding: 1.25rem;
-          }
+          .card { height: 380px; }
+          .card-title { font-size: 1.75rem; }
+          .card-glass { padding: 1.25rem; }
         }
 
         /* Mobile */
@@ -209,53 +192,27 @@ export default function CardSection({ dict }: { dict: CardDict }) {
             margin-top: -80px !important;
             padding: 0 1rem !important;
           }
-          
           .cards-grid {
             grid-template-columns: 1fr !important;
             gap: 1rem !important;
             padding: 0 !important;
           }
-          
-          .card {
-            height: 320px;
-          }
-          
-          .card-title {
-            font-size: 1.5rem;
-          }
-          
-          .card-description {
-            font-size: 0.9rem;
-          }
-          
-          .card-glass {
-            padding: 1rem;
-          }
+          .card { height: 320px; }
+          .card-title { font-size: 1.5rem; }
+          .card-description { font-size: 0.9rem; }
+          .card-glass { padding: 1rem; }
         }
 
         /* Small mobile */
         @media (max-width: 480px) {
           .cards-container {
             margin-top: -60px !important;
-            padding: 0 0.75rem 2rem!important;
+            padding: 0 0.75rem 2rem !important;
           }
-          
-          .card {
-            height: 280px;
-          }
-          
-          .card-title {
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-          }
-          
-          .card-description {
-            font-size: 0.85rem;
-          }
-          
-          .card-glass {
-            padding: 0.875rem;
-          }
+          .card { height: 280px; }
+          .card-title { font-size: 1.25rem; letter-spacing: 0.05em; }
+          .card-description { font-size: 0.85rem; }
+          .card-glass { padding: 0.875rem; }
         }
       `}</style>
 
@@ -265,16 +222,12 @@ export default function CardSection({ dict }: { dict: CardDict }) {
             <div
               key={card.id}
               className="card"
-              style={{
-                animationDelay: `${card.delay}s`,
-              }}
+              style={{ animationDelay: `${card.delay}s` }}
               onClick={() => router.push(card.path)}
             >
               <div
                 className="card-bg"
-                style={{
-                  backgroundImage: `url(${card.backgroundImage})`,
-                }}
+                style={{ backgroundImage: `url(${card.backgroundImage})` }}
               />
               <div className="card-overlay" />
               <div className="card-shine" />

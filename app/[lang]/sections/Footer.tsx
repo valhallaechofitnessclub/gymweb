@@ -9,7 +9,7 @@ export default function Footer() {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // run once on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -17,18 +17,9 @@ export default function Footer() {
   const socialLinks = [
     {
       name: "Instagram",
-      url: "https://www.instagram.com/valhallaecho_fitness_club/",
+      url: "https://www.instagram.com/matafitness/",
       icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -37,36 +28,18 @@ export default function Footer() {
     },
     {
       name: "Facebook",
-      url: "https://www.facebook.com/Valhallaechoclub",
+      url: "https://www.facebook.com/search/top?q=mata%20fitness%20%E2%80%A2%20%E1%83%9B%E1%83%90%E1%83%A2%E1%83%90%20%E1%83%A4%E1%83%98%E1%83%A2%E1%83%9C%E1%83%94%E1%83%A1%E1%83%98",
       icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
         </svg>
       ),
     },
     {
       name: "Email",
-      url: "mailto:info@valhallaecho.ge",
+      url: "mailto:matafitnessinfo@gmail.com",
       icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
@@ -74,18 +47,9 @@ export default function Footer() {
     },
     {
       name: "Phone",
-      url: "tel:557573731",
+      url: "tel:0322051929",
       icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
       ),
@@ -94,7 +58,7 @@ export default function Footer() {
 
   const styles: { [key: string]: React.CSSProperties } = {
     footer: {
-      borderTop: "1px solid rgba(139, 92, 246, 0.1)",
+      borderTop: "1px solid rgba(255, 106, 0, 0.15)",
       padding: isMobile ? "0" : "4rem 2rem 2rem",
       marginTop: isMobile ? "0" : "6rem",
     },
@@ -114,19 +78,17 @@ export default function Footer() {
     logo: {
       fontSize: "clamp(3rem, 8vw, 5rem)",
       fontWeight: 900,
-      background:
-        "linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)",
+      background: "linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       backgroundClip: "text",
       letterSpacing: "0.1em",
-      filter: "drop-shadow(0 0 30px rgba(139, 92, 246, 0.3))",
+      filter: "drop-shadow(0 0 30px rgba(255, 106, 0, 0.3))",
       marginBottom: "1rem",
     },
     tagline: {
       fontSize: "1rem",
-      background:
-        "linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)",
+      background: "linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       backgroundClip: "text",
@@ -143,8 +105,7 @@ export default function Footer() {
     divider: {
       width: "100%",
       height: "1px",
-      background:
-        "linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent)",
+      background: "linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.4), transparent)",
       margin: isMobile ? "1rem 0 0 1rem" : "2rem 0 0 2rem",
     },
     copyright: {
@@ -171,7 +132,7 @@ export default function Footer() {
           padding: 0.75rem 1.5rem;
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 50px;
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(255, 106, 0, 0.03);
           backdrop-filter: blur(10px);
           transition: all 0.3s ease;
           position: relative;
@@ -185,7 +146,7 @@ export default function Footer() {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+          background: linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.1), transparent);
           transition: left 0.5s ease;
         }
 
@@ -194,11 +155,11 @@ export default function Footer() {
         }
 
         .social-link:hover {
-          border-color: rgba(139, 92, 246, 0.5);
-          background: rgba(139, 92, 246, 0.05);
+          border-color: rgba(255, 106, 0, 0.5);
+          background: rgba(255, 106, 0, 0.08);
           transform: translateY(-3px);
-          box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
-          color: #a855f7;
+          box-shadow: 0 8px 20px rgba(255, 106, 0, 0.2);
+          color: #FF9A3C;
         }
 
         .social-icon {
@@ -238,16 +199,8 @@ export default function Footer() {
                   key={link.name}
                   href={link.url}
                   className="social-link"
-                  target={
-                    link.name !== "Email" && link.name !== "Phone"
-                      ? "_blank"
-                      : undefined
-                  }
-                  rel={
-                    link.name !== "Email" && link.name !== "Phone"
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  target={link.name !== "Email" && link.name !== "Phone" ? "_blank" : undefined}
+                  rel={link.name !== "Email" && link.name !== "Phone" ? "noopener noreferrer" : undefined}
                 >
                   <span className="social-icon">{link.icon}</span>
                   <span>{link.name}</span>
@@ -258,7 +211,7 @@ export default function Footer() {
             <div style={styles.divider} />
 
             <p style={styles.copyright}>
-              © {new Date().getFullYear()} VALHALLA. All rights reserved.
+              © {new Date().getFullYear()} MATA FITNESS. All rights reserved.
             </p>
           </div>
         </div>

@@ -2,7 +2,12 @@
 
 import React, { useState } from 'react';
 import { Calendar, ChevronRight, Clock, TrendingUp, Users } from 'lucide-react';
-import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
+
+// Mata Fitness brand colors
+const BRAND_ORANGE = '#FF6A00';
+const BRAND_WHITE = '#FFFFFF';
+const BRAND_GRADIENT = `linear-gradient(135deg, #FF6A00 0%, #FF9A3C 50%, #FFFFFF 100%)`;
+const brandRgba = (alpha: number) => `rgba(255, 106, 0, ${alpha})`;
 
 interface Activity {
   id: number;
@@ -80,7 +85,7 @@ export default function ActivityCard({
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
       border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -94,7 +99,7 @@ export default function ActivityCard({
       background: 'rgba(0, 0, 0, 0.8)',
       backdropFilter: 'blur(10px)',
       border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.5rem 0.9rem',
       borderRadius: '10px',
       fontSize: '0.8rem',
@@ -114,7 +119,7 @@ export default function ActivityCard({
       fontSize: '1.75rem',
       fontWeight: 800,
       marginBottom: '0.75rem',
-      color: '#fff',
+      color: BRAND_WHITE,
       lineHeight: 1.2,
     },
     description: {
@@ -136,7 +141,7 @@ export default function ActivityCard({
       gap: '0.5rem',
       background: brandRgba(0.1),
       border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
+      color: BRAND_ORANGE,
       padding: '0.5rem 0.75rem',
       borderRadius: '8px',
       fontSize: '0.8rem',
@@ -147,13 +152,11 @@ export default function ActivityCard({
       padding: '0.95rem',
       borderRadius: '10px',
       border: 'none',
-      background: buttonHover
-        ? BRAND_GRADIENT
-        : brandRgba(0.12),
+      background: buttonHover ? BRAND_GRADIENT : brandRgba(0.12),
       borderWidth: '1px',
       borderStyle: 'solid',
       borderColor: brandRgba(0.6),
-      color: buttonHover ? '#0b0b0b' : BRAND_ACCENT,
+      color: buttonHover ? '#0b0b0b' : BRAND_ORANGE,
       fontWeight: 700,
       fontSize: '0.9rem',
       cursor: 'pointer',

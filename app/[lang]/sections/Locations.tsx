@@ -6,6 +6,9 @@ import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import Link from 'next/link';
 
+// Mata Fitness brand colors
+const BRAND_GRADIENT = 'linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)';
+
 function Earth() {
   const meshRef = useRef<THREE.Mesh>(null);
   const texture = useLoader(THREE.TextureLoader, '/assets/images/earth.jpg');
@@ -22,6 +25,38 @@ function Earth() {
   );
 }
 
+function Moon() {
+  const moonRef = useRef<THREE.Mesh>(null);
+  const pivotRef = useRef<THREE.Group>(null);
+  const moonTexture = useLoader(THREE.TextureLoader, '/assets/images/moon.jpg');
+
+  useFrame(({ clock }) => {
+    if (pivotRef.current) {
+      pivotRef.current.rotation.y = clock.getElapsedTime() * 0.6;
+      // Strong diagonal tilt — orbit runs top-right to bottom-left
+      pivotRef.current.rotation.z = 0.9;
+      pivotRef.current.rotation.x = 0.5;
+    }
+    if (moonRef.current) {
+      moonRef.current.rotation.y += 0.005;
+    }
+  });
+
+  return (
+    <group ref={pivotRef}>
+      {/* Tight orbit — just clearing the Earth surface */}
+      <mesh ref={moonRef} position={[2.6, 0, 0]}>
+        <sphereGeometry args={[0.38, 32, 32]} />
+        <meshStandardMaterial
+          map={moonTexture}
+          metalness={0.0}
+          roughness={0.95}
+        />
+      </mesh>
+    </group>
+  );
+}
+
 function EarthScene({ isHovering }: { isHovering: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
 
@@ -35,6 +70,7 @@ function EarthScene({ isHovering }: { isHovering: boolean }) {
   return (
     <group ref={groupRef}>
       <Earth />
+      <Moon />
     </group>
   );
 }
@@ -61,7 +97,7 @@ function RotatingEarth({ isVisible, isHovering }: { isVisible: boolean; isHoveri
       }}
     >
       <Canvas
-        camera={{ position: [0, 0, 4], fov: 75 }}
+        camera={{ position: [0, 0, 5.5], fov: 75 }}
         style={{ width: '100%', height: '100%' }}
         gl={{ alpha: true }}
       >
@@ -106,64 +142,105 @@ export default function Locations({ dict, lang }: LocationsProps) {
     return () => observer.disconnect();
   }, []);
 
-
   const styles: { [key: string]: React.CSSProperties } = {
-    section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 2rem' },
-    container: { maxWidth: '1400px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' },
-    contentSide: { opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateX(0)' : 'translateX(-40px)', transition: 'opacity 0.8s ease, transform 0.8s ease' },
-    title: { 
-      fontSize: 'clamp(3rem, 8vw, 8rem)', 
-      fontWeight: 900, 
-      background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
+    section: {
+      height: '100dvh',
+      maxHeight: '100dvh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2rem 2rem',
+      overflow: 'hidden',
+      boxSizing: 'border-box',
+    },
+    container: {
+      maxWidth: '1400px',
+      width: '100%',
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '5rem',
+      alignItems: 'center',
+    },
+    contentSide: {
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? 'translateX(0)' : 'translateX(-40px)',
+      transition: 'opacity 0.8s ease, transform 0.8s ease',
+    },
+    title: {
+      fontSize: 'clamp(3rem, 8vw, 8rem)',
+      fontWeight: 900,
+      background: BRAND_GRADIENT,
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text',
-      marginBottom: '1.5rem', 
-      marginTop: '0', 
-      letterSpacing: '0.05em', 
+      marginBottom: '1.5rem',
+      marginTop: '0',
+      letterSpacing: '0.05em',
       lineHeight: 1.1,
       paddingBottom: '0.08em',
-      filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))',
+      filter: 'drop-shadow(0 0 20px rgba(255, 106, 0, 0.3))',
     },
-    description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
-    link: { 
-      display: 'inline-block', 
-      fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', 
-      background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
+    description: {
+      fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+      color: '#aaa',
+      lineHeight: 1.8,
+      marginBottom: '2rem',
+      maxWidth: '500px',
+    },
+    link: {
+      display: 'inline-block',
+      fontSize: 'clamp(0.9rem, 2vw, 1.125rem)',
+      background: BRAND_GRADIENT,
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text',
-      textDecoration: 'none', 
-      fontWeight: 600, 
-      letterSpacing: '0.1em', 
-      position: 'relative', 
-      paddingBottom: '5px', 
-      cursor: 'pointer' 
+      textDecoration: 'none',
+      fontWeight: 600,
+      letterSpacing: '0.1em',
+      position: 'relative',
+      paddingBottom: '5px',
+      cursor: 'pointer',
     },
-    underline: { 
-      position: 'absolute', 
-      bottom: 0, 
-      left: 0, 
-      width: isHovering ? '100%' : '40px', 
-      height: '2px', 
-      background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
+    underline: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: isHovering ? '100%' : '40px',
+      height: '2px',
+      background: BRAND_GRADIENT,
       transition: 'width 0.3s ease',
-      boxShadow: '0 0 10px rgba(139, 92, 246, 0.5)',
+      boxShadow: '0 0 10px rgba(255, 106, 0, 0.5)',
     },
   };
 
   return (
     <>
       <style>{`
+        @media (min-width: 1024px) and (max-width: 1280px) {
+          .locations-title {
+            font-size: clamp(2.5rem, 5vw, 4rem) !important;
+          }
+          .locations-description {
+            font-size: 1rem !important;
+            margin-bottom: 1.25rem !important;
+          }
+          .locations-earth-container {
+            width: 100% !important;
+            height: 320px !important;
+          }
+          .locations-container {
+            gap: 3rem !important;
+          }
+        }
         @media (max-width: 1280px) {
           .locations-earth-container {
-          width: 100% !important;
-          height: 400px !important;
-      }
+            width: 100% !important;
+            height: 400px !important;
+          }
         }
         @media (max-width: 1024px) {
-        .locations-section {
-            min-height:  0 !important;
+          .locations-section {
+            height: 100dvh !important;
           }
           .locations-container {
             grid-template-columns: 1fr !important;
@@ -174,81 +251,65 @@ export default function Locations({ dict, lang }: LocationsProps) {
             font-size: clamp(2.5rem, 10vw, 5rem) !important;
             margin-top: 0;
           }
-          
           .locations-content {
             transform: ${isVisible ? 'translateY(0)' : 'translateY(20px)'} !important;
             order: 1;
           }
-          
           .locations-earth-container {
             transform: ${isVisible ? 'translateY(0)' : 'translateY(-20px)'} !important;
-            order: 0;
             height: 400px !important;
             max-width: 500px !important;
             margin: 0 auto !important;
             order: 2;
           }
-          
           .locations-description {
             max-width: 100% !important;
             margin-left: auto;
             margin-right: auto;
           }
         }
-        
         @media (max-width: 768px) {
           .locations-section {
             padding: 3rem 1.5rem !important;
-            min-height: auto !important;
           }
-          
           .locations-container {
             gap: 2.5rem !important;
           }
-          
           .locations-title {
             font-size: clamp(2.5rem, 10vw, 5rem) !important;
             margin-bottom: 1rem !important;
           }
-          
           .locations-description {
             font-size: 1rem !important;
             margin-bottom: 1.5rem !important;
           }
-          
           .locations-earth-container {
             height: 350px !important;
             max-width: 400px !important;
           }
         }
-        
         @media (max-width: 480px) {
           .locations-section {
             padding: 2rem 1rem !important;
           }
-          
           .locations-container {
             gap: 2rem !important;
           }
-          
           .locations-title {
             font-size: clamp(2rem, 12vw, 4rem) !important;
           }
-          
           .locations-description {
             font-size: 0.8rem !important;
             line-height: 1.4 !important;
           }
-          
           .locations-link {
             font-size: 0.9rem !important;
           }
-          
           .locations-earth-container {
             height: 300px !important;
             max-width: 300px !important;
           }
-            canvas { width: 100% !important;}
+          canvas { width: 100% !important; }
         }
       `}</style>
 
