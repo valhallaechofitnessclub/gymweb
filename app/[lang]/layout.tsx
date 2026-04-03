@@ -12,13 +12,16 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dict = getDictionary(lang);
+  const dict = getDictionary(lang); // Load once here
 
   return (
-    <DictionaryProvider dict={dict} lang={lang}>
+    <>
       <Background />
       <Header dict={dict.header} />
-      {children}
-    </DictionaryProvider>
+      <DictionaryProvider dict={dict} lang={lang}>
+        {children}
+        <Footer />
+      </DictionaryProvider>
+    </>
   );
 }

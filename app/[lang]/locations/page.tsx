@@ -6,10 +6,7 @@ import LocationCard from '@/components/LocationsCard';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
 import { useDictionary } from '@/app/context/DictionaryContext';
-
-// Mata Fitness brand colors
-const BRAND_ORANGE = '#FF6A00';
-const brandRgba = (alpha: number) => `rgba(255, 106, 0, ${alpha})`;
+import { BRAND_ACCENT, brandRgba } from '@/theme/brand';
 
 export default function LocationsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +39,9 @@ export default function LocationsPage() {
       maxWidth: '1400px',
       margin: '0 auto',
       display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+      gridTemplateColumns: isMobile
+        ? '1fr'
+        : 'repeat(auto-fit, minmax(350px, 1fr))',
       gap: isMobile ? '1rem' : '2rem',
     },
     mapSection: {
@@ -101,13 +100,13 @@ export default function LocationsPage() {
         <p style={styles.mapText}>{dictData.mapSection.text}</p>
 
         <Link
-          href="https://www.google.com/maps"
+          href="https://www.google.com/maps/search/valhalla+echo+fitness/@41.7161693,44.6885749,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'block' }}
         >
           <div style={styles.mapPlaceholder}>
-            <MapPin size={isMobile ? 50 : 80} color={BRAND_ORANGE} opacity={0.3} />
+            <MapPin size={isMobile ? 50 : 80} color={BRAND_ACCENT} opacity={0.3} />
           </div>
         </Link>
       </div>

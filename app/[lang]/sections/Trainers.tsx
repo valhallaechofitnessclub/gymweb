@@ -4,8 +4,6 @@ import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
-// Mata Fitness brand colors
-const BRAND_GRADIENT = 'linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)';
 
 interface TrainersProps {
     dict: {
@@ -35,60 +33,51 @@ export default function Trainers({ dict, lang }: TrainersProps) {
     }, []);
 
     const styles: { [key: string]: React.CSSProperties } = {
-        section: {
-            height: '100dvh',
-            maxHeight: '100dvh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '2rem 2rem',
-            overflow: 'hidden',
-            boxSizing: 'border-box',
-        },
+        section: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 2rem' },
         container: { maxWidth: '1400px', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' },
         content: {
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : 'translateX(-40px)',
             transition: 'opacity 0.8s ease, transform 0.8s ease',
         },
-        title: {
-            fontSize: 'clamp(3rem, 8vw, 8rem)',
-            fontWeight: 900,
-            background: BRAND_GRADIENT,
+        title: { 
+            fontSize: 'clamp(3rem, 8vw, 8rem)', 
+            fontWeight: 900, 
+            background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            marginBottom: '1.5rem',
-            letterSpacing: '0.05em',
+            marginBottom: '1.5rem', 
+            letterSpacing: '0.05em', 
             lineHeight: 1.1,
             paddingBottom: '0.08em',
             marginTop: 0,
-            filter: 'drop-shadow(0 0 20px rgba(255, 106, 0, 0.3))',
+            filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))',
         },
         description: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#aaa', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '500px' },
-        link: {
-            textDecoration: 'none',
-            display: 'inline-block',
-            fontSize: 'clamp(0.9rem, 2vw, 1.125rem)',
-            background: BRAND_GRADIENT,
+        link: { 
+            textDecoration: 'none', 
+            display: 'inline-block', 
+            fontSize: 'clamp(0.9rem, 2vw, 1.125rem)', 
+            background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            position: 'relative',
-            paddingBottom: '5px',
-            cursor: 'pointer',
+            fontWeight: 600, 
+            letterSpacing: '0.1em', 
+            position: 'relative', 
+            paddingBottom: '5px', 
+            cursor: 'pointer' 
         },
-        underline: {
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '40px',
-            height: '2px',
-            background: BRAND_GRADIENT,
+        underline: { 
+            position: 'absolute', 
+            bottom: 0, 
+            left: 0, 
+            width: '40px', 
+            height: '2px', 
+            background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
             transition: 'width 0.3s ease',
-            boxShadow: '0 0 10px rgba(255, 106, 0, 0.5)',
+            boxShadow: '0 0 10px rgba(139, 92, 246, 0.5)',
         },
         imageContainer: {
             display: 'flex',
@@ -115,40 +104,6 @@ export default function Trainers({ dict, lang }: TrainersProps) {
     return (
         <>
             <style>{`
-                @media (min-width: 1024px) and (max-width: 1280px) {
-                    .trainers-title {
-                        font-size: clamp(2.5rem, 5vw, 4rem) !important;
-                    }
-                    .trainers-description {
-                        font-size: 1rem !important;
-                        margin-bottom: 1.25rem !important;
-                    }
-                    .trainers-circle {
-                        width: 320px !important;
-                        height: 320px !important;
-                    }
-                    .trainers-container {
-                        gap: 3rem !important;
-                    }
-                }
-
-                @media (min-width: 1024px) and (max-width: 1280px) {
-                    .trainers-title {
-                        font-size: clamp(2.5rem, 5vw, 4rem) !important;
-                    }
-                    .trainers-description {
-                        font-size: 1rem !important;
-                        margin-bottom: 1.25rem !important;
-                    }
-                    .trainers-circle {
-                        width: 320px !important;
-                        height: 320px !important;
-                    }
-                    .trainers-container {
-                        gap: 3rem !important;
-                    }
-                }
-
                 @media (max-width: 1024px) {
                     .trainers-container {
                         grid-template-columns: 1fr !important;
@@ -176,6 +131,7 @@ export default function Trainers({ dict, lang }: TrainersProps) {
                 @media (max-width: 768px) {
                     .trainers-section {
                         padding: 3rem 1.5rem !important;
+                        min-height: auto !important;
                     }
                     .trainers-container {
                         gap: 2.5rem !important;
@@ -253,8 +209,8 @@ export default function Trainers({ dict, lang }: TrainersProps) {
                                 position: 'absolute',
                                 inset: 0,
                                 borderRadius: '50%',
-                                background: 'radial-gradient(circle at 30% 30%, rgba(255, 106, 0, 0.12) 0%, rgba(0,0,0,0.9) 100%)',
-                                filter: 'drop-shadow(0 0 30px rgba(255, 106, 0, 0.25))',
+                                background: 'radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.12) 0%, rgba(0,0,0,0.9) 100%)',
+                                filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.25))',
                                 zIndex: 0,
                                 transition: 'filter 0.6s ease',
                             }}

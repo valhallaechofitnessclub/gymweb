@@ -4,10 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import Hero from '@/components/Hero';
 import { useDictionary } from '@/app/context/DictionaryContext';
-
-const BRAND_ACCENT = '#FF6A00';
-const BRAND_GRADIENT = 'linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)';
-const brandRgba = (opacity: number) => `rgba(255, 106, 0, ${opacity})`;
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,10 +76,7 @@ export default function ContactPage() {
     formTitle: {
       fontSize: 'clamp(1.3rem, 2vw, 1.8rem)',
       fontWeight: 700,
-      background: BRAND_GRADIENT,
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
+      color: 'white',
       marginBottom: '1.5rem',
       display: 'flex',
       alignItems: 'center',
@@ -147,10 +141,7 @@ export default function ContactPage() {
     sectionTitle: {
       fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
       fontWeight: 700,
-      background: BRAND_GRADIENT,
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
+      color: 'white',
       marginBottom: isMobile ? '1.5rem' : '2rem',
       textAlign: 'center' as const,
     },
@@ -171,10 +162,7 @@ export default function ContactPage() {
     locationName: {
       fontSize: '1.3rem',
       fontWeight: 700,
-      background: BRAND_GRADIENT,
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
+      color: BRAND_ACCENT,
       marginBottom: '1rem',
       display: 'flex',
       alignItems: 'center',
@@ -255,17 +243,17 @@ export default function ContactPage() {
 
         <div style={styles.contactGrid}>
           {/* Contact Form */}
-          <div
+          <div 
             style={{
               ...styles.formSection,
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.6s ease-out 0.4s',
-            }}
+            }} 
             className="form-section"
           >
             <div style={styles.formTitle}>
-              <Mail size={24} color={BRAND_ACCENT} />
+              <Mail size={24} />
               {contactDict.form.title}
             </div>
 
@@ -335,17 +323,17 @@ export default function ContactPage() {
 
           {/* Quick Contact Info */}
           <div>
-            <div
+            <div 
               style={{
                 ...styles.formSection,
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 transition: 'all 0.6s ease-out 0.6s',
-              }}
+              }} 
               className="form-section"
             >
               <div style={styles.formTitle}>
-                <Phone size={24} color={BRAND_ACCENT} />
+                <Phone size={24} />
                 {contactDict.quickContact.title}
               </div>
               <div style={styles.locationInfo}>
@@ -355,8 +343,11 @@ export default function ContactPage() {
                     <div style={{ color: BRAND_ACCENT, fontSize: '0.9rem', marginBottom: '0.25rem' }}>
                       {contactDict.quickContact.email}
                     </div>
-                    <a href="mailto:matafitnessinfo@gmail.com" style={styles.infoLink}>
-                      matafitnessinfo@gmail.com
+                    <a
+                      href="mailto:info@valhallaecho.ge"
+                      style={styles.infoLink}
+                    >
+                      info@valhallaecho.ge
                     </a>
                   </div>
                 </div>
@@ -367,8 +358,11 @@ export default function ContactPage() {
                     <div style={{ color: BRAND_ACCENT, fontSize: '0.9rem', marginBottom: '0.25rem' }}>
                       {contactDict.quickContact.phone}
                     </div>
-                    <a href="tel:0322051929" style={styles.infoLink}>
-                      032 205 19 29
+                    <a
+                      href="tel:557573731"
+                      style={styles.infoLink}
+                    >
+                      557 57 37 31
                     </a>
                   </div>
                 </div>
@@ -387,24 +381,20 @@ export default function ContactPage() {
                     {contactDict.quickContact.followUs}
                   </h3>
                   <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a
-                      href="https://www.instagram.com/matafitness/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: BRAND_ACCENT, textDecoration: 'none', fontSize: '0.9rem', transition: 'opacity 0.3s' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-                    >
+                    <a href="https://www.instagram.com/valhallaecho_fitness_club/" target="_blank" rel="noopener noreferrer" style={{
+                      color: BRAND_ACCENT,
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      transition: 'opacity 0.3s',
+                    }} onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')} onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
                       Instagram
                     </a>
-                    <a
-                      href="https://www.facebook.com/search/top?q=mata%20fitness%20%E2%80%A2%20%E1%83%9B%E1%83%90%E1%83%A2%E1%83%90%20%E1%83%A4%E1%83%98%E1%83%A2%E1%83%9C%E1%83%94%E1%83%A1%E1%83%98"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: BRAND_ACCENT, textDecoration: 'none', fontSize: '0.9rem', transition: 'opacity 0.3s' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-                    >
+                    <a href="https://www.facebook.com/Valhallaechoclub" target="_blank" rel="noopener noreferrer" style={{
+                      color: BRAND_ACCENT,
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      transition: 'opacity 0.3s',
+                    }} onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')} onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
                       Facebook
                     </a>
                   </div>
@@ -416,7 +406,7 @@ export default function ContactPage() {
 
         {/* Locations Section */}
         <div style={styles.locationsSection}>
-          <h2
+          <h2 
             style={{
               ...styles.sectionTitle,
               opacity: isVisible ? 1 : 0,
@@ -428,20 +418,20 @@ export default function ContactPage() {
           </h2>
           <div style={styles.locationsGrid}>
             {contactDict.locations.map((location, idx) => (
-              <div
-                key={idx}
+              <div 
+                key={idx} 
                 style={{
                   ...styles.locationCard,
-                  border: hoveredLocation === idx
-                    ? `1px solid ${brandRgba(0.45)}`
+                  border: hoveredLocation === idx 
+                    ? `1px solid ${brandRgba(0.45)}` 
                     : `1px solid ${brandRgba(0.16)}`,
-                  transform: hoveredLocation === idx
-                    ? 'translateY(-8px)'
-                    : isVisible
-                    ? 'translateY(0)'
+                  transform: hoveredLocation === idx 
+                    ? 'translateY(-8px)' 
+                    : isVisible 
+                    ? 'translateY(0)' 
                     : 'translateY(30px)',
-                  boxShadow: hoveredLocation === idx
-                    ? `0 20px 60px ${brandRgba(0.22)}`
+                  boxShadow: hoveredLocation === idx 
+                    ? `0 20px 60px ${brandRgba(0.22)}` 
                     : '0 4px 20px rgba(0, 0, 0, 0.4)',
                   opacity: isVisible ? 1 : 0,
                   transition: `all 0.2s ease, opacity 0.6s ease-out ${1 + idx * 0.15}s, transform 0.6s ease-out ${1 + idx * 0.15}s`,
@@ -451,7 +441,7 @@ export default function ContactPage() {
                 onMouseLeave={() => setHoveredLocation(null)}
               >
                 <div style={styles.locationName}>
-                  <MapPin size={22} color={BRAND_ACCENT} />
+                  <MapPin size={22} />
                   {location.name}
                 </div>
                 <div style={styles.locationInfo}>

@@ -2,11 +2,7 @@
 
 import React, { useState } from 'react';
 import { Check, Zap, Crown, Clock } from 'lucide-react';
-
-// Mata Fitness brand colors
-const BRAND_ORANGE = '#FF6A00';
-const BRAND_GRADIENT = 'linear-gradient(135deg, #FF6A00 0%, #FF9A3C 50%, #FFFFFF 100%)';
-const brandRgba = (alpha: number) => `rgba(255, 106, 0, ${alpha})`;
+import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
 
 // ----------- Types -----------
 interface PricingPlan {
@@ -87,6 +83,7 @@ export default function PricingCard({
         : 'none',
       zIndex: plan.isPopular ? 2 : 1,
     },
+
     cardHover: {
       boxShadow: plan.isPopular
         ? `0 0 50px ${brandRgba(0.35)}, 0 16px 50px ${brandRgba(0.4)}`
@@ -94,6 +91,7 @@ export default function PricingCard({
       transform: plan.isPopular ? 'scale(1.07)' : 'translateY(-8px)',
       transition: 'transform 0.2s ease, box-shadow 0.2s ease',
     },
+
     badge: {
       position: 'absolute',
       top: '20px',
@@ -107,23 +105,27 @@ export default function PricingCard({
       textTransform: 'uppercase',
       letterSpacing: '0.5px',
     },
+
     planNumber: {
       fontSize: '14px',
-      color: BRAND_ORANGE,
+      color: BRAND_ACCENT,
       opacity: 0.7,
       marginBottom: '8px',
     },
+
     planName: {
       fontSize: '28px',
       fontWeight: 700,
       margin: '0 0 8px 0',
     },
+
     description: {
       color: '#a1a1aa',
       marginBottom: '24px',
       fontSize: '15px',
       lineHeight: '1.5',
     },
+
     scheduleRow: {
       display: 'flex',
       alignItems: 'center',
@@ -134,41 +136,49 @@ export default function PricingCard({
       borderRadius: '12px',
       border: `1px solid ${brandRgba(0.2)}`,
     },
+
     scheduleIcon: {
-      color: BRAND_ORANGE,
+      color: BRAND_ACCENT,
       flexShrink: 0,
     },
+
     scheduleText: {
       fontSize: '18px',
       fontWeight: 700,
       color: '#e4e4e7',
       letterSpacing: '1px',
     },
+
     priceContainer: {
       marginBottom: '24px',
     },
+
     oldPrice: {
       fontSize: '20px',
       color: '#71717a',
       textDecoration: 'line-through',
       marginBottom: '4px',
     },
+
     priceRow: {
       display: 'flex',
       alignItems: 'baseline',
       gap: '12px',
       flexWrap: 'wrap',
     },
+
     price: {
       fontSize: plan.isPopular ? '54px' : '48px',
       fontWeight: 900,
-      color: BRAND_ORANGE,
+      color: BRAND_ACCENT,
       lineHeight: '1',
     },
+
     duration: {
       fontSize: '16px',
       color: '#a1a1aa',
     },
+
     discountBadge: {
       background: 'rgba(239, 68, 68, 0.2)',
       color: '#fca5a5',
@@ -178,14 +188,16 @@ export default function PricingCard({
       fontWeight: 700,
       border: '1px solid rgba(239, 68, 68, 0.3)',
     },
+
     featuresTitle: {
       fontSize: '14px',
-      color: BRAND_ORANGE,
+      color: BRAND_ACCENT,
       textTransform: 'uppercase',
       letterSpacing: '1px',
       marginBottom: '16px',
       fontWeight: 600,
     },
+
     featuresList: {
       display: 'flex',
       flexDirection: 'column',
@@ -193,6 +205,7 @@ export default function PricingCard({
       marginBottom: '28px',
       flex: 1,
     },
+
     feature: {
       display: 'flex',
       alignItems: 'center',
@@ -200,6 +213,7 @@ export default function PricingCard({
       fontSize: '15px',
       opacity: 0.95,
     },
+
     checkIcon: {
       width: '24px',
       height: '24px',
@@ -210,14 +224,17 @@ export default function PricingCard({
       backgroundColor: brandRgba(0.18),
       flexShrink: 0,
     },
+
     ctaButton: {
       width: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       gap: '10px',
-      background: plan.isPopular ? BRAND_GRADIENT : brandRgba(0.12),
-      color: plan.isPopular ? '#0b0b0b' : BRAND_ORANGE,
+      background: plan.isPopular
+        ? BRAND_GRADIENT
+        : brandRgba(0.12),
+      color: plan.isPopular ? '#0b0b0b' : BRAND_ACCENT,
       border: plan.isPopular ? 'none' : `2px solid ${brandRgba(0.3)}`,
       borderRadius: '12px',
       padding: '14px 18px',
@@ -227,6 +244,7 @@ export default function PricingCard({
       boxShadow: plan.isPopular ? `0 4px 12px ${brandRgba(0.3)}` : 'none',
       transition: 'all 0.25s ease',
     },
+
     ctaButtonHover: {
       transform: 'scale(1.04)',
       boxShadow: `0 6px 20px ${brandRgba(0.45)}`,
@@ -235,7 +253,10 @@ export default function PricingCard({
 
   return (
     <div
-      style={{ ...styles.card, ...(hover.card ? styles.cardHover : {}) }}
+      style={{
+        ...styles.card,
+        ...(hover.card ? styles.cardHover : {}),
+      }}
       onMouseEnter={() => setHover({ ...hover, card: true })}
       onMouseLeave={() => setHover({ ...hover, card: false })}
     >
@@ -276,7 +297,7 @@ export default function PricingCard({
         {plan.features.map((feature, i) => (
           <div key={i} style={styles.feature}>
             <div style={styles.checkIcon}>
-              <Check size={16} color={BRAND_ORANGE} strokeWidth={3} />
+              <Check size={16} color={BRAND_ACCENT} strokeWidth={3} />
             </div>
             <span>{feature}</span>
           </div>
@@ -284,7 +305,10 @@ export default function PricingCard({
       </div>
 
       <button
-        style={{ ...styles.ctaButton, ...(hover.button ? styles.ctaButtonHover : {}) }}
+        style={{
+          ...styles.ctaButton,
+          ...(hover.button ? styles.ctaButtonHover : {}),
+        }}
         onMouseEnter={() => setHover({ ...hover, button: true })}
         onMouseLeave={() => setHover({ ...hover, button: false })}
       >

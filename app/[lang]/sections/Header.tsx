@@ -3,11 +3,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
-
-// Mata Fitness brand colors
-const BRAND_GRADIENT = 'linear-gradient(90deg, #FF6A00, #FF9A3C, #FFB347, #FFFFFF)';
-const BRAND_ORANGE = '#FF6A00';
 
 interface NavLink {
   id: string;
@@ -30,6 +25,7 @@ export default function Header({ dict }: Props) {
   const pathname = usePathname();
   const currentLang = pathname.split('/')[1] || 'en';
 
+  // ✅ useMemo to prevent re-creation of navLinks
   const navLinks: NavLink[] = useMemo(() => [
     { id: 'locations', label: dict.locations, path: `/${currentLang}/locations` },
     { id: 'activities', label: dict.activities, path: `/${currentLang}/activities` },
@@ -56,9 +52,10 @@ export default function Header({ dict }: Props) {
   useEffect(() => {
     const reset = (map: Map<string, HTMLButtonElement>) => {
       map.forEach((btn, id) => {
+        const shouldShow = id === activeLink;
         btn.style.setProperty(
           '--hover-line',
-          id === activeLink ? 'translateX(0)' : 'translateX(-101%)'
+          shouldShow ? 'translateX(0)' : 'translateX(-101%)'
         );
       });
     };
@@ -69,7 +66,8 @@ export default function Header({ dict }: Props) {
   const switchLanguage = (lang: 'en' | 'ge') => {
     const parts = pathname.split('/');
     parts[1] = lang;
-    router.push(parts.join('/') || '/');
+    const newPath = parts.join('/') || '/';
+    router.push(newPath);
   };
 
   const handleNavigation = (link: NavLink) => {
@@ -80,15 +78,21 @@ export default function Header({ dict }: Props) {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) setShowHeader(false);
-      else if (currentScrollY < lastScrollY) setShowHeader(true);
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowHeader(false);
+      } else if (currentScrollY < lastScrollY) {
+        setShowHeader(true);
+      }
       setIsScrolled(currentScrollY > 20);
       lastScrollY = currentScrollY;
     };
+
     const checkScreen = () => setIsMobile(window.innerWidth < 864);
     checkScreen();
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', checkScreen);
     return () => {
@@ -116,31 +120,18 @@ export default function Header({ dict }: Props) {
       backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
       transition: 'background-color 0.3s ease',
     },
-    logoWrapper: {
+    logo: {
       display: 'flex',
       alignItems: 'center',
-      gap: '0.75rem',
-      cursor: 'pointer',
-    },
-    logoImage: {
-      width: '70px',
-      height: '70px',
-      borderRadius: '50%',
-      overflow: 'hidden',
-      flexShrink: 0,
-      boxShadow: '0 0 14px rgba(255,106,0,0.45), 0 0 28px rgba(255,106,0,0.15)',
-    },
-    logoText: {
-      background: BRAND_GRADIENT,
+      gap: '0.7rem',
+      background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text',
       fontWeight: 900,
+      cursor: 'pointer',
       fontSize: '1.5rem',
       letterSpacing: '0.05em',
-      filter: 'drop-shadow(0 0 12px rgba(255, 106, 0, 0.3))',
-      lineHeight: 1.2,
-      paddingBottom: '0.15em',
     },
     langSwitcher: { display: 'flex', gap: '0.5rem' },
     nav: { display: 'flex', gap: '2rem' },
@@ -162,7 +153,7 @@ export default function Header({ dict }: Props) {
       right: 0,
       backgroundColor: 'rgba(0, 0, 0, 0.95)',
       backdropFilter: 'blur(10px)',
-      borderTop: `1px solid rgba(255, 106, 0, 0.2)`,
+      borderTop: '1px solid rgba(139, 92, 246, 0.2)',
       maxHeight: isMobileMenuOpen ? '400px' : '0',
       opacity: isMobileMenuOpen ? 1 : 0,
       overflow: 'hidden',
@@ -175,11 +166,11 @@ export default function Header({ dict }: Props) {
     position: 'relative',
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    background: active ? BRAND_GRADIENT : 'none',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'none',
     WebkitBackgroundClip: active ? 'text' : 'unset',
     WebkitTextFillColor: active ? 'transparent' : 'white',
     backgroundClip: active ? 'text' : 'unset',
-    color: active ? 'transparent' : 'white',
     border: 'none',
     cursor: 'pointer',
     fontSize: '1rem',
@@ -195,7 +186,7 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    background: BRAND_GRADIENT,
+    background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
@@ -208,13 +199,13 @@ export default function Header({ dict }: Props) {
     borderRadius: '0.5rem',
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    backgroundColor: active ? 'rgba(255, 106, 0, 0.1)' : 'transparent',
-    borderLeft: active ? `4px solid ${BRAND_ORANGE}` : '4px solid transparent',
-    background: active ? BRAND_GRADIENT : 'transparent',
+    backgroundColor: active ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
+    borderLeft: active ? '4px solid #a855f7' : '4px solid transparent',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'transparent',
     WebkitBackgroundClip: active ? 'text' : 'unset',
     WebkitTextFillColor: active ? 'transparent' : 'white',
     backgroundClip: active ? 'text' : 'unset',
-    color: active ? 'transparent' : 'white',
     cursor: 'pointer',
     marginBottom: '0.5rem',
     transition: 'all 0.2s ease',
@@ -229,18 +220,18 @@ export default function Header({ dict }: Props) {
     left: 0,
     width: '100%',
     height: '2px',
-    background: BRAND_GRADIENT,
+    background: 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)',
     transform: active ? 'translateX(0)' : 'translateX(-101%)',
     transition: 'transform 0.35s ease',
   });
 
   const langButtonStyle = (active: boolean): React.CSSProperties => ({
     fontWeight: 'bold',
-    background: active ? BRAND_GRADIENT : 'none',
+    color: active ? 'transparent' : 'white',
+    background: active ? 'linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6)' : 'none',
     WebkitBackgroundClip: active ? 'text' : 'unset',
     WebkitTextFillColor: active ? 'transparent' : 'white',
     backgroundClip: active ? 'text' : 'unset',
-    color: active ? 'transparent' : 'white',
     border: '1px solid white',
     borderRadius: '4px',
     padding: '0.2rem 0.5rem',
@@ -260,29 +251,24 @@ export default function Header({ dict }: Props) {
   return (
     <div style={styles.headerWrapper}>
       <header style={styles.header}>
-
-        {/* Logo: image + text + lang switcher */}
-        <div style={styles.logoWrapper} onClick={() => router.push(`/${currentLang}`)}>
-          <div style={styles.logoImage}>
-            <Image
-              src="/assets/images/logo.png"
-              alt="Mata Fitness Logo"
-              width={150}
-              height={150}
-              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-              priority
-            />
-          </div>
-          <div style={styles.langSwitcher} onClick={(e) => e.stopPropagation()}>
+        <div style={styles.logo} onClick={() => router.push(`/${currentLang}`)}>
+          VALHALLA
+          <div style={styles.langSwitcher}>
             <button
               style={langButtonStyle(pathname.startsWith('/en'))}
-              onClick={() => switchLanguage('en')}
+              onClick={(e) => {
+                e.stopPropagation();
+                switchLanguage('en');
+              }}
             >
               EN
             </button>
             <button
               style={langButtonStyle(pathname.startsWith('/ge'))}
-              onClick={() => switchLanguage('ge')}
+              onClick={(e) => {
+                e.stopPropagation();
+                switchLanguage('ge');
+              }}
             >
               GE
             </button>
@@ -297,23 +283,34 @@ export default function Header({ dict }: Props) {
                 ref={(el) => setBtnRef(link.id, el, desktopBtnRefs)}
                 style={navButtonStyle(activeLink === link.id)}
                 onClick={() => handleNavigation(link)}
-                onMouseEnter={(e) => e.currentTarget.style.setProperty('--hover-line', 'translateX(0)')}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('--hover-line', 'translateX(0)');
+                }}
                 onMouseLeave={(e) => {
+                  const isActive = activeLink === link.id;
                   e.currentTarget.style.setProperty(
                     '--hover-line',
-                    activeLink === link.id ? 'translateX(0)' : 'translateX(-101%)'
+                    isActive ? 'translateX(0)' : 'translateX(-101%)'
                   );
                 }}
               >
                 {link.label}
-                <span style={{ ...navButtonAfter(activeLink === link.id), transform: 'var(--hover-line, translateX(-101%))' }} />
+                <span
+                  style={{
+                    ...navButtonAfter(activeLink === link.id),
+                    transform: 'var(--hover-line, translateX(-101%))',
+                  }}
+                />
               </button>
             ))}
           </nav>
         )}
 
         {isMobile && (
-          <button style={styles.mobileButton} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button
+            style={styles.mobileButton}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         )}
@@ -327,16 +324,24 @@ export default function Header({ dict }: Props) {
               ref={(el) => setBtnRef(link.id, el, mobileBtnRefs)}
               style={mobileLinkStyle(activeLink === link.id)}
               onClick={() => handleNavigation(link)}
-              onMouseEnter={(e) => e.currentTarget.style.setProperty('--hover-line', 'translateX(0)')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.setProperty('--hover-line', 'translateX(0)');
+              }}
               onMouseLeave={(e) => {
+                const isActive = activeLink === link.id;
                 e.currentTarget.style.setProperty(
                   '--hover-line',
-                  activeLink === link.id ? 'translateX(0)' : 'translateX(-101%)'
+                  isActive ? 'translateX(0)' : 'translateX(-101%)'
                 );
               }}
             >
               {link.label}
-              <span style={{ ...mobileLinkAfter(activeLink === link.id), transform: 'var(--hover-line, translateX(-101%))' }} />
+              <span
+                style={{
+                  ...mobileLinkAfter(activeLink === link.id),
+                  transform: 'var(--hover-line, translateX(-101%))',
+                }}
+              />
             </button>
           ))}
         </div>
