@@ -1,12 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, ExternalLink } from 'lucide-react';
 import LocationCard from '@/components/LocationsCard';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useDictionary } from '@/app/context/DictionaryContext';
-import { BRAND_ACCENT, brandRgba } from '@/theme/brand';
+
+const ACCENT = '#42c2ca';
+const GRADIENT = 'linear-gradient(90deg, #cc0000, #e11d1d, #42c2ca, #2dd4bf)';
 
 export default function LocationsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +18,6 @@ export default function LocationsPage() {
 
   useEffect(() => {
     setIsVisible(true);
-
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -24,67 +26,36 @@ export default function LocationsPage() {
 
   const dictData = dict.locationsPage;
 
+  const locationImages = [
+    '/assets/images/gldaniGym.png',
+    '/assets/images/saburtaloGym.png',
+  ];
+
   const locations = Object.values(dictData.cards).map((card, i) => ({
     id: i + 1,
     ...card,
+    image: locationImages[i] ?? '/assets/images/gldaniGym.png',
   }));
 
-  const styles = {
-    container: {
+  return (
+    <div style={{
       minHeight: '100dvh',
       padding: isMobile ? '5rem 1rem 2rem' : '6rem 2rem 4rem',
       backgroundColor: 'black',
-    },
-    grid: {
-      maxWidth: '1400px',
-      margin: '0 auto',
-      display: 'grid',
-      gridTemplateColumns: isMobile
-        ? '1fr'
-        : 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: isMobile ? '1rem' : '2rem',
-    },
-    mapSection: {
-      maxWidth: '1400px',
-      margin: '4rem auto 0',
-      padding: isMobile ? '1rem' : '3rem',
-      background: 'rgba(24, 24, 27, 0.6)',
-      backdropFilter: 'blur(10px)',
-      borderRadius: '20px',
-      textAlign: 'center',
-    },
-    mapTitle: {
-      fontSize: 'clamp(2rem, 4vw, 3rem)',
-      fontWeight: 700,
-      color: 'white',
-      marginBottom: '1rem',
-      marginTop: '1rem',
-    },
-    mapText: {
-      color: '#a1a1aa',
-      fontSize: '1.1rem',
-      marginBottom: '2rem',
-    },
-    mapPlaceholder: {
-      height: isMobile ? '200px' : '400px',
-      background: 'linear-gradient(135deg, #18181b 0%, #27272a 100%)',
-      borderRadius: '12px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      border: `2px dashed ${brandRgba(0.25)}`,
-    },
-  } as const;
-
-  return (
-    <div style={styles.container}>
+    }}>
       <Hero
         title={dictData.header.title}
         subtitle={dictData.header.subtitle}
         isVisible={isVisible}
       />
 
-      <div style={styles.grid}>
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto',
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(380px, 1fr))',
+        gap: isMobile ? '1rem' : '1.5rem',
+      }}>
         {locations.map((location, idx) => (
           <LocationCard
             key={location.id}
@@ -95,20 +66,100 @@ export default function LocationsPage() {
         ))}
       </div>
 
-      <div style={styles.mapSection}>
-        <h2 style={styles.mapTitle}>{dictData.mapSection.title}</h2>
-        <p style={styles.mapText}>{dictData.mapSection.text}</p>
+      {/* Map section — bothGym.png as full background */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '4rem auto 0',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        position: 'relative',
+        height: isMobile ? '340px' : '500px',
+      }}>
+        {/* Photo */}
+        <Image
+          src="/assets/images/bothGym.png"
+          alt="Both gym locations"
+          fill
+          style={{ objectFit: 'cover' }}
+          loading="lazy"
+        />
 
-        <Link
-          href="https://www.google.com/maps/search/valhalla+echo+fitness/@41.7161693,44.6885749,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'block' }}
-        >
-          <div style={styles.mapPlaceholder}>
-            <MapPin size={isMobile ? 50 : 80} color={BRAND_ACCENT} opacity={0.3} />
-          </div>
-        </Link>
+        {/* Dark overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.75) 100%)',
+        }} />
+
+        {/* Gradient accent line at bottom */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          background: GRADIENT,
+          zIndex: 2,
+        }} />
+
+        {/* Content */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: isMobile ? '2rem 1.5rem' : '3rem',
+          textAlign: 'center',
+        }}>
+          <h2 style={{
+            fontSize: isMobile ? 'clamp(1.5rem, 6vw, 2rem)' : 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 900,
+            color: 'white',
+            marginBottom: '0.75rem',
+            marginTop: 0,
+            letterSpacing: '0.04em',
+            textShadow: '0 2px 20px rgba(0,0,0,0.8)',
+          }}>
+            {dictData.mapSection.title}
+          </h2>
+
+          <p style={{
+            color: 'rgba(255,255,255,0.55)',
+            fontSize: isMobile ? '0.9rem' : '1.05rem',
+            marginBottom: '2rem',
+            maxWidth: '480px',
+            lineHeight: 1.6,
+          }}>
+            {dictData.mapSection.text}
+          </p>
+
+          <Link
+            href="https://www.google.com/maps/search/valhalla+echo+fitness/@41.7161693,44.6885749,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: GRADIENT,
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '12px',
+              padding: isMobile ? '0.75rem 1.5rem' : '0.875rem 2rem',
+              fontSize: isMobile ? '0.875rem' : '1rem',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
+            }}
+          >
+            <MapPin size={16} />
+            View on Google Maps
+            <ExternalLink size={14} />
+          </Link>
+        </div>
       </div>
     </div>
   );

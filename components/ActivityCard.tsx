@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Calendar, ChevronRight, Clock, TrendingUp, Users } from 'lucide-react';
-import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
+import React from 'react';
+import { Clock, TrendingUp, Users } from 'lucide-react';
+import Image from 'next/image';
 
 interface Activity {
   id: number;
@@ -22,192 +22,116 @@ interface ActivityCardProps {
   lang?: 'en' | 'ka';
 }
 
-const translations = {
-  en: { bookClass: 'Book a Class' },
-  ka: { bookClass: 'დაჯავშნე კლასი' },
-};
+const GRADIENT = 'linear-gradient(90deg, #cc0000, #e11d1d, #42c2ca, #2dd4bf)';
+const RED = '#e11d1d';
+const MINT = '#42c2ca';
+const MINT_RGBA = (a: number) => `rgba(66, 194, 202, ${a})`;
+const RED_RGBA = (a: number) => `rgba(225, 29, 29, ${a})`;
 
-export default function ActivityCard({
-  activity,
-  index,
-  isVisible,
-  lang = 'en',
-}: ActivityCardProps) {
-  const [hover, setHover] = useState(false);
-  const [buttonHover, setButtonHover] = useState(false);
-
-  const styles: { [key: string]: React.CSSProperties } = {
-    card: {
-      position: 'relative',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      minHeight: '480px',
-      cursor: 'pointer',
-      opacity: isVisible ? 1 : 0,
-      transform: isVisible
-        ? hover ? 'translateY(-8px)' : 'translateY(0)'
-        : 'translateY(30px)',
-      boxShadow: hover
-        ? `0 20px 60px ${brandRgba(0.28)}, 0 0 0 1px ${brandRgba(0.45)}`
-        : '0 4px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(39,39,42,1)',
-      transition: `transform 0.3s ease ${index * 0.15}s, opacity 0.4s ease-out ${index * 0.15}s, box-shadow 0.2s ease, border 0.2s ease`,
-      display: 'flex',
-      flexDirection: 'column',
-      background: 'rgba(24, 24, 27, 0.6)',
-      backdropFilter: 'blur(12px)',
-      border: hover ? `1px solid ${brandRgba(0.45)}` : '1px solid rgba(39, 39, 42, 1)',
-    },
-    imageSection: {
-      height: '240px',
-      position: 'relative',
-      overflow: 'hidden',
-      background: activity.image
-        ? `url('/assets/images/${activity.image}')`
-        : `linear-gradient(135deg, ${activity.color || '#1f2937'}, rgba(24, 24, 27, 0.8))`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    },
-    imageOverlay: {
-      position: 'absolute',
-      inset: 0,
-      background: 'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.85) 100%)',
-      zIndex: 1,
-    },
-    indexBadge: {
-      position: 'absolute',
-      top: '1rem',
-      left: '1rem',
-      background: 'rgba(0, 0, 0, 0.8)',
-      backdropFilter: 'blur(10px)',
-      border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
-      padding: '0.5rem 0.9rem',
-      borderRadius: '10px',
-      fontSize: '0.8rem',
-      fontWeight: 700,
-      zIndex: 2,
-    },
-    levelBadge: {
-      position: 'absolute',
-      top: '1rem',
-      right: '1rem',
-      background: 'rgba(0, 0, 0, 0.8)',
-      backdropFilter: 'blur(10px)',
-      border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
-      padding: '0.5rem 0.9rem',
-      borderRadius: '10px',
-      fontSize: '0.8rem',
-      fontWeight: 600,
-      zIndex: 2,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.4rem',
-    },
-    content: {
-      padding: '1.5rem',
-      display: 'flex',
-      flexDirection: 'column',
-      flex: 1,
-    },
-    name: {
-      fontSize: '1.75rem',
-      fontWeight: 800,
-      marginBottom: '0.75rem',
-      color: '#fff',
-      lineHeight: 1.2,
-    },
-    description: {
-      fontSize: '0.9rem',
-      color: '#d4d4d8',
-      lineHeight: 1.6,
-      marginBottom: '1.25rem',
-      flex: 1,
-    },
-    metaInfo: {
-      display: 'flex',
-      gap: '1rem',
-      marginBottom: '1.25rem',
-      flexWrap: 'wrap',
-    },
-    metaItem: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      background: brandRgba(0.1),
-      border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
-      padding: '0.5rem 0.75rem',
-      borderRadius: '8px',
-      fontSize: '0.8rem',
-      fontWeight: 500,
-    },
-    button: {
-      width: '100%',
-      padding: '0.95rem',
-      borderRadius: '10px',
-      border: 'none',
-      background: buttonHover
-        ? BRAND_GRADIENT
-        : brandRgba(0.12),
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderColor: brandRgba(0.6),
-      color: buttonHover ? '#0b0b0b' : BRAND_ACCENT,
-      fontWeight: 700,
-      fontSize: '0.9rem',
-      cursor: 'pointer',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: '0.5rem',
-      transform: buttonHover ? 'scale(1.02)' : 'scale(1)',
-      transition: 'all 0.2s ease',
-    },
-  };
-
+export default function ActivityCard({ activity, index, isVisible }: ActivityCardProps) {
   return (
     <div
-      style={styles.card}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      style={{
+        borderRadius: '16px',
+        overflow: 'hidden',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+        transition: `opacity 0.6s ease ${index * 0.12}s, transform 0.6s ease ${index * 0.12}s`,
+        background: 'rgba(14, 14, 16, 0.95)',
+        border: '1px solid rgba(255,255,255,0.06)',
+      }}
     >
-      <div style={styles.imageSection}>
-        <div style={styles.imageOverlay} />
-        <div style={styles.indexBadge}>
-          #{String(index + 1).padStart(2, '0')}
-        </div>
-        <div style={styles.levelBadge}>
-          <TrendingUp size={14} />
+      {/* Image — wide horizontal */}
+      <div style={{ position: 'relative', height: '200px', width: '100%', overflow: 'hidden' }}>
+        {activity.image ? (
+          <Image
+            src={`/assets/images/${activity.image}`}
+            alt={activity.name}
+            fill
+            style={{ objectFit: 'cover' }}
+            loading="lazy"
+          />
+        ) : (
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: `linear-gradient(135deg, ${RED} 0%, #1a1a1e 60%, #1a2e30 100%)`,
+          }} />
+        )}
+
+        {/* Bottom fade into card */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(14,14,16,0.85) 100%)',
+          zIndex: 1,
+        }} />
+
+        {/* Level badge — top left */}
+        <div style={{
+          position: 'absolute', top: '1rem', left: '1rem', zIndex: 2,
+          display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+          background: RED_RGBA(0.15), border: `1px solid ${RED_RGBA(0.4)}`,
+          color: RED, padding: '0.3rem 0.7rem', borderRadius: '6px',
+          fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          backdropFilter: 'blur(6px)',
+        }}>
+          <TrendingUp size={11} />
           {activity.level}
+        </div>
+
+        {/* Duration + schedule — top right */}
+        <div style={{
+          position: 'absolute', top: '1rem', right: '1rem', zIndex: 2,
+          display: 'flex', gap: '0.4rem',
+        }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+            background: 'rgba(0,0,0,0.45)', border: `1px solid ${MINT_RGBA(0.25)}`,
+            color: MINT, padding: '0.3rem 0.65rem', borderRadius: '6px',
+            fontSize: '0.72rem', fontWeight: 600,
+            backdropFilter: 'blur(6px)',
+          }}>
+            <Clock size={11} />
+            {activity.duration}
+          </div>
+        </div>
+
+        {/* Name overlaid on bottom of image */}
+        <div style={{
+          position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem', zIndex: 2,
+        }}>
+          <h3 style={{
+            fontSize: '1.5rem', fontWeight: 900,
+            color: 'white', margin: 0,
+            letterSpacing: '0.03em', lineHeight: 1.1,
+            textShadow: '0 2px 12px rgba(0,0,0,0.8)',
+          }}>
+            {activity.name}
+          </h3>
         </div>
       </div>
 
-      <div style={styles.content}>
-        <h3 style={styles.name}>{activity.name}</h3>
+      {/* Gradient line */}
+      <div style={{ height: '2px', background: GRADIENT }} />
 
-        <p style={styles.description}>{activity.description}</p>
+      {/* Content below */}
+      <div style={{ padding: '1.25rem 1.25rem 1.5rem' }}>
+        <p style={{
+          fontSize: '0.85rem',
+          color: 'rgba(255,255,255,0.5)',
+          lineHeight: 1.65,
+          margin: '0 0 1rem',
+        }}>
+          {activity.description}
+        </p>
 
-        <div style={styles.metaInfo}>
-          <div style={styles.metaItem}>
-            <Clock size={14} />
-            {activity.duration}
-          </div>
-          <div style={styles.metaItem}>
-            <Users size={14} />
-            {activity.schedule}
-          </div>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '0.5rem',
+          fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)',
+        }}>
+          <Users size={12} style={{ color: MINT, flexShrink: 0 }} />
+          {activity.schedule}
         </div>
-
-        <button
-          onMouseEnter={() => setButtonHover(true)}
-          onMouseLeave={() => setButtonHover(false)}
-          style={styles.button}
-        >
-          <Calendar size={18} />
-          {translations[lang].bookClass}
-          <ChevronRight size={18} />
-        </button>
       </div>
     </div>
   );

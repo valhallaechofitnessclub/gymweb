@@ -31,7 +31,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       delay: 0,
       path: `/${currentLang}/locations`,
     },
-        {
+    {
       id: 2,
       title: dict.card3.title,
       description: dict.card3.text,
@@ -47,7 +47,6 @@ export default function CardSection({ dict }: { dict: CardDict }) {
       delay: 0.4,
       path: `/${currentLang}/pricing`,
     },
-
   ];
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -108,7 +107,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           background: linear-gradient(
             135deg,
             rgba(0, 0, 0, 0.7) 0%,
-            rgba(0, 0, 0, 0.4) 10%,
+            rgba(0, 0, 0, 0.4) 10%
           );
           backdrop-filter: blur(0px);
           transition: backdrop-filter 0.5s ease;
@@ -138,8 +137,8 @@ export default function CardSection({ dict }: { dict: CardDict }) {
 
         .card:hover .card-glass {
           background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(163, 115, 246, 0.3);
-          box-shadow: 0 8px 32px rgba(163, 115, 246, 0.2);
+          border-color: rgba(66, 194, 202, 0.3);
+          box-shadow: 0 8px 32px rgba(66, 194, 202, 0.2);
         }
 
         .card-title {
@@ -149,16 +148,16 @@ export default function CardSection({ dict }: { dict: CardDict }) {
           margin-bottom: 0.5rem;
           margin-top: 0;
           letter-spacing: 0.1em;
-          text-shadow: 0 0 20px rgba(163, 115, 246, 0.3);
+          text-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
           transition: all 0.3s ease;
         }
 
         .card:hover .card-title {
-          background: linear-gradient(90deg, #ec4899, #d946ef, #a855f7, #6366f1, #3b82f6);
+          background: linear-gradient(90deg, #cc0000, #e11d1d, #42c2ca, #2dd4bf);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          filter: drop-shadow(0 0 30px rgba(163, 115, 246, 0.6));
+          filter: drop-shadow(0 0 30px rgba(66, 194, 202, 0.6));
         }
 
         .card-description {
@@ -237,7 +236,7 @@ export default function CardSection({ dict }: { dict: CardDict }) {
         @media (max-width: 480px) {
           .cards-container {
             margin-top: -60px !important;
-            padding: 0 0.75rem 2rem!important;
+            padding: 0 0.75rem 2rem !important;
           }
           
           .card {

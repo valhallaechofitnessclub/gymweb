@@ -88,7 +88,7 @@
         "trainers": [
             {
                 "id": 1,
-                "name": "Bashiachuki",
+                "name": "davit kakriashvili",
                 "title": "Strength & Conditioning",
                 "specialty": "Olympic Lifting",
                 "experience": "12 Years",
@@ -109,11 +109,11 @@
                 },
                 "buttonText": "Book Session",
                 "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
+                "image": "davitkakriashvili.png"
             },
             {
                 "id": 2,
-                "name": "Bashiachuki",
+                "name": "Lasha Bujiashvili",
                 "title": "HIIT & Functional Training",
                 "specialty": "Weight Loss",
                 "experience": "8 Years",
@@ -134,7 +134,7 @@
                 },
                 "buttonText": "Book Session",
                 "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
+                "image": "lashabujiashvili.png"
             },
             {
                 "id": 3,
@@ -159,7 +159,7 @@
                 },
                 "buttonText": "Book Session",
                 "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
+                "image": "trainer2.png"
             },
             {
                 "id": 4,

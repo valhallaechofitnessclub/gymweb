@@ -1,15 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-const GRADIENT_COLORS = [
-  '#ec4899',
-  '#d946ef',
-  '#a855f7',
-  '#6366f1',
-  '#3b82f6',
-];
-
+const GRADIENT_COLORS = ["#cc0000", "#e11d1d", "#42c2ca", "#2dd4bf"];
 export default function Background() {
   const [particles, setParticles] = useState<
     Array<{
@@ -29,7 +22,6 @@ export default function Background() {
       top: `${Math.random() * 100}%`,
       delay: Math.random() * 3,
       duration: 4 + Math.random() * 4,
-      // cycle through the SAME gradient colors as the title
       color: GRADIENT_COLORS[i % GRADIENT_COLORS.length],
     }));
 
@@ -38,19 +30,18 @@ export default function Background() {
 
   const styles: { [key: string]: React.CSSProperties } = {
     container: {
-      position: 'fixed',
+      position: "fixed",
       inset: 0,
       zIndex: 0,
-      pointerEvents: 'none',
-      background:
-        'linear-gradient(to bottom, #0a0a0a, #1a0a1f, #0f0a1f, #0a0a0a)',
-      overflow: 'hidden',
+      pointerEvents: "none",
+      background: "#0a0a0a",
+      overflow: "hidden",
     },
     particle: {
-      position: 'absolute',
-      width: '2px',
-      height: '2px',
-      borderRadius: '50%',
+      position: "absolute",
+      width: "2px",
+      height: "2px",
+      borderRadius: "50%",
       opacity: 0.6,
     },
   };
@@ -75,7 +66,6 @@ export default function Background() {
               left: p.left,
               top: p.top,
               background: p.color,
-              boxShadow: `0 0 12px ${p.color}`,
               animation: `float ${p.duration}s ease-in-out infinite`,
               animationDelay: `${p.delay}s`,
             }}

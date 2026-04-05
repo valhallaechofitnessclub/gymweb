@@ -1,8 +1,7 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Award, Mail, ChevronRight, Zap } from 'lucide-react';
-import { BRAND_ACCENT, BRAND_GRADIENT, brandRgba } from '@/theme/brand';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { Award, Zap } from "lucide-react";
 
 interface Trainer {
   name: string;
@@ -26,216 +25,169 @@ interface Props {
   transitionSpeed?: string;
 }
 
+const GRADIENT = "linear-gradient(90deg, #cc0000, #e11d1d, #42c2ca, #2dd4bf)";
+const RED = "#e11d1d";
+const MINT = "#42c2ca";
+const MINT_RGBA = (a: number) => `rgba(66, 194, 202, ${a})`;
+const RED_RGBA = (a: number) => `rgba(225, 29, 29, ${a})`;
+
 export default function TrainerCard({
   trainer,
   index = 0,
   isVisible,
-  isHovered,
   onHover,
   onLeave,
-  transitionSpeed = '0.2s',
 }: Props) {
-  const [buttonHovered, setButtonHovered] = useState(false);
-
-  const styles: { [key: string]: React.CSSProperties } = {
-    card: {
-      background: 'rgba(24, 24, 27, 0.6)',
-      backdropFilter: 'blur(12px)',
-      border: isHovered
-        ? `1px solid ${brandRgba(0.45)}`
-        : '1px solid rgba(39, 39, 42, 1)',
-      borderRadius: '20px',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden',
-      opacity: isVisible ? 1 : 0,
-      transform: isVisible
-        ? isHovered
-          ? 'translateY(-8px)'
-          : 'translateY(0)'
-        : 'translateY(30px)',
-      transition: `opacity 0.4s ease-out ${index * 0.15}s, transform ${transitionSpeed} ease ${index * 0.15}s, border ${transitionSpeed} ease, box-shadow ${transitionSpeed} ease`,
-      boxShadow: isHovered
-        ? `0 20px 60px ${brandRgba(0.22)}`
-        : '0 4px 20px rgba(0, 0, 0, 0.4)',
-    },
-
-    imageSection: {
-      height: '220px',
-      background: trainer.image
-        ? `url('/assets/images/${trainer.image}') center/cover no-repeat`
-        : `linear-gradient(135deg, ${trainer.color ?? '#1f1f1f'}, rgba(24, 24, 27, 0.8))`,
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    imageOverlay: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background:
-        'linear-gradient(to bottom, transparent 0%, rgba(24, 24, 27, 0.7) 100%)',
-      zIndex: 1,
-    },
-    imageLetter: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      fontSize: '7rem',
-      fontWeight: 900,
-      color: 'rgba(255, 255, 255, 0.1)',
-      zIndex: 0,
-    },
-    experienceBadge: {
-      position: 'absolute',
-      top: '1rem',
-      right: '1rem',
-      background: 'rgba(0, 0, 0, 0.8)',
-      backdropFilter: 'blur(10px)',
-      border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
-      padding: '0.5rem 0.9rem',
-      borderRadius: '10px',
-      fontSize: '0.8rem',
-      fontWeight: 600,
-      zIndex: 2,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.4rem',
-    },
-    specialtyBadge: {
-      position: 'absolute',
-      bottom: '1rem',
-      left: '1rem',
-      background: 'rgba(0, 0, 0, 0.8)',
-      backdropFilter: 'blur(10px)',
-      border: `1px solid ${brandRgba(0.45)}`,
-      color: BRAND_ACCENT,
-      padding: '0.5rem 0.9rem',
-      borderRadius: '10px',
-      fontSize: '0.8rem',
-      fontWeight: 600,
-      zIndex: 2,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.4rem',
-    },
-    content: {
-      padding: '1.5rem',
-    },
-    name: {
-      fontSize: '1.5rem',
-      fontWeight: 700,
-      color: 'white',
-      marginBottom: '0.25rem',
-    },
-    title: {
-      fontSize: '0.85rem',
-      color: '#a1a1aa',
-      textTransform: 'uppercase',
-      letterSpacing: '0.05em',
-      marginBottom: '1rem',
-    },
-    bio: {
-      color: '#d4d4d8',
-      fontSize: '0.9rem',
-      lineHeight: 1.5,
-      marginBottom: '1rem',
-    },
-    certifications: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: '0.4rem',
-      marginBottom: '1.25rem',
-    },
-    cert: {
-      background: brandRgba(0.1),
-      border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
-      padding: '0.3rem 0.6rem',
-      borderRadius: '6px',
-      fontSize: '0.75rem',
-      fontWeight: 500,
-    },
-    actions: {
-      display: 'flex',
-      gap: '0.75rem',
-    },
-    button: {
-      padding: '0.85rem',
-      borderRadius: '10px',
-      fontSize: '0.85rem',
-      fontWeight: 600,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '0.4rem',
-      cursor: 'pointer',
-      border: 'none',
-      transition: `all ${transitionSpeed} ease`,
-    },
-    primaryButton: {
-      flex: 1,
-      background: buttonHovered
-        ? BRAND_GRADIENT
-        : brandRgba(0.12),
-      border: `1px solid ${brandRgba(0.6)}`,
-      color: buttonHovered ? '#0b0b0b' : BRAND_ACCENT,
-    },
-    iconButton: {
-      background: brandRgba(0.1),
-      border: `1px solid ${brandRgba(0.22)}`,
-      color: BRAND_ACCENT,
-      width: '44px',
-    },
-  };
-
   return (
-    <div style={styles.card} onMouseEnter={onHover} onMouseLeave={onLeave}>
-      <div style={styles.imageSection}>
-        {!trainer.image && (
-          <div style={styles.imageLetter}>
-            {trainer.name.split(' ')[0].charAt(0)}
+    <div
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1.4fr",
+        borderRadius: "16px",
+        overflow: "hidden",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(30px)",
+        transition: `opacity 0.6s ease ${index * 0.12}s, transform 0.6s ease ${index * 0.12}s`,
+        background: "rgba(14, 14, 16, 0.95)",
+        border: "1px solid rgba(255,255,255,0.06)",
+        height: "200px",
+      }}
+    >
+      {/* Left — photo */}
+      <div style={{ position: "relative", overflow: "hidden" }}>
+        {trainer.image ? (
+          <Image
+            src={`/assets/images/${trainer.image}`}
+            alt={trainer.name}
+            fill
+            style={{ objectFit: "cover", objectPosition: "top center" }}
+            loading="lazy"
+          />
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(135deg, ${RED} 0%, #1a1a1e 60%, #1a2e30 100%)`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "5rem",
+                fontWeight: 900,
+                color: "rgba(255,255,255,0.07)",
+              }}
+            >
+              {trainer.name.charAt(0)}
+            </span>
           </div>
         )}
-        <div style={styles.imageOverlay} />
-        <div style={styles.experienceBadge}>
-          <Award size={14} />
-          {trainer.experience}
-        </div>
-        <div style={styles.specialtyBadge}>
-          <Zap size={14} />
-          {trainer.specialty}
-        </div>
+
+        {/* Fade right into content */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to right, transparent 45%, rgba(14,14,16,0.95) 100%)",
+            zIndex: 1,
+          }}
+        />
       </div>
 
-      <div style={styles.content}>
-        <h3 style={styles.name}>{trainer.name}</h3>
-        <p style={styles.title}>{trainer.title}</p>
-        <p style={styles.bio}>{trainer.bio}</p>
-
-        <div style={styles.certifications}>
-          {trainer.certifications?.map((cert: string, i: number) => (
-            <span key={i} style={styles.cert}>
-              {cert}
-            </span>
-          ))}
+      {/* Right — content */}
+      <div
+        style={{
+          padding: "1.5rem 1.5rem 1.5rem 1.25rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "0.75rem",
+        }}
+      >
+        {/* Name + Title */}
+        <div>
+          <h3
+            style={{
+              fontSize: "1.4rem",
+              fontWeight: 900,
+              color: "white",
+              margin: "0 0 0.2rem",
+              lineHeight: 1.15,
+              letterSpacing: "0.02em",
+            }}
+          >
+            {trainer.name}
+          </h3>
+          <p
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.3)",
+              margin: 0,
+            }}
+          >
+            {trainer.title}
+          </p>
         </div>
 
-        <div style={styles.actions}>
-          <button
-            style={{ ...styles.button, ...styles.primaryButton }}
-            onMouseEnter={() => setButtonHovered(true)}
-            onMouseLeave={() => setButtonHovered(false)}
+        {/* Gradient divider */}
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background: GRADIENT,
+            opacity: 0.35,
+          }}
+        />
+
+        {/* Specialty + Experience badges */}
+        <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.35rem",
+              background: RED_RGBA(0.1),
+              border: `1px solid ${RED_RGBA(0.3)}`,
+              color: RED,
+              padding: "0.25rem 0.6rem",
+              borderRadius: "6px",
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+            }}
           >
-            {trainer.buttonText}
-            <ChevronRight size={16} />
-          </button>
-          <button style={{ ...styles.button, ...styles.iconButton }}>
-            <Mail size={16} />
-          </button>
+            <Award size={11} />
+            {trainer.experience}
+          </div>
+          {trainer.specialty && (
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                background: MINT_RGBA(0.08),
+                border: `1px solid ${MINT_RGBA(0.25)}`,
+                color: MINT,
+                padding: "0.25rem 0.6rem",
+                borderRadius: "6px",
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                letterSpacing: "0.06em",
+              }}
+            >
+              <Zap size={11} />
+              {trainer.specialty}
+            </div>
+          )}
         </div>
       </div>
     </div>
