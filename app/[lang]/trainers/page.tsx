@@ -8,9 +8,8 @@ import { useDictionary } from '@/app/context/DictionaryContext';
 interface Trainer {
   id: number;
   name: string;
-  title?: string;
   specialty?: string;
-  experience?: string | number;
+  location?: string;
   certifications?: string[];
   bio?: string;
   stats?: {
@@ -25,13 +24,13 @@ interface Trainer {
   };
   buttonText?: string;
   color?: string;
+  image?: string;
 }
 
 interface TrainersDict {
   header: {
     title: string;
     subtitle: string;
-    description: string;
   };
   trainers: Trainer[];
 }

@@ -1,451 +1,755 @@
 {
-    "hero": {
-        "title": "VALHALLA",
-        "subtitle": "FITNESS"
+  "hero": {
+    "title": "VALHALLA",
+    "subtitle": "FITNESS"
+  },
+  "footer": {
+    "title": "VALHALLA",
+    "subtitle": "FITNESS"
+  },
+  "header": {
+    "locations": "LOCATIONS",
+    "activities": "ACTIVITIES",
+    "trainers": "TRAINERS",
+    "prices": "PRICES",
+    "contact": "CONTACT"
+  },
+  "cards": {
+    "card1": {
+      "title": "LOCATIONS",
+      "text": "Discover premium training facilities"
     },
-    "footer": {
-        "title": "VALHALLA",
-        "subtitle": "FITNESS"
+    "card2": {
+      "title": "PRICING",
+      "text": "Flexible plans for every goal"
     },
+    "card3": {
+      "title": "ACTIVITIES",
+      "text": "Transform your body and mind"
+    }
+  },
+  "trainers": {
+    "title": "TRAINERS",
+    "text": "Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.",
+    "button": "VIEW TRAINERS",
+    "img": "trainers.jpg"
+  },
+  "locations": {
+    "title": "LOCATIONS",
+    "text": "Our fitness centers are strategically located to help you stay active, no matter where you are.",
+    "button": "VIEW LOCATIONS"
+  },
+  "locationsPage": {
     "header": {
-        "locations": "LOCATIONS",
-        "activities": "ACTIVITIES",
-        "trainers": "TRAINERS",
-        "prices": "PRICES",
-        "contact": "CONTACT"
+      "title": "LOCATIONS",
+      "subtitle": "Find Your Nearest Reform"
     },
     "cards": {
-        "card1": {
-            "title": "LOCATIONS",
-            "text": "Discover premium training facilities"
-        },
-        "card2": {
-            "title": "PRICING",
-            "text": "Flexible plans for every goal"
-        },
-        "card3": {
-            "title": "ACTIVITIES",
-            "text": "Transform your body and mind"
-        }
-    },
-    "trainers": {
-        "title": "TRAINERS",
-        "text": "Meet our team of certified professionals dedicated to helping you reach your fitness goals and transform your life.",
-        "button": "VIEW TRAINERS",
-        "img": "trainers.jpg"
-    },
-    "locations": {
-        "title": "LOCATIONS",
-        "text": "Our fitness centers are strategically located to help you stay active, no matter where you are.",
-        "button": "VIEW LOCATIONS"
-    },
-    "locationsPage": {
-        "header": {
-            "title": "LOCATIONS",
-            "subtitle": "Find Your Nearest Reform"
-        },
-        "cards": {
-            "card1": {
-                "name": "Valhalla Echo Fitness Club",
-                "address": "2 Mark Bronshteini I Dead End",
-                "city": "Tbilisi",
-                "phone": "557 57 37 31",
-                "hours": "Open daily · Closes 11:30 PM",
-                "features": [
-                    "Cardio Zone",
-                    "Boxing Ring",
-                    "Yoga Studio",
-                    "Personal Training"
-                ],
-                "image": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
-            },
-            "card2": {
-                "name": "Valhalla Echo Fitness Club",
-                "address": "Giorgi Saakadze Square, Saakadze Tower",
-                "city": "Tbilisi",
-                "phone": "557 57 37 31",
-                "hours": "Open daily · Closes 11:30 PM",
-                "features": [
-                    "CrossFit Area",
-                    "Weightlifting",
-                    "Functional Training",
-                    "Recovery Zone"
-                ],
-                "image": "linear-gradient(135deg, #1f1f1f 0%, #333333 100%)"
-            }
-        },
-        "mapSection": {
-            "title": "All Locations",
-            "text": "Choose your destination and start your transformation"
-        }
-    },
-    "trainersPage": {
-        "header": {
-            "title": "TRAINERS",
-            "subtitle": "Elite Coaching Staff",
-            "description": "Our certified experts bring decades of combined experience to help you achieve your goals"
-        },
-        "trainers": [
-            {
-                "id": 1,
-                "name": "davit kakriashvili",
-                "title": "Strength & Conditioning",
-                "specialty": "Olympic Lifting",
-                "experience": "12 Years",
-                "certifications": [
-                    "CSCS",
-                    "USAW Level 2"
-                ],
-                "bio": "Former competitive powerlifter turned coach. Specializes in building raw strength and explosive power.",
-                "stats": {
-                    "clients": "200+",
-                    "transformations": "150+",
-                    "rating": "5.0"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "davitkakriashvili.png"
-            },
-            {
-                "id": 2,
-                "name": "Lasha Bujiashvili",
-                "title": "HIIT & Functional Training",
-                "specialty": "Weight Loss",
-                "experience": "8 Years",
-                "certifications": [
-                    "NASM-CPT",
-                    "TRX Certified"
-                ],
-                "bio": "High-energy coach focused on metabolic conditioning and sustainable fat loss through functional movements.",
-                "stats": {
-                    "clients": "180+",
-                    "transformations": "120+",
-                    "rating": "4.9"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "lashabujiashvili.png"
-            },
-            {
-                "id": 3,
-                "name": "Bashiachuki",
-                "title": "Bodybuilding & Aesthetics",
-                "specialty": "Muscle Hypertrophy",
-                "experience": "10 Years",
-                "certifications": [
-                    "ISSA",
-                    "Precision Nutrition"
-                ],
-                "bio": "Competition prep coach with expertise in body recomposition and advanced training techniques.",
-                "stats": {
-                    "clients": "160+",
-                    "transformations": "100+",
-                    "rating": "5.0"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainer2.png"
-            },
-            {
-                "id": 4,
-                "name": "Bashiachuki",
-                "title": "Athletic Performance",
-                "specialty": "Speed & Agility",
-                "experience": "9 Years",
-                "certifications": [
-                    "CSCS",
-                    "FMS Level 2"
-                ],
-                "bio": "Former D1 athlete specializing in sports performance, injury prevention, and movement optimization.",
-                "stats": {
-                    "clients": "140+",
-                    "transformations": "90+",
-                    "rating": "4.9"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
-            },
-            {
-                "id": 5,
-                "name": "Bashiachuki",
-                "title": "CrossFit & Conditioning",
-                "specialty": "Functional Fitness",
-                "experience": "11 Years",
-                "certifications": [
-                    "CF-L3",
-                    "USAW Sports"
-                ],
-                "bio": "CrossFit veteran pushing athletes to new limits through varied, high-intensity functional training.",
-                "stats": {
-                    "clients": "190+",
-                    "transformations": "130+",
-                    "rating": "5.0"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
-            },
-            {
-                "id": 6,
-                "name": "Bashiachuki",
-                "title": "Yoga & Mobility",
-                "specialty": "Recovery & Flexibility",
-                "experience": "7 Years",
-                "certifications": [
-                    "RYT-500",
-                    "FRC Certified"
-                ],
-                "bio": "Holistic approach combining yoga, mobility work, and mindfulness for complete body-mind transformation.",
-                "stats": {
-                    "clients": "220+",
-                    "transformations": "140+",
-                    "rating": "5.0"
-                },
-                "labels": {
-                    "clients": "Clients",
-                    "transformations": "Transformations",
-                    "rating": "Rating"
-                },
-                "buttonText": "Book Session",
-                "color": "rgba(139, 92, 246, 0.15)",
-                "image": "trainers.jpg"
-            }
-        ]
-    },
-    "pricingPage": {
-        "header": {
-            "title": "Pricing Plans",
-            "subtitle": "Choose Your Perfect Fitness Journey"
-        },
-        "plans": {
-            "unlimited": {
-                "name": "Monthly Unlimited",
-                "description": "Full access to the gym with no restrictions",
-                "price": 120,
-                "oldPrice": null,
-                "isDiscounted": false,
-                "duration": "Monthly",
-                "startTime": "08:00",
-                "endTime": "23:30",
-                "features": [
-                    "Full gym access",
-                    "All equipment usage",
-                    "Locker room access",
-                    "Unlimited visits"
-                ],
-                "isPopular": true,
-                "badge": "UNLIMITED"
-            },
-            "dayPass": {
-                "name": "Monthly Unlimited (Day Pass)",
-                "description": "Full access during daytime hours at a reduced rate",
-                "price": 80,
-                "oldPrice": null,
-                "isDiscounted": false,
-                "duration": "Monthly",
-                "startTime": "08:00",
-                "endTime": "16:00",
-                "features": [
-                    "Full gym access",
-                    "All equipment usage",
-                    "Locker room access",
-                    "Daytime hours only"
-                ],
-                "isPopular": false,
-                "badge": "DAY"
-            },
-            "singleVisit": {
-                "name": "Single Visit",
-                "description": "One-time access for a single workout session",
-                "price": 15,
-                "oldPrice": null,
-                "isDiscounted": false,
-                "duration": "Per Visit",
-                "features": [
-                    "Full gym access",
-                    "All equipment usage",
-                    "Locker room access"
-                ],
-                "isPopular": false,
-                "badge": "SINGLE"
-            }
-        }
-    },
-    "activitiesPage": {
-        "header": {
-            "title": "Our Activities",
-            "subtitle": "Transform Your Body & Mind"
-        },
-        "activities": {
-            "yoga": {
-                "name": "Yoga",
-                "description": "Find your inner peace and flexibility through guided yoga sessions",
-                "duration": "60 min",
-                "level": "All Levels",
-                "maxParticipants": "15 people",
-                "schedule": "Daily",
-                "benefits": [
-                    "Improves flexibility",
-                    "Reduces stress & anxiety",
-                    "Enhances mental clarity",
-                    "Strengthens core muscles"
-                ],
-                "icon": "yoga",
-                "image": "trainers.jpg"
-            },
-            "presses": {
-                "name": "Presses",
-                "description": "Build upper-body power with bench, overhead, and dumbbell press variations",
-                "duration": "50 min",
-                "level": "Intermediate",
-                "maxParticipants": "12 people",
-                "schedule": "Mon-Sat",
-                "benefits": [
-                    "Increases upper-body strength",
-                    "Builds chest & shoulder mass",
-                    "Improves pressing power",
-                    "Enhances core stability"
-                ],
-                "icon": "presses",
-                "image": "trainers.jpg"
-            },
-            "boxing": {
-                "name": "Boxing",
-                "description": "Build strength, speed, and confidence with high-intensity boxing training",
-                "duration": "50 min",
-                "level": "Intermediate",
-                "maxParticipants": "12 people",
-                "schedule": "Tue-Sat",
-                "benefits": [
-                    "Burns maximum calories",
-                    "Builds full-body strength",
-                    "Improves coordination",
-                    "Boosts confidence"
-                ],
-                "icon": "boxing",
-                "image": "trainers.jpg"
-            },
-            "cardio": {
-                "name": "Cardio",
-                "description": "Elevate your heart rate and torch calories with dynamic cardio workouts",
-                "duration": "45 min",
-                "level": "All Levels",
-                "maxParticipants": "25 people",
-                "schedule": "Daily",
-                "benefits": [
-                    "Improves cardiovascular health",
-                    "Burns fat efficiently",
-                    "Boosts endurance",
-                    "Elevates mood & energy"
-                ],
-                "icon": "cardio",
-                "image": "trainers.jpg"
-            },
-            "zumba": {
-                "name": "Zumba",
-                "description": "Dance your way to fitness with energetic, Latin-inspired Zumba routines",
-                "duration": "55 min",
-                "level": "All Levels",
-                "maxParticipants": "30 people",
-                "schedule": "Mon-Fri",
-                "benefits": [
-                    "Full-body calorie burn",
-                    "Improves coordination",
-                    "Reduces stress",
-                    "Fun social atmosphere"
-                ],
-                "icon": "zumba",
-                "image": "trainers.jpg"
-            },
-            "aerobic": {
-                "name": "Aerobic",
-                "description": "High-energy group aerobic sessions to build stamina and stay in shape",
-                "duration": "50 min",
-                "level": "Beginner",
-                "maxParticipants": "30 people",
-                "schedule": "Mon-Sat",
-                "benefits": [
-                    "Strengthens heart & lungs",
-                    "Increases stamina",
-                    "Tones muscles",
-                    "Improves overall fitness"
-                ],
-                "icon": "aerobic",
-                "image": "trainers.jpg"
-            }
-        }
-    },
-    "contactPage": {
-        "header": {
-            "title": "Get In Touch",
-            "subtitle": "We're Here to Help"
-        },
-        "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
-        "contactInfo": {
-            "email": "info@valhallaecho.ge",
-            "phone": "557 57 37 31"
-        },
-        "locations": [
-            {
-                "name": "Valhalla Echo — Bronshteini",
-                "address": "2 Mark Bronshteini I Dead End, Tbilisi",
-                "phone": "557 57 37 31",
-                "hours": "Open daily · Closes 11:30 PM",
-                "email": "info@valhallaecho.ge"
-            },
-            {
-                "name": "Valhalla Echo — Saakadze Tower",
-                "address": "Giorgi Saakadze Square, Saakadze Tower, Tbilisi",
-                "phone": "557 57 37 31",
-                "hours": "Open daily · Closes 11:30 PM",
-                "email": "info@valhallaecho.ge"
-            }
+      "card1": {
+        "name": "Valhalla Echo Fitness Club",
+        "address": "2 Mark Bronshteini I Dead End",
+        "city": "Tbilisi",
+        "phone": "557 57 37 31",
+        "hours": "Open daily · Closes 11:30 PM",
+        "features": [
+          "Cardio Zone",
+          "Boxing Ring",
+          "Yoga Studio",
+          "Personal Training"
         ],
-        "quickContact": {
-            "title": "Quick Contact",
-            "email": "Email",
-            "phone": "Phone",
-            "hours": "Hours",
-            "hoursValue": "Monday - Sunday: 08:00 - 23:30",
-            "followUs": "Follow Us",
-            "ourLocations": "Our Locations",
-            "sending": "Sending..."
-        },
-        "form": {
-            "title": "Send us a message",
-            "name": "Full Name",
-            "email": "Email Address",
-            "phone": "Phone Number",
-            "message": "Message",
-            "submit": "Send Message",
-            "success": "Thank you! We'll get back to you soon.",
-            "error": "Something went wrong. Please try again."
-        }
+        "image": "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
+      },
+      "card2": {
+        "name": "Valhalla Echo Fitness Club",
+        "address": "Giorgi Saakadze Square, Saakadze Tower",
+        "city": "Tbilisi",
+        "phone": "557 57 37 31",
+        "hours": "Open daily · Closes 11:30 PM",
+        "features": [
+          "CrossFit Area",
+          "Weightlifting",
+          "Functional Training",
+          "Recovery Zone"
+        ],
+        "image": "linear-gradient(135deg, #1f1f1f 0%, #333333 100%)"
+      }
+    },
+    "mapSection": {
+      "title": "All Locations",
+      "text": "Choose your destination and start your transformation"
     }
+  },
+  "trainersPage": {
+    "header": {
+      "title": "TRAINERS",
+      "subtitle": "Elite Coaching Staff"
+    },
+    "trainers": [
+      {
+        "id": 1,
+        "name": "Davit Kakriashvili",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "CSCS",
+          "USAW Level 2"
+        ],
+        "bio": "Former competitive powerlifter turned coach. Specializes in building raw strength and explosive power.",
+        "stats": {
+          "clients": "200+",
+          "transformations": "150+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "davitkakriashvili.png"
+      },
+      {
+        "id": 2,
+        "name": "Lasha Bujiashvili",
+        "specialty": "Boxing",
+        "location": "საბურთალო",
+        "certifications": [
+          "NASM-CPT",
+          "TRX Certified"
+        ],
+        "bio": "High-energy coach focused on metabolic conditioning and sustainable fat loss through functional movements.",
+        "stats": {
+          "clients": "180+",
+          "transformations": "120+",
+          "rating": "4.9"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "lashabujiashvili.png"
+      },
+      {
+        "id": 3,
+        "name": "Gigo Kvaliashvili",
+        "specialty": "Personal Training",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "ISSA",
+          "Precision Nutrition"
+        ],
+        "bio": "Competition prep coach with expertise in body recomposition and advanced training techniques.",
+        "stats": {
+          "clients": "160+",
+          "transformations": "100+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "gigokvaliashvili.png"
+      },
+      {
+        "id": 4,
+        "name": "Giorgi Dekanozishvili",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "CSCS",
+          "FMS Level 2"
+        ],
+        "bio": "Former D1 athlete specializing in sports performance, injury prevention, and movement optimization.",
+        "stats": {
+          "clients": "140+",
+          "transformations": "90+",
+          "rating": "4.9"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "giorgidekanozishvili.png"
+      },
+      {
+        "id": 5,
+        "name": "Giorgi Durglishvili",
+        "specialty": "Boxing",
+        "location": "საბურთალო",
+        "certifications": [
+          "CF-L3",
+          "USAW Sports"
+        ],
+        "bio": "CrossFit veteran pushing athletes to new limits through varied, high-intensity functional training.",
+        "stats": {
+          "clients": "190+",
+          "transformations": "130+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "giorgidurglishvili.png"
+      },
+      {
+        "id": 6,
+        "name": "Giorgi Gurchiani",
+        "specialty": "Boxing",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "RYT-500",
+          "FRC Certified"
+        ],
+        "bio": "Holistic approach combining yoga, mobility work, and mindfulness for complete body-mind transformation.",
+        "stats": {
+          "clients": "220+",
+          "transformations": "140+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "giorgigurchiani.png"
+      },
+      {
+        "id": 7,
+        "name": "Grigol Janoashvili",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "International Boxing Coach",
+          "Combat Sports Specialist"
+        ],
+        "bio": "Professional boxing trainer with a legacy of developing elite fighters and building champion mindset.",
+        "stats": {
+          "clients": "175+",
+          "transformations": "110+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "grigoljanoashvili.png"
+      },
+      {
+        "id": 8,
+        "name": "Guga Tsintsadze",
+        "specialty": "Boxing",
+        "location": "საბურთალო",
+        "certifications": [
+          "Precision Nutrition Level 2",
+          "Nutrition Specialist"
+        ],
+        "bio": "Expert nutritionist helping clients transform through strategic meal planning and metabolic optimization.",
+        "stats": {
+          "clients": "250+",
+          "transformations": "170+",
+          "rating": "4.95"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "gugatsintsadze.png"
+      },
+      {
+        "id": 9,
+        "name": "Keta Enukidze",
+        "specialty": "Personal Training",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "Pre/Post Natal Specialist",
+          "Women's Health Coach"
+        ],
+        "bio": "Dedicated to empowering women through specialized training programs designed for all life stages.",
+        "stats": {
+          "clients": "210+",
+          "transformations": "145+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "ketaenukidze.png"
+      },
+      {
+        "id": 10,
+        "name": "Mako Partsvania",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "Endurance Coach",
+          "Running Specialist"
+        ],
+        "bio": "Marathon coach turning weekend warriors into ultra-endurance athletes through periodized training.",
+        "stats": {
+          "clients": "165+",
+          "transformations": "95+",
+          "rating": "4.9"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "makopartsvania.png"
+      },
+      {
+        "id": 11,
+        "name": "Mariam Guruli",
+        "specialty": "Boxing",
+        "location": "საბურთალო",
+        "certifications": [
+          "Zumba Instructor",
+          "Group Fitness Specialist"
+        ],
+        "bio": "Dynamic group fitness instructor making workouts fun while delivering maximum calorie burn and energy boost.",
+        "stats": {
+          "clients": "300+",
+          "transformations": "200+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "mariamguruli.png"
+      },
+      {
+        "id": 12,
+        "name": "Mariam Jighaurashvili",
+        "specialty": "Boxing",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "Pilates Master Trainer",
+          "Reformer Specialist"
+        ],
+        "bio": "Pilates expert sculpting lean, strong bodies through precision movements and mindful control.",
+        "stats": {
+          "clients": "185+",
+          "transformations": "125+",
+          "rating": "4.95"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "mariamjighaurashvili.png"
+      },
+      {
+        "id": 13,
+        "name": "Oto Tadumadze",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "IPF Coach",
+          "Strength Training Specialist"
+        ],
+        "bio": "Elite powerlifting coach developing record-breakers through scientific training methodologies.",
+        "stats": {
+          "clients": "120+",
+          "transformations": "80+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "ototadumadze.png"
+      },
+      {
+        "id": 14,
+        "name": "Sali Shubitidze",
+        "specialty": "Boxing",
+        "location": "საბურთალო",
+        "certifications": [
+          "Parkour Master",
+          "Movement Specialist"
+        ],
+        "bio": "Innovative trainer using urban movement and parkour to build functional strength and confidence.",
+        "stats": {
+          "clients": "155+",
+          "transformations": "105+",
+          "rating": "4.9"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "salishubitidze.png"
+      },
+      {
+        "id": 15,
+        "name": "Shako Odishvili",
+        "specialty": "Boxing",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "Kettlebell Certified",
+          "Functional Fitness Expert"
+        ],
+        "bio": "Kettlebell specialist building explosive strength and cardiovascular fitness through dynamic movements.",
+        "stats": {
+          "clients": "170+",
+          "transformations": "115+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "shakoodishvili.png"
+      },
+      {
+        "id": 16,
+        "name": "Tamo Kharebava",
+        "specialty": "Boxing",
+        "location": "გლდანი",
+        "certifications": [
+          "Senior Fitness Specialist",
+          "Geriatric Exercise Trainer"
+        ],
+        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
+        "stats": {
+          "clients": "195+",
+          "transformations": "135+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "tamokharebava.png"
+      },
+      {
+        "id": 17,
+        "name": "Teko Meshveliani",
+        "specialty": "Personal Training",
+        "location": "საბურთალო",
+        "certifications": [
+          "Gymnastics Coach",
+          "Mobility Specialist"
+        ],
+        "bio": "Former gymnast teaching advanced bodyweight skills and extraordinary flexibility development.",
+        "stats": {
+          "clients": "145+",
+          "transformations": "95+",
+          "rating": "4.95"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "tekomeshveliani.png"
+      },
+      {
+        "id": 18,
+        "name": "Vakho Akhvlediani",
+        "specialty": "Boxing",
+        "location": "საბურთალო & გლდანი",
+        "certifications": [
+          "MMA Coach",
+          "Combat Sports Specialist"
+        ],
+        "bio": "MMA coach building well-rounded fighters with superior conditioning and technical excellence.",
+        "stats": {
+          "clients": "150+",
+          "transformations": "100+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "vakhoakhvlediani.png"
+      },
+      {
+        "id": 19,
+        "name": "Dito Dvali",
+        "specialty": "Personal Training",
+        "location": "გლდანი",
+        "certifications": [
+          "NASM-CPT",
+          "Behavior Change Specialist"
+        ],
+        "bio": "Versatile personal trainer creating customized programs for any fitness goal and any starting point.",
+        "stats": {
+          "clients": "225+",
+          "transformations": "155+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "ditodvali.png"
+      }
+    ]
+  },
+  "pricingPage": {
+    "header": {
+      "title": "Pricing Plans",
+      "subtitle": "Choose Your Perfect Fitness Journey"
+    },
+    "plans": {
+      "unlimited": {
+        "name": "Monthly Unlimited",
+        "description": "Full access to the gym with no restrictions",
+        "price": 120,
+        "oldPrice": null,
+        "isDiscounted": false,
+        "duration": "Monthly",
+        "startTime": "08:00",
+        "endTime": "23:30",
+        "features": [
+          "Full gym access",
+          "All equipment usage",
+          "Locker room access",
+          "Unlimited visits"
+        ],
+        "isPopular": true,
+        "badge": "UNLIMITED"
+      },
+      "dayPass": {
+        "name": "Monthly Unlimited (Day Pass)",
+        "description": "Full access during daytime hours at a reduced rate",
+        "price": 80,
+        "oldPrice": null,
+        "isDiscounted": false,
+        "duration": "Monthly",
+        "startTime": "08:00",
+        "endTime": "16:00",
+        "features": [
+          "Full gym access",
+          "All equipment usage",
+          "Locker room access",
+          "Daytime hours only"
+        ],
+        "isPopular": false,
+        "badge": "DAY"
+      },
+      "singleVisit": {
+        "name": "Single Visit",
+        "description": "One-time access for a single workout session",
+        "price": 15,
+        "oldPrice": null,
+        "isDiscounted": false,
+        "duration": "Per Visit",
+        "features": [
+          "Full gym access",
+          "All equipment usage",
+          "Locker room access"
+        ],
+        "isPopular": false,
+        "badge": "SINGLE"
+      }
+    }
+  },
+  "activitiesPage": {
+    "header": {
+      "title": "Our Activities",
+      "subtitle": "Transform Your Body & Mind"
+    },
+    "activities": {
+      "yoga": {
+        "name": "Yoga",
+        "description": "Find your inner peace and flexibility through guided yoga sessions",
+        "duration": "60 min",
+        "level": "All Levels",
+        "maxParticipants": "15 people",
+        "schedule": "Daily",
+        "benefits": [
+          "Improves flexibility",
+          "Reduces stress & anxiety",
+          "Enhances mental clarity",
+          "Strengthens core muscles"
+        ],
+        "icon": "yoga",
+        "image": "trainers.jpg"
+      },
+      "presses": {
+        "name": "Presses",
+        "description": "Build upper-body power with bench, overhead, and dumbbell press variations",
+        "duration": "50 min",
+        "level": "Intermediate",
+        "maxParticipants": "12 people",
+        "schedule": "Mon-Sat",
+        "benefits": [
+          "Increases upper-body strength",
+          "Builds chest & shoulder mass",
+          "Improves pressing power",
+          "Enhances core stability"
+        ],
+        "icon": "presses",
+        "image": "trainers.jpg"
+      },
+      "boxing": {
+        "name": "Boxing",
+        "description": "Build strength, speed, and confidence with high-intensity boxing training",
+        "duration": "50 min",
+        "level": "Intermediate",
+        "maxParticipants": "12 people",
+        "schedule": "Tue-Sat",
+        "benefits": [
+          "Burns maximum calories",
+          "Builds full-body strength",
+          "Improves coordination",
+          "Boosts confidence"
+        ],
+        "icon": "boxing",
+        "image": "trainers.jpg"
+      },
+      "cardio": {
+        "name": "Cardio",
+        "description": "Elevate your heart rate and torch calories with dynamic cardio workouts",
+        "duration": "45 min",
+        "level": "All Levels",
+        "maxParticipants": "25 people",
+        "schedule": "Daily",
+        "benefits": [
+          "Improves cardiovascular health",
+          "Burns fat efficiently",
+          "Boosts endurance",
+          "Elevates mood & energy"
+        ],
+        "icon": "cardio",
+        "image": "trainers.jpg"
+      },
+      "zumba": {
+        "name": "Zumba",
+        "description": "Dance your way to fitness with energetic, Latin-inspired Zumba routines",
+        "duration": "55 min",
+        "level": "All Levels",
+        "maxParticipants": "30 people",
+        "schedule": "Mon-Fri",
+        "benefits": [
+          "Full-body calorie burn",
+          "Improves coordination",
+          "Reduces stress",
+          "Fun social atmosphere"
+        ],
+        "icon": "zumba",
+        "image": "trainers.jpg"
+      },
+      "aerobic": {
+        "name": "Aerobic",
+        "description": "High-energy group aerobic sessions to build stamina and stay in shape",
+        "duration": "50 min",
+        "level": "Beginner",
+        "maxParticipants": "30 people",
+        "schedule": "Mon-Sat",
+        "benefits": [
+          "Strengthens heart & lungs",
+          "Increases stamina",
+          "Tones muscles",
+          "Improves overall fitness"
+        ],
+        "icon": "aerobic",
+        "image": "trainers.jpg"
+      }
+    }
+  },
+  "contactPage": {
+    "header": {
+      "title": "Get In Touch",
+      "subtitle": "We're Here to Help"
+    },
+    "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
+    "contactInfo": {
+      "email": "info@valhallaecho.ge",
+      "phone": "557 57 37 31"
+    },
+    "locations": [
+      {
+        "name": "Valhalla Echo — Bronshteini",
+        "address": "2 Mark Bronshteini I Dead End, Tbilisi",
+        "phone": "557 57 37 31",
+        "hours": "Open daily · Closes 11:30 PM",
+        "email": "info@valhallaecho.ge"
+      },
+      {
+        "name": "Valhalla Echo — Saakadze Tower",
+        "address": "Giorgi Saakadze Square, Saakadze Tower, Tbilisi",
+        "phone": "557 57 37 31",
+        "hours": "Open daily · Closes 11:30 PM",
+        "email": "info@valhallaecho.ge"
+      }
+    ],
+    "quickContact": {
+      "title": "Quick Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "hours": "Hours",
+      "hoursValue": "Monday - Sunday: 08:00 - 23:30",
+      "followUs": "Follow Us",
+      "ourLocations": "Our Locations",
+      "sending": "Sending..."
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    }
+  }
 }
