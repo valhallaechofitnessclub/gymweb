@@ -57,7 +57,7 @@ export default function Footer() {
     },
     {
       name: "Phone",
-      url: "tel:557573731",
+      url: "tel:0322560109",
       icon: (
         <svg
           width="24"

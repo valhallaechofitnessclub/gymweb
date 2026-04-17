@@ -49,7 +49,7 @@
         "name": "Valhalla Echo Fitness Club",
         "address": "2 Mark Bronshteini I Dead End",
         "city": "Tbilisi",
-        "phone": "557 57 37 31",
+        "phone": "0322560109",
         "hours": "Open daily · Closes 11:30 PM",
         "features": [
           "Cardio Zone",
@@ -63,7 +63,7 @@
         "name": "Valhalla Echo Fitness Club",
         "address": "Giorgi Saakadze Square, Saakadze Tower",
         "city": "Tbilisi",
-        "phone": "557 57 37 31",
+        "phone": "0322560109",
         "hours": "Open daily · Closes 11:30 PM",
         "features": [
           "CrossFit Area",
@@ -653,20 +653,20 @@
     "intro": "Have questions or ready to start your fitness journey? Reach out to us today and let's transform together.",
     "contactInfo": {
       "email": "info@valhallaecho.ge",
-      "phone": "557 57 37 31"
+      "phone": "0322560109"
     },
     "locations": [
       {
         "name": "Valhalla Echo — Bronshteini",
         "address": "2 Mark Bronshteini I Dead End, Tbilisi",
-        "phone": "557 57 37 31",
+        "phone": "0322560109",
         "hours": "Open daily · Closes 11:30 PM",
         "email": "info@valhallaecho.ge"
       },
       {
         "name": "Valhalla Echo — Saakadze Tower",
         "address": "Giorgi Saakadze Square, Saakadze Tower, Tbilisi",
-        "phone": "557 57 37 31",
+        "phone": "0322560109",
         "hours": "Open daily · Closes 11:30 PM",
         "email": "info@valhallaecho.ge"
       }

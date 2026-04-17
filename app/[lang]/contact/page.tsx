@@ -40,7 +40,7 @@ export default function ContactPage() {
       id: "phone",
       icon: <Phone size={28} />,
       label: contactDict.quickContact.phone,
-      value: "557 57 37 31",
+      value: "0322560109",
       href: "tel:557573731",
       color: RED,
     },
