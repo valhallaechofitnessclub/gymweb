@@ -8,10 +8,10 @@ interface Activity {
   id: number;
   name: string;
   nameKa?: string;
-  description: string;
+  description?: string;
   duration: string;
-  level: string;
-  schedule: string;
+  level?: string;
+  schedule?: string;
   image?: string;
   color?: string;
 }
