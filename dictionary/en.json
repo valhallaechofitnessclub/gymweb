@@ -1,11 +1,11 @@
 {
   "hero": {
     "title": "VALHALLA",
-    "subtitle": "FITNESS"
+    "subtitle": "ECHO"
   },
   "footer": {
     "title": "VALHALLA",
-    "subtitle": "FITNESS"
+    "subtitle": "ECHO"
   },
   "header": {
     "locations": "LOCATIONS",
@@ -89,11 +89,8 @@
         "id": 1,
         "name": "Davit Kakriashvili",
         "specialty": "Boxing",
-        "location": "გლდანი",
-        "certifications": [
-          "CSCS",
-          "USAW Level 2"
-        ],
+        "location": "Saburtalo & Gldani",
+        "certifications": ["CSCS", "USAW Level 2"],
         "bio": "Former competitive powerlifter turned coach. Specializes in building raw strength and explosive power.",
         "stats": {
           "clients": "200+",
@@ -112,12 +109,9 @@
       {
         "id": 2,
         "name": "Lasha Bujiashvili",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
-        "certifications": [
-          "NASM-CPT",
-          "TRX Certified"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["NASM-CPT", "TRX Certified"],
         "bio": "High-energy coach focused on metabolic conditioning and sustainable fat loss through functional movements.",
         "stats": {
           "clients": "180+",
@@ -136,11 +130,8 @@
         "id": 3,
         "name": "Gigo Kvaliashvili",
         "specialty": "Personal Training",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "ISSA",
-          "Precision Nutrition"
-        ],
+        "location": "Saburtalo & Gldani",
+        "certifications": ["ISSA", "Precision Nutrition"],
         "bio": "Competition prep coach with expertise in body recomposition and advanced training techniques.",
         "stats": {
           "clients": "160+",
@@ -160,11 +151,8 @@
         "id": 4,
         "name": "Giorgi Dekanozishvili",
         "specialty": "Boxing",
-        "location": "გლდანი",
-        "certifications": [
-          "CSCS",
-          "FMS Level 2"
-        ],
+        "location": "Gldani",
+        "certifications": ["CSCS", "FMS Level 2"],
         "bio": "Former D1 athlete specializing in sports performance, injury prevention, and movement optimization.",
         "stats": {
           "clients": "140+",
@@ -183,12 +171,9 @@
       {
         "id": 5,
         "name": "Giorgi Durglishvili",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
-        "certifications": [
-          "CF-L3",
-          "USAW Sports"
-        ],
+        "specialty": "Personal Training",
+        "location": "Saburtalo",
+        "certifications": ["CF-L3", "USAW Sports"],
         "bio": "CrossFit veteran pushing athletes to new limits through varied, high-intensity functional training.",
         "stats": {
           "clients": "190+",
@@ -207,12 +192,9 @@
       {
         "id": 6,
         "name": "Giorgi Gurchiani",
-        "specialty": "Boxing",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "RYT-500",
-          "FRC Certified"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["RYT-500", "FRC Certified"],
         "bio": "Holistic approach combining yoga, mobility work, and mindfulness for complete body-mind transformation.",
         "stats": {
           "clients": "220+",
@@ -231,8 +213,8 @@
       {
         "id": 7,
         "name": "Grigol Janoashvili",
-        "specialty": "Boxing",
-        "location": "გლდანი",
+        "specialty": "Personal Training",
+        "location": "Gldani",
         "certifications": [
           "International Boxing Coach",
           "Combat Sports Specialist"
@@ -255,8 +237,8 @@
       {
         "id": 8,
         "name": "Guga Tsintsadze",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
+        "specialty": "Personal Training",
+        "location": "Saburtalo & Gldani",
         "certifications": [
           "Precision Nutrition Level 2",
           "Nutrition Specialist"
@@ -280,11 +262,8 @@
         "id": 9,
         "name": "Keta Enukidze",
         "specialty": "Personal Training",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Pre/Post Natal Specialist",
-          "Women's Health Coach"
-        ],
+        "location": "Saburtalo & Gldani",
+        "certifications": ["Pre/Post Natal Specialist", "Women's Health Coach"],
         "bio": "Dedicated to empowering women through specialized training programs designed for all life stages.",
         "stats": {
           "clients": "210+",
@@ -303,12 +282,9 @@
       {
         "id": 10,
         "name": "Mako Partsvania",
-        "specialty": "Boxing",
-        "location": "გლდანი",
-        "certifications": [
-          "Endurance Coach",
-          "Running Specialist"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["Endurance Coach", "Running Specialist"],
         "bio": "Marathon coach turning weekend warriors into ultra-endurance athletes through periodized training.",
         "stats": {
           "clients": "165+",
@@ -327,12 +303,9 @@
       {
         "id": 11,
         "name": "Mariam Guruli",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
-        "certifications": [
-          "Zumba Instructor",
-          "Group Fitness Specialist"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["Zumba Instructor", "Group Fitness Specialist"],
         "bio": "Dynamic group fitness instructor making workouts fun while delivering maximum calorie burn and energy boost.",
         "stats": {
           "clients": "300+",
@@ -350,13 +323,10 @@
       },
       {
         "id": 12,
-        "name": "Mariam Jighaurashvili",
-        "specialty": "Boxing",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Pilates Master Trainer",
-          "Reformer Specialist"
-        ],
+        "name": "Mariam Jighaurishvili",
+        "specialty": "Personal Training",
+        "location": "Saburtalo & Gldani",
+        "certifications": ["Pilates Master Trainer", "Reformer Specialist"],
         "bio": "Pilates expert sculpting lean, strong bodies through precision movements and mindful control.",
         "stats": {
           "clients": "185+",
@@ -375,12 +345,9 @@
       {
         "id": 13,
         "name": "Oto Tadumadze",
-        "specialty": "Boxing",
-        "location": "გლდანი",
-        "certifications": [
-          "IPF Coach",
-          "Strength Training Specialist"
-        ],
+        "specialty": "Personal Training",
+        "location": "Saburtalo & Gldani",
+        "certifications": ["IPF Coach", "Strength Training Specialist"],
         "bio": "Elite powerlifting coach developing record-breakers through scientific training methodologies.",
         "stats": {
           "clients": "120+",
@@ -399,12 +366,9 @@
       {
         "id": 14,
         "name": "Sali Shubitidze",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
-        "certifications": [
-          "Parkour Master",
-          "Movement Specialist"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["Parkour Master", "Movement Specialist"],
         "bio": "Innovative trainer using urban movement and parkour to build functional strength and confidence.",
         "stats": {
           "clients": "155+",
@@ -423,12 +387,9 @@
       {
         "id": 15,
         "name": "Shako Odishvili",
-        "specialty": "Boxing",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Kettlebell Certified",
-          "Functional Fitness Expert"
-        ],
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": ["Kettlebell Certified", "Functional Fitness Expert"],
         "bio": "Kettlebell specialist building explosive strength and cardiovascular fitness through dynamic movements.",
         "stats": {
           "clients": "170+",
@@ -447,8 +408,8 @@
       {
         "id": 16,
         "name": "Tamo Kharebava",
-        "specialty": "Boxing",
-        "location": "გლდანი",
+        "specialty": "Personal Training",
+        "location": "Saburtalo & Gldani",
         "certifications": [
           "Senior Fitness Specialist",
           "Geriatric Exercise Trainer"
@@ -472,11 +433,8 @@
         "id": 17,
         "name": "Teko Meshveliani",
         "specialty": "Personal Training",
-        "location": "საბურთალო",
-        "certifications": [
-          "Gymnastics Coach",
-          "Mobility Specialist"
-        ],
+        "location": "Saburtalo",
+        "certifications": ["Gymnastics Coach", "Mobility Specialist"],
         "bio": "Former gymnast teaching advanced bodyweight skills and extraordinary flexibility development.",
         "stats": {
           "clients": "145+",
@@ -495,12 +453,9 @@
       {
         "id": 18,
         "name": "Vakho Akhvlediani",
-        "specialty": "Boxing",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "MMA Coach",
-          "Combat Sports Specialist"
-        ],
+        "specialty": "Personal Training",
+        "location": "Saburtalo",
+        "certifications": ["MMA Coach", "Combat Sports Specialist"],
         "bio": "MMA coach building well-rounded fighters with superior conditioning and technical excellence.",
         "stats": {
           "clients": "150+",
@@ -520,11 +475,8 @@
         "id": 19,
         "name": "Dito Dvali",
         "specialty": "Personal Training",
-        "location": "გლდანი",
-        "certifications": [
-          "NASM-CPT",
-          "Behavior Change Specialist"
-        ],
+        "location": "Saburtalo & Gldani",
+        "certifications": ["NASM-CPT", "Behavior Change Specialist"],
         "bio": "Versatile personal trainer creating customized programs for any fitness goal and any starting point.",
         "stats": {
           "clients": "225+",
@@ -539,6 +491,54 @@
         "buttonText": "Book Session",
         "color": "rgba(139, 92, 246, 0.15)",
         "image": "ditodvali.png"
+      },
+      {
+        "id": 20,
+        "name": "Maka Matiashvili",
+        "specialty": "Personal Training",
+        "location": "Gldani",
+        "certifications": [
+          "Senior Fitness Specialist",
+          "Geriatric Exercise Trainer"
+        ],
+        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
+        "stats": {
+          "clients": "195+",
+          "transformations": "135+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "makamatiashvili.png"
+      },
+      {
+        "id": 21,
+        "name": "Ruso Lutidze",
+        "specialty": "Personal Training",
+        "location": "Saburtalo",
+        "certifications": [
+          "Senior Fitness Specialist",
+          "Geriatric Exercise Trainer"
+        ],
+        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
+        "stats": {
+          "clients": "195+",
+          "transformations": "135+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "Clients",
+          "transformations": "Transformations",
+          "rating": "Rating"
+        },
+        "buttonText": "Book Session",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "rusolutidze.png"
       }
     ]
   },
@@ -609,99 +609,39 @@
     "activities": {
       "yoga": {
         "name": "Yoga",
-        "description": "Find your inner peace and flexibility through guided yoga sessions",
-        "duration": "60 min",
-        "level": "All Levels",
-        "maxParticipants": "15 people",
-        "schedule": "Daily",
-        "benefits": [
-          "Improves flexibility",
-          "Reduces stress & anxiety",
-          "Enhances mental clarity",
-          "Strengthens core muscles"
-        ],
-        "icon": "yoga",
-        "image": "trainers.jpg"
+        "duration": "60 min"
       },
       "presses": {
         "name": "Presses",
-        "description": "Build upper-body power with bench, overhead, and dumbbell press variations",
-        "duration": "50 min",
-        "level": "Intermediate",
-        "maxParticipants": "12 people",
-        "schedule": "Mon-Sat",
-        "benefits": [
-          "Increases upper-body strength",
-          "Builds chest & shoulder mass",
-          "Improves pressing power",
-          "Enhances core stability"
-        ],
-        "icon": "presses",
-        "image": "trainers.jpg"
+        "duration": "60 min"
       },
       "boxing": {
         "name": "Boxing",
-        "description": "Build strength, speed, and confidence with high-intensity boxing training",
-        "duration": "50 min",
-        "level": "Intermediate",
-        "maxParticipants": "12 people",
-        "schedule": "Tue-Sat",
-        "benefits": [
-          "Burns maximum calories",
-          "Builds full-body strength",
-          "Improves coordination",
-          "Boosts confidence"
-        ],
-        "icon": "boxing",
-        "image": "trainers.jpg"
+        "duration": "60 min"
       },
       "cardio": {
         "name": "Cardio",
-        "description": "Elevate your heart rate and torch calories with dynamic cardio workouts",
-        "duration": "45 min",
-        "level": "All Levels",
-        "maxParticipants": "25 people",
-        "schedule": "Daily",
-        "benefits": [
-          "Improves cardiovascular health",
-          "Burns fat efficiently",
-          "Boosts endurance",
-          "Elevates mood & energy"
-        ],
-        "icon": "cardio",
-        "image": "trainers.jpg"
+        "duration": "60 min"
       },
       "zumba": {
         "name": "Zumba",
-        "description": "Dance your way to fitness with energetic, Latin-inspired Zumba routines",
-        "duration": "55 min",
-        "level": "All Levels",
-        "maxParticipants": "30 people",
-        "schedule": "Mon-Fri",
-        "benefits": [
-          "Full-body calorie burn",
-          "Improves coordination",
-          "Reduces stress",
-          "Fun social atmosphere"
-        ],
-        "icon": "zumba",
-        "image": "trainers.jpg"
+        "duration": "60 min"
       },
       "aerobic": {
         "name": "Aerobic",
-        "description": "High-energy group aerobic sessions to build stamina and stay in shape",
-        "duration": "50 min",
-        "level": "Beginner",
-        "maxParticipants": "30 people",
-        "schedule": "Mon-Sat",
-        "benefits": [
-          "Strengthens heart & lungs",
-          "Increases stamina",
-          "Tones muscles",
-          "Improves overall fitness"
-        ],
-        "icon": "aerobic",
-        "image": "trainers.jpg"
+        "duration": "60 min"
+      },
+      "pilates": {
+        "name": "Pilates",
+        "duration": "60 min"
+      },
+      "ping-pong": {
+        "name": "Ping-Pong",
+        "duration": "60 min"
+      },
+      "pool": {
+        "name": "Pool",
+        "duration": "60 min"
       }
     }
   },

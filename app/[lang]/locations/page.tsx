@@ -44,12 +44,6 @@ export default function LocationsPage() {
     "/assets/images/gldani/gldani11.png",
     "/assets/images/gldani/gldani12.png",
     "/assets/images/gldani/gldani13.png",
-    "/assets/images/gldani/gldani14.png",
-    "/assets/images/gldani/gldani15.png",
-    "/assets/images/gldani/gldani16.png",
-    // Add as many as you have. Examples:
-    // '/assets/images/gldani/entrance.jpg',
-    // '/assets/images/gldani/weightroom.jpg',
   ];
 
   // SABURTALO IMAGES (right card)
@@ -69,7 +63,6 @@ export default function LocationsPage() {
     "/assets/images/saburtalo/saburtalo13.png",
   ];
 
-  // Fallback images in case arrays are empty (prevents blank cards)
   const fallbackGldani = "/assets/images/gldaniGym.png";
   const fallbackSaburtalo = "/assets/images/saburtaloGym.png";
 

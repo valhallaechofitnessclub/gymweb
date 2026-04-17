@@ -1,11 +1,11 @@
 {
   "hero": {
     "title": "ვალჰალა",
-    "subtitle": "ფიტნესი"
+    "subtitle": "ექო"
   },
   "footer": {
     "title": "ვალჰალა",
-    "subtitle": "ფიტნესი"
+    "subtitle": "ექო"
   },
   "header": {
     "locations": "ფილიალები",
@@ -89,7 +89,7 @@
         "id": 1,
         "name": "დავით კაკრიაშვილი",
         "specialty": "ბოქსინგი",
-        "location": "გლდანი",
+        "location": "საბურთალო & გლდანი",
         "certifications": [
           "CSCS",
           "USAW Level 2"
@@ -112,8 +112,8 @@
       {
         "id": 2,
         "name": "ლაშა ბუჯიაშვილი",
-        "specialty": "პერსონალური ტრენინგი",
-        "location": "საბურთალო",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "გლდანი",
         "certifications": [
           "NASM-CPT",
           "TRX Certified"
@@ -160,7 +160,7 @@
       {
         "id": 4,
         "name": "გიორგი დეკანოზიშვილი",
-        "specialty": "Personal Training",
+        "specialty": "Boxing",
         "location": "გლდანი",
         "certifications": [
           "CSCS",
@@ -184,7 +184,7 @@
       {
         "id": 5,
         "name": "გიორგი დურგლიშვილი",
-        "specialty": "Personal Training",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
         "certifications": [
           "CF-L3",
@@ -208,7 +208,7 @@
       {
         "id": 6,
         "name": "გიორგი გურჯიანი",
-        "specialty": "Personal Training",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
         "certifications": [
           "RYT-500",
@@ -232,7 +232,7 @@
       {
         "id": 7,
         "name": "გრიგოლ ჯანოაშვილი",
-        "specialty": "ბოქსინგი",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
         "certifications": [
           "International Boxing Coach",
@@ -256,8 +256,8 @@
       {
         "id": 8,
         "name": "გუგა ცინცაძე",
-        "specialty": "ბოქსინგი",
-        "location": "საბურთალო",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო & გლდანი",
         "certifications": [
           "Precision Nutrition Level 2",
           "Nutrition Specialist"
@@ -280,7 +280,7 @@
       {
         "id": 9,
         "name": "კეტა ენუკიძე",
-        "specialty": "Personal Training",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
         "certifications": [
           "Pre/Post Natal Specialist",
@@ -304,7 +304,7 @@
       {
         "id": 10,
         "name": "მაკო ფარცვანია",
-        "specialty": "Boxing",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
         "certifications": [
           "Endurance Coach",
@@ -328,8 +328,8 @@
       {
         "id": 11,
         "name": "მარიამ გურული",
-        "specialty": "Boxing",
-        "location": "საბურთალო",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "გლდანი",
         "certifications": [
           "Zumba Instructor",
           "Group Fitness Specialist"
@@ -351,8 +351,8 @@
       },
       {
         "id": 12,
-        "name": "მარიამ ჯიღაურაშვილი",
-        "specialty": "Personal Training",
+        "name": "მარიამ ჯიღაურიშვილი",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
         "certifications": [
           "Pilates Master Trainer",
@@ -376,8 +376,8 @@
       {
         "id": 13,
         "name": "ოთო თადუმაძე",
-        "specialty": "Boxing",
-        "location": "გლდანი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო & გლდანი",
         "certifications": [
           "IPF Coach",
           "Strength Training Specialist"
@@ -400,8 +400,8 @@
       {
         "id": 14,
         "name": "სალი შუბიტიძე",
-        "specialty": "Personal Training",
-        "location": "საბურთალო",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "გლდანი",
         "certifications": [
           "Parkour Master",
           "Movement Specialist"
@@ -424,7 +424,7 @@
       {
         "id": 15,
         "name": "შაკო ოდიშვილი",
-        "specialty": "Personal Training",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
         "certifications": [
           "Kettlebell Certified",
@@ -448,8 +448,8 @@
       {
         "id": 16,
         "name": "თამო ხარებავა",
-        "specialty": "Personal Training",
-        "location": "გლდანი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო & გლდანი",
         "certifications": [
           "Senior Fitness Specialist",
           "Geriatric Exercise Trainer"
@@ -472,7 +472,7 @@
       {
         "id": 17,
         "name": "თეკო მეშველიანი",
-        "specialty": "Boxing",
+        "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
         "certifications": [
           "Gymnastics Coach",
@@ -496,8 +496,8 @@
       {
         "id": 18,
         "name": "ვახო ახვლედიანი",
-        "specialty": "Personal Training",
-        "location": "საბურთალო & გლდანი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო",
         "certifications": [
           "MMA Coach",
           "Combat Sports Specialist"
@@ -520,8 +520,8 @@
       {
         "id": 19,
         "name": "დიტო დვალი",
-        "specialty": "Boxing",
-        "location": "გლდანი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო & გლდანი",
         "certifications": [
           "NASM-CPT",
           "Behavior Change Specialist"
@@ -540,6 +540,54 @@
         "buttonText": "სესიის დაჯავშნა",
         "color": "rgba(139, 92, 246, 0.15)",
         "image": "ditodvali.png"
+      },
+      {
+        "id": 20,
+        "name": "მაკა მათიაშვილი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "გლდანი",
+        "certifications": [
+          "Senior Fitness Specialist",
+          "Geriatric Exercise Trainer"
+        ],
+        "bio": "სპეციალიზირებული მწვრთნელი, რომელიც სინიორებს ძალის, ბალანსისა და დამოუკიდებლობის შენარჩუნებაში ეხმარება.",
+        "stats": {
+          "clients": "195+",
+          "transformations": "135+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "კლიენტები",
+          "transformations": "ტრანსფორმაციები",
+          "rating": "რეიტინგი"
+        },
+        "buttonText": "სესიის დაჯავშნა",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "makamatiashvili.png"
+      },
+      {
+        "id": 21,
+        "name": "რუსო ლუტიძე",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო",
+        "certifications": [
+          "Senior Fitness Specialist",
+          "Geriatric Exercise Trainer"
+        ],
+        "bio": "სპეციალიზირებული მწვრთნელი, რომელიც სინიორებს ძალის, ბალანსისა და დამოუკიდებლობის შენარჩუნებაში ეხმარება.",
+        "stats": {
+          "clients": "195+",
+          "transformations": "135+",
+          "rating": "5.0"
+        },
+        "labels": {
+          "clients": "კლიენტები",
+          "transformations": "ტრანსფორმაციები",
+          "rating": "რეიტინგი"
+        },
+        "buttonText": "სესიის დაჯავშნა",
+        "color": "rgba(139, 92, 246, 0.15)",
+        "image": "rusolutidze.png"
       }
     ]
   },
@@ -610,99 +658,39 @@
     "activities": {
       "yoga": {
         "name": "იოგა",
-        "description": "იპოვე შიდა სიმშვიდე და მოქნილობა გაიდური იოგა სესიების მეშვეობით",
-        "duration": "60 წთ",
-        "level": "ყველა დონე",
-        "maxParticipants": "15 ადამიანი",
-        "schedule": "ყოველდღე",
-        "benefits": [
-          "აუმჯობესებს მოქნილობას",
-          "ამცირებს სტრესს და შფოთვას",
-          "აძლიერებს გონებრივ სიმკვეთრეს",
-          "აძლიერებს ძირითად კუნთებს"
-        ],
-        "icon": "yoga",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
       },
       "presses": {
         "name": "პრესები",
-        "description": "ააშენე ზედა ტანის ძალა ბენჩ, ოვერჰედ და დამბლის პრესის ვარიაციებით",
-        "duration": "50 წთ",
-        "level": "საშუალო",
-        "maxParticipants": "12 ადამიანი",
-        "schedule": "ორშ-შაბ",
-        "benefits": [
-          "ზრდის ზედა ტანის ძალას",
-          "აშენებს გულმკერდის და მხრების მასას",
-          "აუმჯობესებს წნეხის ძალას",
-          "აძლიერებს ძირითად სტაბილურობას"
-        ],
-        "icon": "presses",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
       },
       "boxing": {
         "name": "კრივი",
-        "description": "ააშენე ძალა, სიჩქარე და თავდაჯერებულობა მაღალი ინტენსივობის კრივის ტრენინგით",
-        "duration": "50 წთ",
-        "level": "საშუალო",
-        "maxParticipants": "12 ადამიანი",
-        "schedule": "სამ-შაბ",
-        "benefits": [
-          "წვავს მაქსიმალურ კალორიებს",
-          "აშენებს სრული სხეულის ძალას",
-          "აუმჯობესებს კოორდინაციას",
-          "ზრდის თავდაჯერებულობას"
-        ],
-        "icon": "boxing",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
       },
       "cardio": {
         "name": "კარდიო",
-        "description": "აამაღლე გულისცემა და დაწვი კალორიები დინამიური კარდიო ვარჯიშებით",
-        "duration": "45 წთ",
-        "level": "ყველა დონე",
-        "maxParticipants": "25 ადამიანი",
-        "schedule": "ყოველდღე",
-        "benefits": [
-          "აუმჯობესებს გულ-სისხლძარღვთა ჯანმრთელობას",
-          "ეფექტურად წვავს ცხიმს",
-          "ზრდის გამძლეობას",
-          "აუმჯობესებს განწყობას და ენერგიას"
-        ],
-        "icon": "cardio",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
       },
       "zumba": {
         "name": "ზუმბა",
-        "description": "იცეკვე ფიტნესისკენ ენერგიული, ლათინურად შთაგონებული ზუმბა რუტინებით",
-        "duration": "55 წთ",
-        "level": "ყველა დონე",
-        "maxParticipants": "30 ადამიანი",
-        "schedule": "ორშ-პარ",
-        "benefits": [
-          "სრული სხეულის კალორიების წვა",
-          "აუმჯობესებს კოორდინაციას",
-          "ამცირებს სტრესს",
-          "სახალისო სოციალური ატმოსფერო"
-        ],
-        "icon": "zumba",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
       },
       "aerobic": {
         "name": "აერობიკა",
-        "description": "მაღალი ენერგიის ჯგუფური აერობიკის სესიები გამძლეობის ასაშენებლად",
-        "duration": "50 წთ",
-        "level": "დამწყები",
-        "maxParticipants": "30 ადამიანი",
-        "schedule": "ორშ-შაბ",
-        "benefits": [
-          "აძლიერებს გულს და ფილტვებს",
-          "ზრდის გამძლეობას",
-          "აფორმებს კუნთებს",
-          "აუმჯობესებს საერთო ფიტნესს"
-        ],
-        "icon": "aerobic",
-        "image": "trainers.jpg"
+        "duration": "60 წთ"
+      },
+      "pilates": {
+        "name": "პილატესი",
+        "duration": "60 წთ"
+      },
+      "ping-pong": {
+        "name": "პინგ-პონგი",
+        "duration": "60 წთ"
+      },
+      "pool": {
+        "name": "ბილიარდი",
+        "duration": "60 წთ"
       }
     }
   },

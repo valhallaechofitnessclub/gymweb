@@ -13,77 +13,51 @@ import {
 } from "lucide-react";
 
 // ============================================================
-// Image Carousel Subcomponent for each facility
+// Image Carousel
 // ============================================================
 interface ImageCarouselProps {
   images: string[];
   alt: string;
-  autoPlayInterval?: number; // in milliseconds
+  autoPlayInterval?: number;
 }
 
-function ImageCarousel({
-  images,
-  alt,
-  autoPlayInterval = 4000,
-}: ImageCarouselProps) {
+function ImageCarousel({ images, alt, autoPlayInterval = 4000 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Navigation functions
   const goToPrevious = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     setTimeout(() => setIsAnimating(false), 500);
   }, [images.length, isAnimating]);
 
   const goToNext = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
-    );
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     setTimeout(() => setIsAnimating(false), 500);
   }, [images.length, isAnimating]);
 
-  // Auto-advance logic
   useEffect(() => {
     if (autoPlayInterval && !isHovering && images.length > 1) {
       intervalRef.current = setInterval(goToNext, autoPlayInterval);
     }
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, [autoPlayInterval, goToNext, isHovering, images.length]);
 
-  // No images? fallback
   if (!images.length) {
-    return (
-      <div
-        className="carousel-fallback"
-        style={{ background: "#1a1a1a", width: "100%", height: "100%" }}
-      />
-    );
+    return <div style={{ background: "#1a1a1a", width: "100%", height: "100%" }} />;
   }
-
-  const currentImage = images[currentIndex];
 
   return (
     <div
-      className="carousel-container"
-      style={{
-        position: "absolute",
-        inset: 0,
-        overflow: "hidden",
-      }}
+      style={{ position: "absolute", inset: 0, overflow: "hidden" }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Current image with smooth fade animation */}
       <div
         key={currentIndex}
         style={{
@@ -94,7 +68,7 @@ function ImageCarousel({
         }}
       >
         <Image
-          src={currentImage}
+          src={images[currentIndex]}
           alt={`${alt} - image ${currentIndex + 1}`}
           fill
           style={{ objectFit: "cover" }}
@@ -103,61 +77,37 @@ function ImageCarousel({
         />
       </div>
 
-      {/* Navigation arrows - only show if more than 1 image */}
       {images.length > 1 && (
         <>
           <button
             onClick={goToPrevious}
-            className="carousel-arrow carousel-arrow-left"
             aria-label="Previous image"
             style={{
-              position: "absolute",
-              left: "12px",
-              top: "50%",
+              position: "absolute", left: "12px", top: "50%",
               transform: "translateY(-50%)",
-              backgroundColor: "rgba(0,0,0,0.6)",
-              backdropFilter: "blur(4px)",
-              border: "none",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              color: "white",
-              transition: "all 0.2s ease",
-              zIndex: 20,
-              opacity: 0.7,
+              backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+              border: "none", borderRadius: "50%", width: "36px", height: "36px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", color: "white", zIndex: 20, opacity: 0.7,
+              transition: "opacity 0.2s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
             <ChevronLeft size={20} />
           </button>
+
           <button
             onClick={goToNext}
-            className="carousel-arrow carousel-arrow-right"
             aria-label="Next image"
             style={{
-              position: "absolute",
-              right: "12px",
-              top: "50%",
+              position: "absolute", right: "12px", top: "50%",
               transform: "translateY(-50%)",
-              backgroundColor: "rgba(0,0,0,0.6)",
-              backdropFilter: "blur(4px)",
-              border: "none",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              color: "white",
-              transition: "all 0.2s ease",
-              zIndex: 20,
-              opacity: 0.7,
+              backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+              border: "none", borderRadius: "50%", width: "36px", height: "36px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", color: "white", zIndex: 20, opacity: 0.7,
+              transition: "opacity 0.2s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
@@ -165,20 +115,13 @@ function ImageCarousel({
             <ChevronRightIcon size={20} />
           </button>
 
-          {/* Dots indicator */}
           <div
             style={{
-              position: "absolute",
-              bottom: "16px",
-              left: "50%",
+              position: "absolute", top: "14px", left: "50%",
               transform: "translateX(-50%)",
-              display: "flex",
-              gap: "8px",
-              zIndex: 20,
-              background: "rgba(0,0,0,0.4)",
-              padding: "4px 12px",
-              borderRadius: "20px",
-              backdropFilter: "blur(4px)",
+              display: "flex", gap: "8px", zIndex: 20,
+              background: "rgba(0,0,0,0.4)", padding: "4px 12px",
+              borderRadius: "20px", backdropFilter: "blur(4px)",
             }}
           >
             {images.map((_, idx) => (
@@ -193,14 +136,10 @@ function ImageCarousel({
                 }}
                 style={{
                   width: idx === currentIndex ? "20px" : "6px",
-                  height: "6px",
-                  borderRadius: "3px",
-                  backgroundColor:
-                    idx === currentIndex ? "#42c2ca" : "rgba(255,255,255,0.5)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  padding: 0,
+                  height: "6px", borderRadius: "3px",
+                  backgroundColor: idx === currentIndex ? "#42c2ca" : "rgba(255,255,255,0.5)",
+                  border: "none", cursor: "pointer",
+                  transition: "all 0.2s ease", padding: 0,
                 }}
                 aria-label={`Go to image ${idx + 1}`}
               />
@@ -208,12 +147,19 @@ function ImageCarousel({
           </div>
         </>
       )}
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(1.02); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </div>
   );
 }
 
 // ============================================================
-// Location Card (enhanced with carousel)
+// Location Card
 // ============================================================
 interface Location {
   id: number;
@@ -223,7 +169,7 @@ interface Location {
   phone: string;
   hours: string;
   features: string[];
-  images: string[]; // changed from single 'image' to array
+  images: string[];
 }
 
 interface LocationCardProps {
@@ -247,18 +193,24 @@ const GRADIENT = "linear-gradient(90deg, #cc0000, #e11d1d, #42c2ca, #2dd4bf)";
 const ACCENT = "#42c2ca";
 const RED = "#e11d1d";
 
-export default function LocationCard({
-  location,
-  index,
-  isVisible,
-  lang = "en",
-}: LocationCardProps) {
+export default function LocationCard({ location, index, isVisible, lang = "en" }: LocationCardProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const cardHeight = isMobile ? "420px" : "580px";
+
   return (
     <div
       style={{
         position: "relative",
-        height: "580px",
-        borderRadius: "20px",
+        height: cardHeight,
+        borderRadius: isMobile ? "14px" : "20px",
         overflow: "hidden",
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(40px)",
@@ -266,53 +218,38 @@ export default function LocationCard({
         boxShadow: "0 20px 35px -12px rgba(0,0,0,0.5)",
       }}
     >
-      {/* Image Carousel - full bleed background */}
-      <ImageCarousel
-        images={location.images}
-        alt={location.name}
-        autoPlayInterval={4500}
-      />
+      {/* Carousel */}
+      <ImageCarousel images={location.images} alt={location.name} autoPlayInterval={4500} />
 
-      {/* Strong gradient overlay — dark at bottom, clear at top */}
+      {/* Gradient overlay */}
       <div
         style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 100%)",
-          pointerEvents: "none", // allows clicking arrows through overlay
-          zIndex: 5,
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.1) 100%)",
+          pointerEvents: "none", zIndex: 5,
         }}
       />
 
-      {/* Gradient accent line at bottom */}
+      {/* Bottom gradient bar */}
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "3px",
-          background: GRADIENT,
-          zIndex: 15,
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          height: "3px", background: GRADIENT, zIndex: 15,
         }}
       />
 
-      {/* All content pinned to bottom */}
+      {/* Content */}
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
+          position: "absolute", bottom: 0, left: 0, right: 0,
           zIndex: 15,
-          padding: "1.75rem",
+          padding: isMobile ? "1.25rem" : "1.75rem",
         }}
       >
         {/* Name */}
         <h3
           style={{
-            fontSize: "1.9rem",
+            fontSize: isMobile ? "1.3rem" : "1.9rem",
             fontWeight: 900,
             color: "white",
             margin: "0 0 0.15rem",
@@ -327,12 +264,12 @@ export default function LocationCard({
         {/* City */}
         <p
           style={{
-            fontSize: "0.7rem",
+            fontSize: isMobile ? "0.62rem" : "0.7rem",
             fontWeight: 700,
             letterSpacing: "0.22em",
             textTransform: "uppercase",
             color: "rgba(255,255,255,0.4)",
-            margin: "0 0 1.25rem",
+            margin: isMobile ? "0 0 0.85rem" : "0 0 1.25rem",
           }}
         >
           {location.city}
@@ -341,76 +278,27 @@ export default function LocationCard({
         {/* Info rows */}
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.55rem",
-            marginBottom: "1.1rem",
+            display: "flex", flexDirection: "column",
+            gap: isMobile ? "0.4rem" : "0.55rem",
+            marginBottom: isMobile ? "0.9rem" : "1.25rem",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.6rem",
-              fontSize: "0.875rem",
-              color: "rgba(255,255,255,0.8)",
-            }}
-          >
-            <MapPin size={14} color={RED} style={{ flexShrink: 0 }} />
-            {location.address}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.6rem",
-              fontSize: "0.875rem",
-              color: "rgba(255,255,255,0.8)",
-            }}
-          >
-            <Phone size={14} color={RED} style={{ flexShrink: 0 }} />
-            {location.phone}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.6rem",
-              fontSize: "0.875rem",
-              color: "rgba(255,255,255,0.8)",
-            }}
-          >
-            <Clock size={14} color={ACCENT} style={{ flexShrink: 0 }} />
-            {location.hours}
-          </div>
-        </div>
-
-        {/* Feature tags */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.35rem",
-            marginBottom: "1.25rem",
-          }}
-        >
-          {location.features.map((f, i) => (
-            <span
+          {[
+            { icon: <MapPin size={isMobile ? 12 : 14} color={RED} style={{ flexShrink: 0 }} />, text: location.address },
+            { icon: <Phone size={isMobile ? 12 : 14} color={RED} style={{ flexShrink: 0 }} />, text: location.phone },
+            { icon: <Clock size={isMobile ? 12 : 14} color={ACCENT} style={{ flexShrink: 0 }} />, text: location.hours },
+          ].map((row, i) => (
+            <div
               key={i}
               style={{
-                fontSize: "0.68rem",
-                fontWeight: 600,
-                letterSpacing: "0.06em",
-                color: "rgba(255,255,255,0.55)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: "6px",
-                padding: "0.2rem 0.55rem",
-                background: "rgba(0,0,0,0.3)",
-                backdropFilter: "blur(4px)",
+                display: "flex", alignItems: "center", gap: "0.6rem",
+                fontSize: isMobile ? "0.78rem" : "0.875rem",
+                color: "rgba(255,255,255,0.8)",
               }}
             >
-              {f}
-            </span>
+              {row.icon}
+              {row.text}
+            </div>
           ))}
         </div>
 
@@ -420,17 +308,12 @@ export default function LocationCard({
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            background: GRADIENT,
-            color: "white",
-            textDecoration: "none",
+            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+            background: GRADIENT, color: "white", textDecoration: "none",
             borderRadius: "10px",
-            padding: "0.65rem 1.2rem",
-            fontSize: "0.85rem",
-            fontWeight: 700,
-            letterSpacing: "0.04em",
+            padding: isMobile ? "0.55rem 1rem" : "0.65rem 1.2rem",
+            fontSize: isMobile ? "0.78rem" : "0.85rem",
+            fontWeight: 700, letterSpacing: "0.04em",
             boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
             transition: "transform 0.2s ease, box-shadow 0.2s ease",
           }}
@@ -443,25 +326,11 @@ export default function LocationCard({
             e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.5)";
           }}
         >
-          <ExternalLink size={13} />
+          <ExternalLink size={isMobile ? 11 : 13} />
           {translations[lang].openMap}
-          <ChevronRight size={13} />
+          <ChevronRight size={isMobile ? 11 : 13} />
         </a>
       </div>
-
-      {/* Inject keyframes for smooth fade animation */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: scale(1.02);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-      `}</style>
     </div>
   );
 }

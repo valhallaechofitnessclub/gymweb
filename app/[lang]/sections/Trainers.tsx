@@ -14,10 +14,18 @@ interface TrainersProps {
   lang: "en" | "ge";
 }
 
+const TRAINER_IMAGES = [
+  "gigokvaliashvili.png",
+  "tamokharebava.png",
+  "shakoodishvili2.png",
+];
+
 export default function Trainers({ dict, lang }: TrainersProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState(0);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -29,6 +37,30 @@ export default function Trainers({ dict, lang }: TrainersProps) {
     );
     observer.observe(containerRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Start spin
+      setIsSpinning(true);
+
+      // At the midpoint (180°), swap the image
+      const swapTimeout = setTimeout(() => {
+        setDisplayIndex((prev) => (prev + 1) % TRAINER_IMAGES.length);
+      }, 300);
+
+      // End spin
+      const endTimeout = setTimeout(() => {
+        setIsSpinning(false);
+      }, 600);
+
+      return () => {
+        clearTimeout(swapTimeout);
+        clearTimeout(endTimeout);
+      };
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const styles: { [key: string]: React.CSSProperties } = {
@@ -112,120 +144,106 @@ export default function Trainers({ dict, lang }: TrainersProps) {
       position: "relative",
       zIndex: 1,
       background: "#000",
-      transition: "transform 0.6s ease",
-    },
-    image: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      borderRadius: "50%",
-      transition: "transform 0.6s ease, filter 0.4s ease",
-      filter: "brightness(1.1) contrast(1.1)",
+      // perspective needed on parent for rotateY to look 3D
     },
   };
 
   return (
     <>
       <style>{`
-                @media (max-width: 1024px) {
-                    .trainers-container {
-                        grid-template-columns: 1fr !important;
-                        gap: 3rem !important;
-                        text-align: center;
-                    }
-                    .trainers-description {
-                        max-width: 100% !important;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    .trainers-circle {
-                        width: 350px !important;
-                        height: 350px !important;
-                    }
-                    .trainers-image-container {
-                        justify-self: center !important;
-                    }
-                    .trainers-link {
-                        align-self: center;
-                        margin: 0 auto;
-                    }
-                }
+        @keyframes wheelSpin {
+          0%   { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
 
-                .trainers-link::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    background: rgba(255, 255, 255, 0.18);
-                    opacity: 0;
-                    transition: opacity 0.25s ease;
-                    border-radius: inherit;
-                }
-                .trainers-link:hover::before {
-                    opacity: 1;
-                }
-                .trainers-link:hover {
-                    transform: translateY(-2px) scale(1.03) !important;
-                    box-shadow: 0 0 40px rgba(204, 0, 0, 0.55), 0 0 80px rgba(66, 194, 202, 0.25) !important;
-                }
-                .trainers-link:active {
-                    transform: translateY(0px) scale(0.98) !important;
-                }
+        .trainers-circle-wrapper {
+          display: contents;
+        }
 
-                @media (max-width: 768px) {
-                    .trainers-section {
-                        padding: 3rem 1.5rem !important;
-                        min-height: auto !important;
-                    }
-                    .trainers-container {
-                        gap: 2.5rem !important;
-                    }
-                    .trainers-title {
-                        font-size: clamp(2.5rem, 10vw, 5rem) !important;
-                        margin-bottom: 1rem !important;
-                    }
-                    .trainers-description {
-                        font-size: 1rem !important;
-                        margin-bottom: 1.5rem !important;
-                    }
-                    .trainers-circle {
-                        width: 280px !important;
-                        height: 280px !important;
-                    }
-                }
+        .trainers-circle.spinning {
+          animation: wheelSpin 0.6s ease-in-out forwards;
+        }
 
-                @media (max-width: 480px) {
-                    .trainers-section {
-                        padding: 2rem 1rem !important;
-                    }
-                    .trainers-container {
-                        gap: 2rem !important;
-                    }
-                    .trainers-title {
-                        font-size: clamp(2rem, 12vw, 4rem) !important;
-                    }
-                    .trainers-description {
-                        font-size: 0.8rem !important;
-                        line-height: 1.4 !important;
-                    }
-                    .trainers-link {
-                        font-size: 0.85rem !important;
-                        padding: 0.8em 1.8em !important;
-                    }
-                    .trainers-circle {
-                        width: 240px !important;
-                        height: 240px !important;
-                    }
-                }
+        @media (max-width: 1024px) {
+          .trainers-container {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+            text-align: center;
+          }
+          .trainers-description {
+            max-width: 100% !important;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .trainers-circle {
+            width: 350px !important;
+            height: 350px !important;
+          }
+          .trainers-image-container {
+            justify-self: center !important;
+          }
+          .trainers-link {
+            align-self: center;
+            margin: 0 auto;
+          }
+        }
 
-                ${isHovering ? `.trainers-circle` : ""} {
-                    transform: scale(1.05);
-                }
+        .trainers-link::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(255, 255, 255, 0.18);
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          border-radius: inherit;
+        }
+        .trainers-link:hover::before { opacity: 1; }
+        .trainers-link:hover {
+          transform: translateY(-2px) scale(1.03) !important;
+          box-shadow: 0 0 40px rgba(204, 0, 0, 0.55), 0 0 80px rgba(66, 194, 202, 0.25) !important;
+        }
+        .trainers-link:active {
+          transform: translateY(0px) scale(0.98) !important;
+        }
 
-                ${isHovering ? ".trainers-image" : ""} {
-                    transform: scale(1.1);
-                    filter: brightness(1.2) contrast(1.15);
-                }
-            `}</style>
+        @media (max-width: 768px) {
+          .trainers-section {
+            padding: 3rem 1.5rem !important;
+            min-height: auto !important;
+          }
+          .trainers-container { gap: 2.5rem !important; }
+          .trainers-title {
+            font-size: clamp(2.5rem, 10vw, 5rem) !important;
+            margin-bottom: 1rem !important;
+          }
+          .trainers-description {
+            font-size: 1rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          .trainers-circle {
+            width: 280px !important;
+            height: 280px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .trainers-section { padding: 2rem 1rem !important; }
+          .trainers-container { gap: 2rem !important; }
+          .trainers-title { font-size: clamp(2rem, 12vw, 4rem) !important; }
+          .trainers-description {
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
+          }
+          .trainers-link {
+            font-size: 0.85rem !important;
+            padding: 0.8em 1.8em !important;
+          }
+          .trainers-circle {
+            width: 240px !important;
+            height: 240px !important;
+          }
+        }
+      `}</style>
 
       <section
         style={styles.section}
@@ -268,15 +286,25 @@ export default function Trainers({ dict, lang }: TrainersProps) {
                 transition: "filter 0.6s ease",
               }}
             />
-            <div style={styles.circle} className="trainers-circle">
-              <Image
-                src={`/assets/images/${dict.img}`}
-                alt="Trainer"
-                fill
-                style={styles.image}
-                className="trainers-image"
-                loading="lazy"
-              />
+
+            {/* perspective wrapper for 3D spin */}
+            <div className="trainers-circle-wrapper">
+              <div
+                style={styles.circle}
+                className={`trainers-circle${isSpinning ? " spinning" : ""}`}
+              >
+                <Image
+                  src={`/assets/images/trainers/${TRAINER_IMAGES[displayIndex]}`}
+                  alt="Trainer"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                    filter: "brightness(1.1) contrast(1.1)",
+                  }}
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
