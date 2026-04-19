@@ -8,15 +8,15 @@ export default function Pricing() {
 
   const dictData = dict.pricingPage;
   const contactData = dict.contactPage;
-  
+
   if (!dictData || !dictData.plans) {
     return <div>Error: Pricing data not found</div>;
   }
-  
+
   if (!contactData) {
     return <div>Error: Contact data not found</div>;
   }
-  
+
   const plans = Object.values(dictData.plans) as Array<{
     name: string;
     price: number;
@@ -36,8 +36,9 @@ export default function Pricing() {
       ? [
           {
             label: "მისამართი",
-            value: "საბურთალო, ვ.ჟაბუკიანის N2 (სააკაძის მოედანი)",
+            value: "გლდანი : მარკ ბრონშტეინის 1 ჩიხი\nსაბურთალო : ჭაბუკიანის 2",
           },
+
           { label: "ტელეფონი", value: contactData.contactInfo.phone },
           { label: "instagram", value: "valhallaecho_fitness_club" },
           { label: "facebook", value: "VALHALLAECHO-fitness.club" },
@@ -45,7 +46,8 @@ export default function Pricing() {
       : [
           {
             label: "address",
-            value: "2 Mark Bronshteini I Dead End / Saakadze Square, Tbilisi",
+            value:
+              "Gldani: 1 Mark Bronshteini Dead End\nSaburtalo: Chabukiani 2",
           },
           { label: "phone", value: contactData.contactInfo.phone },
           { label: "instagram", value: "valhallaecho_fitness_club" },
@@ -110,6 +112,7 @@ export default function Pricing() {
           color: #fff;
           font-weight: 400;
           padding: 0.2rem 0;
+          white-space: pre-line;
         }
 
         .pricing-banner {

@@ -245,8 +245,12 @@ export default function TrainerCard({
               {trainer.location &&
                 (() => {
                   const isBoth = trainer.location.includes("&");
-                  const isGldani = trainer.location.includes("გლდანი");
-                  const isSaburtalo = trainer.location.includes("საბურთალო");
+                  const isGldani =
+                    trainer.location.includes("გლდანი") ||
+                    trainer.location.toLowerCase().includes("gldani");
+                  const isSaburtalo =
+                    trainer.location.includes("საბურთალო") ||
+                    trainer.location.toLowerCase().includes("saburtalo");
 
                   let background: string;
                   let border: string;

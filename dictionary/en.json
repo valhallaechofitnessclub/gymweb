@@ -89,21 +89,7 @@
         "id": 1,
         "name": "Davit Kakriashvili",
         "specialty": "Boxing",
-        "location": "Saburtalo & Gldani",
-        "certifications": ["CSCS", "USAW Level 2"],
-        "bio": "Former competitive powerlifter turned coach. Specializes in building raw strength and explosive power.",
-        "stats": {
-          "clients": "200+",
-          "transformations": "150+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "Saburtalo",
         "image": "davitkakriashvili.png"
       },
       {
@@ -111,61 +97,20 @@
         "name": "Lasha Bujiashvili",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["NASM-CPT", "TRX Certified"],
-        "bio": "High-energy coach focused on metabolic conditioning and sustainable fat loss through functional movements.",
-        "stats": {
-          "clients": "180+",
-          "transformations": "120+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "lashabujiashvili.png"
       },
       {
         "id": 3,
         "name": "Gigo Kvaliashvili",
         "specialty": "Personal Training",
-        "location": "Saburtalo & Gldani",
-        "certifications": ["ISSA", "Precision Nutrition"],
-        "bio": "Competition prep coach with expertise in body recomposition and advanced training techniques.",
-        "stats": {
-          "clients": "160+",
-          "transformations": "100+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "Saburtalo",
         "image": "gigokvaliashvili.png"
       },
       {
         "id": 4,
         "name": "Giorgi Dekanozishvili",
         "specialty": "Boxing",
-        "location": "Gldani",
-        "certifications": ["CSCS", "FMS Level 2"],
-        "bio": "Former D1 athlete specializing in sports performance, injury prevention, and movement optimization.",
-        "stats": {
-          "clients": "140+",
-          "transformations": "90+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "Saburtalo & Gldani",
         "image": "giorgidekanozishvili.png"
       },
       {
@@ -173,20 +118,6 @@
         "name": "Giorgi Durglishvili",
         "specialty": "Personal Training",
         "location": "Saburtalo",
-        "certifications": ["CF-L3", "USAW Sports"],
-        "bio": "CrossFit veteran pushing athletes to new limits through varied, high-intensity functional training.",
-        "stats": {
-          "clients": "190+",
-          "transformations": "130+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "giorgidurglishvili.png"
       },
       {
@@ -194,20 +125,6 @@
         "name": "Giorgi Gurchiani",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["RYT-500", "FRC Certified"],
-        "bio": "Holistic approach combining yoga, mobility work, and mindfulness for complete body-mind transformation.",
-        "stats": {
-          "clients": "220+",
-          "transformations": "140+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "giorgigurchiani.png"
       },
       {
@@ -215,23 +132,6 @@
         "name": "Grigol Janoashvili",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": [
-          "International Boxing Coach",
-          "Combat Sports Specialist"
-        ],
-        "bio": "Professional boxing trainer with a legacy of developing elite fighters and building champion mindset.",
-        "stats": {
-          "clients": "175+",
-          "transformations": "110+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "grigoljanoashvili.png"
       },
       {
@@ -239,23 +139,6 @@
         "name": "Guga Tsintsadze",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": [
-          "Precision Nutrition Level 2",
-          "Nutrition Specialist"
-        ],
-        "bio": "Expert nutritionist helping clients transform through strategic meal planning and metabolic optimization.",
-        "stats": {
-          "clients": "250+",
-          "transformations": "170+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "gugatsintsadze.png"
       },
       {
@@ -263,20 +146,6 @@
         "name": "Keta Enukidze",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": ["Pre/Post Natal Specialist", "Women's Health Coach"],
-        "bio": "Dedicated to empowering women through specialized training programs designed for all life stages.",
-        "stats": {
-          "clients": "210+",
-          "transformations": "145+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ketaenukidze.png"
       },
       {
@@ -284,20 +153,6 @@
         "name": "Mako Partsvania",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["Endurance Coach", "Running Specialist"],
-        "bio": "Marathon coach turning weekend warriors into ultra-endurance athletes through periodized training.",
-        "stats": {
-          "clients": "165+",
-          "transformations": "95+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "makopartsvania.png"
       },
       {
@@ -305,20 +160,6 @@
         "name": "Mariam Guruli",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["Zumba Instructor", "Group Fitness Specialist"],
-        "bio": "Dynamic group fitness instructor making workouts fun while delivering maximum calorie burn and energy boost.",
-        "stats": {
-          "clients": "300+",
-          "transformations": "200+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "mariamguruli.png"
       },
       {
@@ -326,20 +167,6 @@
         "name": "Mariam Jighaurishvili",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": ["Pilates Master Trainer", "Reformer Specialist"],
-        "bio": "Pilates expert sculpting lean, strong bodies through precision movements and mindful control.",
-        "stats": {
-          "clients": "185+",
-          "transformations": "125+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "mariamjighaurashvili.png"
       },
       {
@@ -347,20 +174,6 @@
         "name": "Oto Tadumadze",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": ["IPF Coach", "Strength Training Specialist"],
-        "bio": "Elite powerlifting coach developing record-breakers through scientific training methodologies.",
-        "stats": {
-          "clients": "120+",
-          "transformations": "80+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ototadumadze.png"
       },
       {
@@ -368,20 +181,6 @@
         "name": "Sali Shubitidze",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["Parkour Master", "Movement Specialist"],
-        "bio": "Innovative trainer using urban movement and parkour to build functional strength and confidence.",
-        "stats": {
-          "clients": "155+",
-          "transformations": "105+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "salishubitidze.png"
       },
       {
@@ -389,20 +188,6 @@
         "name": "Shako Odishvili",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": ["Kettlebell Certified", "Functional Fitness Expert"],
-        "bio": "Kettlebell specialist building explosive strength and cardiovascular fitness through dynamic movements.",
-        "stats": {
-          "clients": "170+",
-          "transformations": "115+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "shakoodishvili.png"
       },
       {
@@ -410,23 +195,6 @@
         "name": "Tamo Kharebava",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "tamokharebava.png"
       },
       {
@@ -434,20 +202,6 @@
         "name": "Teko Meshveliani",
         "specialty": "Personal Training",
         "location": "Saburtalo",
-        "certifications": ["Gymnastics Coach", "Mobility Specialist"],
-        "bio": "Former gymnast teaching advanced bodyweight skills and extraordinary flexibility development.",
-        "stats": {
-          "clients": "145+",
-          "transformations": "95+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "tekomeshveliani.png"
       },
       {
@@ -455,20 +209,6 @@
         "name": "Vakho Akhvlediani",
         "specialty": "Personal Training",
         "location": "Saburtalo",
-        "certifications": ["MMA Coach", "Combat Sports Specialist"],
-        "bio": "MMA coach building well-rounded fighters with superior conditioning and technical excellence.",
-        "stats": {
-          "clients": "150+",
-          "transformations": "100+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "vakhoakhvlediani.png"
       },
       {
@@ -476,20 +216,6 @@
         "name": "Dito Dvali",
         "specialty": "Personal Training",
         "location": "Saburtalo & Gldani",
-        "certifications": ["NASM-CPT", "Behavior Change Specialist"],
-        "bio": "Versatile personal trainer creating customized programs for any fitness goal and any starting point.",
-        "stats": {
-          "clients": "225+",
-          "transformations": "155+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ditodvali.png"
       },
       {
@@ -497,23 +223,6 @@
         "name": "Maka Matiashvili",
         "specialty": "Personal Training",
         "location": "Gldani",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "makamatiashvili.png"
       },
       {
@@ -521,24 +230,21 @@
         "name": "Ruso Lutidze",
         "specialty": "Personal Training",
         "location": "Saburtalo",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "Specialized trainer helping seniors maintain strength, balance, and independence through safe progression.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "Clients",
-          "transformations": "Transformations",
-          "rating": "Rating"
-        },
-        "buttonText": "Book Session",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "rusolutidze.png"
+      },
+      {
+        "id": 22,
+        "name": "Giorgi Nikoladze",
+        "specialty": "Boxing",
+        "location": "Gldani",
+        "image": "giorginikoladze.png"
+      },
+      {
+        "id": 23,
+        "name": "Davit Turiashvili",
+        "specialty": "Personal Training",
+        "location": "Saburtalo",
+        "image": "davitturiashvili.png"
       }
     ]
   },

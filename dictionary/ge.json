@@ -88,25 +88,8 @@
       {
         "id": 1,
         "name": "დავით კაკრიაშვილი",
-        "specialty": "ბოქსინგი",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "CSCS",
-          "USAW Level 2"
-        ],
-        "bio": "ყოფილი პროფესიონალი პაუერლიფტერი და მწვრთნელი. სპეციალიზირებულია ძალისა და ფეთქებადი სიმძლავრის განვითარებაში.",
-        "stats": {
-          "clients": "200+",
-          "transformations": "150+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "specialty": "ბოქსი",
+        "location": "საბურთალო",
         "image": "davitkakriashvili.png"
       },
       {
@@ -114,71 +97,20 @@
         "name": "ლაშა ბუჯიაშვილი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "NASM-CPT",
-          "TRX Certified"
-        ],
-        "bio": "მაღალენერგიული მწვრთნელი, ფოკუსირებული მეტაბოლურ კონდიციონირებასა და მდგრად წონის დაკლებაზე ფუნქციური მოძრაობების საშუალებით.",
-        "stats": {
-          "clients": "180+",
-          "transformations": "120+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "lashabujiashvili.png"
       },
       {
         "id": 3,
         "name": "გიგო კვალიაშვილი",
         "specialty": "პერსონალური ტრენინგი",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "ISSA",
-          "Precision Nutrition"
-        ],
-        "bio": "საკონკურსო მომზადების მწვრთნელი ექსპერტიზით სხეულის რეკომპოზიციასა და მოწინავე სავარჯიშო ტექნიკებში.",
-        "stats": {
-          "clients": "160+",
-          "transformations": "100+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "საბურთალო",
         "image": "gigokvaliashvili.png"
       },
       {
         "id": 4,
         "name": "გიორგი დეკანოზიშვილი",
-        "specialty": "Boxing",
-        "location": "გლდანი",
-        "certifications": [
-          "CSCS",
-          "FMS Level 2"
-        ],
-        "bio": "ყოფილი D1 სპორტსმენი, სპეციალიზირებული სპორტულ შესრულებაში, ტრავმების პრევენციასა და მოძრაობის ოპტიმიზაციაში.",
-        "stats": {
-          "clients": "140+",
-          "transformations": "90+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "specialty": "ბოქსი",
+        "location": "საბურთალო & გლდანი",
         "image": "giorgidekanozishvili.png"
       },
       {
@@ -186,47 +118,13 @@
         "name": "გიორგი დურგლიშვილი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
-        "certifications": [
-          "CF-L3",
-          "USAW Sports"
-        ],
-        "bio": "CrossFit ვეტერანი, რომელიც სპორტსმენებს ახალ დონეზე ატანს მრავალფეროვანი, მაღალინტენსიური ფუნქციური ვარჯიშით.",
-        "stats": {
-          "clients": "190+",
-          "transformations": "130+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "giorgidurglishvili.png"
       },
       {
         "id": 6,
-        "name": "გიორგი გურჯიანი",
+        "name": "გიორგი გურჩიანი",
         "specialty": "პერსონალური ტრეინინგი",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "RYT-500",
-          "FRC Certified"
-        ],
-        "bio": "ჰოლისტიკური მიდგომა, რომელიც აერთიანებს იოგას, მობილობის სამუშაოსა და ცნობიერებას სხეული-გონების სრული ტრანსფორმაციისთვის.",
-        "stats": {
-          "clients": "220+",
-          "transformations": "140+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "გლდანი",
         "image": "giorgigurchiani.png"
       },
       {
@@ -234,23 +132,6 @@
         "name": "გრიგოლ ჯანოაშვილი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "International Boxing Coach",
-          "Combat Sports Specialist"
-        ],
-        "bio": "პროფესიონალი კრივის მწვრთნელი ელიტური ფaiტერების განვითარებისა და ჩემპიონის გონების აგების მემკვიდრეობით.",
-        "stats": {
-          "clients": "175+",
-          "transformations": "110+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "grigoljanoashvili.png"
       },
       {
@@ -258,47 +139,13 @@
         "name": "გუგა ცინცაძე",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Precision Nutrition Level 2",
-          "Nutrition Specialist"
-        ],
-        "bio": "ექსპერტი დიეტოლოგი, რომელიც ხელმძღვანელობს ტრანსფორმაციას სტრატეგიული საჭმელის დაგეგმვითა და მეტაბოლური ოპტიმიზაციით.",
-        "stats": {
-          "clients": "250+",
-          "transformations": "170+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "gugatsintsadze.png"
       },
       {
         "id": 9,
-        "name": "კეტა ენუკიძე",
+        "name": "ქეთა ენუკიძე",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Pre/Post Natal Specialist",
-          "Women's Health Coach"
-        ],
-        "bio": "პიტნელი ქალების გაძლიერებაზე სპეციალიზირებული ტრენინგის პროგრამებით ცხოვრების ყველა ეტაპზე.",
-        "stats": {
-          "clients": "210+",
-          "transformations": "145+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ketaenukidze.png"
       },
       {
@@ -306,23 +153,6 @@
         "name": "მაკო ფარცვანია",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "Endurance Coach",
-          "Running Specialist"
-        ],
-        "bio": "მარათონის მწვრთნელი, რომელიც შაბათ-კვირის მოწყვილეების ულტრა-გამძლე სპორტსმენებში აქცევს პერიოდიზირებული ტრენინგის მეშვეობით.",
-        "stats": {
-          "clients": "165+",
-          "transformations": "95+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "makopartsvania.png"
       },
       {
@@ -330,23 +160,6 @@
         "name": "მარიამ გურული",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "Zumba Instructor",
-          "Group Fitness Specialist"
-        ],
-        "bio": "დინამიკური ჯგუფური ფიტნეს მწვრთნელი, რომელიც ვარჯიშებს გასაკეთებელს აყალიბებს მაქსიმალური კალორიების წვა და ენერგიის აფხვნილობით.",
-        "stats": {
-          "clients": "300+",
-          "transformations": "200+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "mariamguruli.png"
       },
       {
@@ -354,23 +167,6 @@
         "name": "მარიამ ჯიღაურიშვილი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Pilates Master Trainer",
-          "Reformer Specialist"
-        ],
-        "bio": "პილატეს ექსპერტი, რომელიც წინდახედული და ძლიერი სხეულებს პიკირებული მოძრაობებითა და გადახედული კონტროლით.",
-        "stats": {
-          "clients": "185+",
-          "transformations": "125+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "mariamjighaurashvili.png"
       },
       {
@@ -378,23 +174,6 @@
         "name": "ოთო თადუმაძე",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "IPF Coach",
-          "Strength Training Specialist"
-        ],
-        "bio": "ელიტური პაუერლიფტინგის მწვრთნელი, რომელიც რეკორდი დამტეხელებს ამუშავებს სამეცნიერო სავარჯიშო მეთოდოლოგიით.",
-        "stats": {
-          "clients": "120+",
-          "transformations": "80+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ototadumadze.png"
       },
       {
@@ -402,47 +181,13 @@
         "name": "სალი შუბიტიძე",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "Parkour Master",
-          "Movement Specialist"
-        ],
-        "bio": "ინოვაციური მწვრთნელი, რომელიც ქალაქის მოძრაობას და პარკურს იყენებს ფუნქციური ძალის აღმაშენებლად.",
-        "stats": {
-          "clients": "155+",
-          "transformations": "105+",
-          "rating": "4.9"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "salishubitidze.png"
       },
       {
         "id": 15,
         "name": "შაკო ოდიშვილი",
         "specialty": "პერსონალური ტრეინინგი",
-        "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Kettlebell Certified",
-          "Functional Fitness Expert"
-        ],
-        "bio": "კეტლებელი სპეციალისტი, რომელიც ფეთქებადი ძალას და გულ-სისხლძარღვთა ფიტნესს aalაშენებს დინამიური მოძრაობებით.",
-        "stats": {
-          "clients": "170+",
-          "transformations": "115+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
+        "location": "გლდანი",
         "image": "shakoodishvili.png"
       },
       {
@@ -450,23 +195,6 @@
         "name": "თამო ხარებავა",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "სპეციალიზირებული მწვრთნელი, რომელიც სინიორებს ძალის, ბალანსისა და დამოუკიდებლობის შენარჩუნებაში ეხმარება.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "tamokharebava.png"
       },
       {
@@ -474,23 +202,6 @@
         "name": "თეკო მეშველიანი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
-        "certifications": [
-          "Gymnastics Coach",
-          "Mobility Specialist"
-        ],
-        "bio": "ყოფილი გიმნასტი, რომელიც ასწავლის მოწინავე სხეულის წონის უნარებს და გამორჩენილი მოქნილობის განვითარებას.",
-        "stats": {
-          "clients": "145+",
-          "transformations": "95+",
-          "rating": "4.95"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "tekomeshveliani.png"
       },
       {
@@ -498,23 +209,6 @@
         "name": "ვახო ახვლედიანი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
-        "certifications": [
-          "MMA Coach",
-          "Combat Sports Specialist"
-        ],
-        "bio": "MMA მწვრთნელი, რომელიც კარგად დამრგვალ ძლევების აღმაშენებელია უდაბლური კონდიციონირებით.",
-        "stats": {
-          "clients": "150+",
-          "transformations": "100+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "vakhoakhvlediani.png"
       },
       {
@@ -522,23 +216,6 @@
         "name": "დიტო დვალი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო & გლდანი",
-        "certifications": [
-          "NASM-CPT",
-          "Behavior Change Specialist"
-        ],
-        "bio": "მრავალფერი პირადი მწვრთნელი, რომელიც ქმნის მოთხოვნილებებით მორგებულ პროგრამებს ნებისმიერი ფიტნეს მიზნისა და დაწყებისთვის.",
-        "stats": {
-          "clients": "225+",
-          "transformations": "155+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "ditodvali.png"
       },
       {
@@ -546,23 +223,6 @@
         "name": "მაკა მათიაშვილი",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "გლდანი",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "სპეციალიზირებული მწვრთნელი, რომელიც სინიორებს ძალის, ბალანსისა და დამოუკიდებლობის შენარჩუნებაში ეხმარება.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "makamatiashvili.png"
       },
       {
@@ -570,24 +230,21 @@
         "name": "რუსო ლუტიძე",
         "specialty": "პერსონალური ტრეინინგი",
         "location": "საბურთალო",
-        "certifications": [
-          "Senior Fitness Specialist",
-          "Geriatric Exercise Trainer"
-        ],
-        "bio": "სპეციალიზირებული მწვრთნელი, რომელიც სინიორებს ძალის, ბალანსისა და დამოუკიდებლობის შენარჩუნებაში ეხმარება.",
-        "stats": {
-          "clients": "195+",
-          "transformations": "135+",
-          "rating": "5.0"
-        },
-        "labels": {
-          "clients": "კლიენტები",
-          "transformations": "ტრანსფორმაციები",
-          "rating": "რეიტინგი"
-        },
-        "buttonText": "სესიის დაჯავშნა",
-        "color": "rgba(139, 92, 246, 0.15)",
         "image": "rusolutidze.png"
+      },
+      {
+        "id": 22,
+        "name": "გიორგი ნიკოლაძე",
+        "specialty": "ბოქსი",
+        "location": "გლდანი",
+        "image": "giorginikoladze.png"
+      },
+      {
+        "id": 23,
+        "name": "დავით ტურიაშვილი",
+        "specialty": "პერსონალური ტრეინინგი",
+        "location": "საბურთალო",
+        "image": "davitturiashvili.png"
       }
     ]
   },
