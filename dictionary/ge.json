@@ -95,14 +95,14 @@
       {
         "id": 2,
         "name": "ლაშა ბუჯიაშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "lashabujiashvili.png"
       },
       {
         "id": 3,
         "name": "გიგო კვალიაშვილი",
-        "specialty": "პერსონალური ტრენინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "gigokvaliashvili.png"
       },
@@ -116,119 +116,119 @@
       {
         "id": 5,
         "name": "გიორგი დურგლიშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "giorgidurglishvili.png"
       },
       {
         "id": 6,
         "name": "გიორგი გურჩიანი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "giorgigurchiani.png"
       },
       {
         "id": 7,
         "name": "გრიგოლ ჯანოაშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "grigoljanoashvili.png"
       },
       {
         "id": 8,
         "name": "გუგა ცინცაძე",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "gugatsintsadze.png"
       },
       {
         "id": 9,
         "name": "ქეთა ენუკიძე",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "ketaenukidze.png"
       },
       {
         "id": 10,
         "name": "მაკო ფარცვანია",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "makopartsvania.png"
       },
       {
         "id": 11,
         "name": "მარიამ გურული",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "mariamguruli.png"
       },
       {
         "id": 12,
         "name": "მარიამ ჯიღაურიშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "mariamjighaurashvili.png"
       },
       {
         "id": 13,
         "name": "ოთო თადუმაძე",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "ototadumadze.png"
       },
       {
         "id": 14,
         "name": "სალი შუბიტიძე",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "salishubitidze.png"
       },
       {
         "id": 15,
         "name": "შაკო ოდიშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "shakoodishvili.png"
       },
       {
         "id": 16,
         "name": "თამო ხარებავა",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "tamokharebava.png"
       },
       {
         "id": 17,
         "name": "თეკო მეშველიანი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "tekomeshveliani.png"
       },
       {
         "id": 18,
         "name": "ვახო ახვლედიანი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "vakhoakhvlediani.png"
       },
       {
         "id": 19,
         "name": "დიტო დვალი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო & გლდანი",
         "image": "ditodvali.png"
       },
       {
         "id": 20,
         "name": "მაკა მათიაშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "გლდანი",
         "image": "makamatiashvili.png"
       },
       {
         "id": 21,
         "name": "რუსო ლუტიძე",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "rusolutidze.png"
       },
@@ -242,7 +242,7 @@
       {
         "id": 23,
         "name": "დავით ტურიაშვილი",
-        "specialty": "პერსონალური ტრეინინგი",
+        "specialty": "პერსონალური მწვრთნელი",
         "location": "საბურთალო",
         "image": "davitturiashvili.png"
       }
